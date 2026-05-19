@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)file:///C:/Users/Usuario/Downloads/gemini-code-1779132586577.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="pageTitle">Documatch.eu — Comparateur GED &amp; DMS pour Agences d'Intérim &amp; RH</title>
+<meta name="description" data-i18n="metaDesc" content="Comparateur indépendant GED et DMS pour ETTs et agences d&#39;intérim. Génération de contrats en masse, relances automatiques et signature électronique par SMS.">Comparateur indépendant GED et DMS pour ETTs et agences d'intérim. Génération de contrats en masse, relances automatiques et signature électronique par SMS.</meta>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Documatch.eu — Comparateur GED &amp; DMS pour Agences d&#39;Intérim &amp; RH_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0080FF;
+    --blue-dark: #0065CC;
+    --blue-light: #E8F3FF;
+    --blue-pale: #F0F7FF;
+    --slate-900: #0F172A;
+    --slate-700: #334155;
+    --slate-500: #64748B;
+    --slate-300: #CBD5E1;
+    --slate-100: #F1F5F9;
+    --white: #FFFFFF;
+    --bg: #F8FAFC;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,128,255,.07);
+    --shadow-logo: 0 2px 8px rgba(0,0,0,.10), 0 0 0 1px rgba(0,0,0,.04);
+    --font: 'Sora', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --transition: .2s cubic-bezier(.4,0,.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--slate-900);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────────── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--slate-100);
+  }
+
+  .header-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: var(--shadow-logo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-icon span {
+    font-family: var(--font);
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .logo-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--slate-900);
+    letter-spacing: -.3px;
+  }
+
+  .logo-tagline {
+    font-size: 10.5px;
+    font-weight: 400;
+    color: var(--slate-500);
+    letter-spacing: .3px;
+    font-family: var(--mono);
+    text-transform: uppercase;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--slate-100);
+    border-radius: 8px;
+    padding: 3px;
+  }
+
+  .lang-btn {
+    padding: 5px 10px;
+    border: none;
+    background: transparent;
+    color: var(--slate-500);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: var(--transition);
+    letter-spacing: .5px;
+  }
+
+  .lang-btn.active {
+    background: var(--white);
+    color: var(--blue);
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  }
+
+  .lang-btn:hover:not(.active) { color: var(--slate-700); }
+
+  /* ── HERO ────────────────────────────────────────────────── */
+  .hero {
+    background: var(--white);
+    padding: 80px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,128,255,.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: var(--mono);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    letter-spacing: .3px;
+    border: 1px solid rgba(0,128,255,.15);
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--blue);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .6; transform: scale(.8); }
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 4.8vw, 48px);
+    font-weight: 800;
+    color: var(--slate-900);
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    max-width: 950px;
+    margin: 0 auto 24px;
+  }
+
+  .hero h1 .accent { color: var(--blue); }
+
+  .hero-sub {
+    font-size: clamp(15px, 2vw, 17px);
+    color: var(--slate-500);
+    max-width: 700px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue);
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0,128,255,.35);
+    letter-spacing: -.1px;
+  }
+
+  .cta-btn:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(0,128,255,.45);
+  }
+
+  .trust-row {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--slate-500);
+    font-weight: 500;
+  }
+
+  .trust-item svg { color: var(--blue); }
+
+  /* ── GRID SECTION ────────────────────────────────────────── */
+  .section {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--blue);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 34px);
+    font-weight: 700;
+    color: var(--slate-900);
+    letter-spacing: -1px;
+    margin-bottom: 48px;
+    max-width: 650px;
+    line-height: 1.25;
+  }
+
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--slate-100);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+  }
+
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,128,255,.12); }
+  .card:hover::after { transform: scaleX(1); }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--blue-pale);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: var(--blue);
+  }
+
+  .card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin-bottom: 8px;
+    letter-spacing: -.3px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: var(--slate-500);
+    line-height: 1.65;
+  }
+
+  .card-tag {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--blue);
+    background: var(--blue-light);
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: .3px;
+  }
+
+  /* ── SEPARATOR ───────────────────────────────────────────── */
+  .sep {
+    border: none;
+    border-top: 1px solid var(--slate-100);
+    margin: 0 24px;
+  }
+
+  /* ── FORM SECTION ────────────────────────────────────────── */
+  .form-section {
+    background: var(--white);
+    border-top: 1px solid var(--slate-100);
+    border-bottom: 1px solid var(--slate-100);
+  }
+
+  .form-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 72px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .form-inner { grid-template-columns: 1fr; gap: 40px; }
+    .header-inner { flex-wrap: wrap; }
+  }
+
+  .form-copy h2 {
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--slate-900);
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .form-copy p {
+    font-size: 15px;
+    color: var(--slate-500);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--slate-700);
+    font-weight: 500;
+  }
+
+  .checklist li::before {
+    content: '✓';
+    width: 20px;
+    height: 20px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .lead-form { display: flex; flex-direction: column; gap: 14px; }
+
+  .field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 480px) { .field-group { grid-template-columns: 1fr; } }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--slate-700);
+    letter-spacing: .2px;
+  }
+
+  .field input {
+    background: var(--bg);
+    border: 1.5px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--slate-900);
+    outline: none;
+    transition: var(--transition);
+  }
+
+  .field input:focus {
+    border-color: var(--blue);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(0,128,255,.12);
+  }
+
+  .field input::placeholder { color: var(--slate-300); }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0,128,255,.30);
+    letter-spacing: -.1px;
+    margin-top: 4px;
+  }
+
+  .submit-btn:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(0,128,255,.40);
+  }
+
+  .form-disclaimer {
+    font-size: 12px;
+    color: var(--slate-500);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────────── */
+  footer {
+    background: var(--slate-900);
+    color: var(--slate-300);
+    padding: 48px 24px 32px;
+  }
+
+  .footer-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    margin-bottom: 24px;
+  }
+
+  .footer-logo-wrap .logo-icon {
+    background: rgba(255,255,255,.06);
+    box-shadow: none;
+    border: 1px solid rgba(255,255,255,.1);
+  }
+
+  .footer-logo-wrap .logo-name { color: var(--white); }
+  .footer-logo-wrap .logo-tagline { color: rgba(255,255,255,.4); }
+
+  .footer-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,.45);
+    max-width: 280px;
+    line-height: 1.65;
+    margin-top: 12px;
+  }
+
+  .footer-seo-link {
+    font-size: 14px;
+    margin-top: 14px;
+  }
+
+  .footer-seo-link a {
+    color: #60A5FA;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(96,165,250,.3);
+    transition: var(--transition);
+  }
+
+  .footer-seo-link a:hover { color: var(--white); border-color: var(--white); }
+
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,.3);
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .legal-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .legal-links a:hover { color: rgba(255,255,255,.75); }
+
+  /* ── ANIMATIONS ──────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge { animation: fadeUp .5s ease both; }
+  .hero h1 { animation: fadeUp .5s .1s ease both; }
+  .hero-sub { animation: fadeUp .5s .2s ease both; }
+  .cta-btn { animation: fadeUp .5s .3s ease both; }
+  .trust-row { animation: fadeUp .5s .4s ease both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="https://www.documatch.eu/" class="logo" target="_blank" rel="noopener">
+      <div class="logo-icon"><span>D</span></div>
+      <div class="logo-text">
+        <span class="logo-name">Documatch.eu</span>
+        <span class="logo-tagline" data-i18n="headerTagline">Comparateur indépendant GED &amp; DMS</span>
+      </div>
+    </a>
+    <div class="lang-switcher" role="group" aria-label="Language selector">
+      <button class="lang-btn active" data-lang="fr" onclick="setLang(&#39;fr&#39;)">FR</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang(&#39;es&#39;)">ES</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang(&#39;en&#39;)">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="hero-badge" data-i18n="heroBadge">Agences d'Intérim · ETTs · Recrutement &amp; RH</span>
+  <h1 data-i18n="heroH1">Recruter 50 personnes en 1 heure, c'est possible. <span class="accent">Automatisez vos contrats et signatures.</span></h1>
+  <p class="hero-sub" data-i18n="heroSub">Imprimer, signer, scanner et archiver manuellement des dizaines de contrats de mission paralyse votre département RH. Documatch.eu sélectionne pour vous les meilleurs outils DMS/ERP de génération de contrats en masse avec signature numérique instantanée par SMS.</p>
+  <a href="file:///C:/Users/Usuario/Downloads/gemini-code-1779132586577.html#form" class="cta-btn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+    <span data-i18n="heroCTA">Accéder au Pré-Analyse Gratuit</span>
+  </a>
+  <div class="trust-row">
+    <span class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span data-i18n="trust1">Comparateur 100% indépendant</span>
+    </span>
+    <span class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      <span data-i18n="trust2">Analyse en 48h</span>
+    </span>
+    <span class="trust-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      <span data-i18n="trust3">Sans engagement, 100% gratuit</span>
+    </span>
+  </div>
+</section>
+
+<div class="section">
+  <p class="section-label" data-i18n="gridLabel">Gestion RH &amp; Volume</p>
+  <h2 class="section-title" data-i18n="gridTitle">4 piliers pour digitaliser vos processus de recrutement de masse</h2>
+  <div class="grid-4">
+    <div class="card">
+      <div class="card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      </div>
+      <h3 data-i18n="card1Title">Génération de Contrats en Masse</h3>
+      <p data-i18n="card1Desc">Publipostage et création automatique de 10, 50 ou 100 contrats de travail en quelques clics à partir d'un simple fichier Excel ou de votre ATS.</p>
+      <span class="card-tag">Zéro Saisie Double</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+      </div>
+      <h3 data-i18n="card2Title">Firma por SMS (OTP)</h3>
+      <p data-i18n="card2Desc">Envoyez les contrats directement sur le smartphone de l'intérimaire. Signature eIDAS par code SMS en 30 secondes pour une réactivité maximale.</p>
+      <span class="card-tag">Taux de Signature +95%</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="2"></circle><path d="M12 15v3"></path></svg>
+      </div>
+      <h3 data-i18n="card3Title">Coffre-fort Numérique Salarié</h3>
+      <p data-i18n="card3Desc">Archivage automatique et sécurisé des bulletins de paie, contrats et documents d'identité (CNI/Passeport) accessibles 24/7 par le salarié.</p>
+      <span class="card-tag">Conformité RGPD</span>
+    </div>
+    <div class="card">
+      <div class="card-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+      </div>
+      <h3 data-i18n="card4Title">Intégration SIRH &amp; Paye</h3>
+      <p data-i18n="card4Desc">Synchronisation transparente des données du contrat vers vos logiciels de paie (Silae, Sage) pour éliminer les doubles saisies.</p>
+      <span class="card-tag">Automatisation</span>
+    </div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<section class="form-section" id="form">
+  <div class="form-inner">
+    <div class="form-copy">
+      <p class="section-label" data-i18n="formLabel">Analyse Volume RH</p>
+      <h2 data-i18n="formTitle">Trouvez l'outil adapté à votre flux de contrats</h2>
+      <p data-i18n="formDesc">Indiquez le volume moyen de contrats mensuels générés par votre structure et recevez un comparatif des 3 logiciels de gestion documentaire les plus performants.</p>
+      <ul class="checklist">
+        <li data-i18n="check1">Analyse des coûts par pack de SMS de signature</li>
+        <li data-i18n="check2">Compatibilité réglementaire et coffre-fort salarié</li>
+        <li data-i18n="check3">Capacité de connexion API avec votre ATS / CRM actuel</li>
+        <li data-i18n="check4">Conseil neutre, 100% gratuit pour l'utilisateur final</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="lead-form" id="leadForm">
+        <div class="field-group">
+          <div class="field">
+            <label data-i18n="fieldName">Nom complet</label>
+            <input type="text" id="fName" data-i18n-placeholder="placeholderName" placeholder="Thomas Laurent" required="">
+          </div>
+          <div class="field">
+            <label data-i18n="fieldCompany">Entreprise / ETT</label>
+            <input type="text" id="fCompany" data-i18n-placeholder="placeholderCompany" placeholder="Horizon Intérim" required="">
+          </div>
+        </div>
+        <div class="field">
+          <label data-i18n="fieldEmail">Adresse e-mail professionnelle</label>
+          <input type="email" id="fEmail" data-i18n-placeholder="placeholderEmail" placeholder="t.laurent@horizon-interim.fr" required="">
+        </div>
+        <div class="field">
+          <label data-i18n="fieldPhone">Téléphone</label>
+          <input type="tel" id="fPhone" data-i18n-placeholder="placeholderPhone" placeholder="+33 1 00 00 00 00">
+        </div>
+        <button class="submit-btn" type="button" onclick="handleSubmit()" data-i18n="submitBtn">Recevoir mon Pré-Analyse Gratuit →</button>
+        <p class="form-disclaimer" data-i18n="formDisclaimer">Ce service est entièrement gratuit et sans engagement. Vos données sont protégées.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="https://www.documatch.eu/" class="logo footer-logo-wrap" target="_blank" rel="noopener">
+          <div class="logo-icon"><span>D</span></div>
+          <div class="logo-text">
+            <span class="logo-name">Documatch.eu</span>
+            <span class="logo-tagline" data-i18n="headerTagline">Comparateur indépendant GED &amp; DMS</span>
+          </div>
+        </a>
+        <p class="footer-desc" data-i18n="footerDesc">Plateforme européenne d'aide à la décision pour la sélection de logiciels GED, DMS et de gestion documentaire.</p>
+        <p class="footer-seo-link">
+          <a href="https://www.documatch.eu/" target="_blank" rel="noopener" data-i18n="footerSeoLink">comparateur indépendant GED et DMS</a>
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+        <a href="https://www.documatch.eu/" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:.2s;" onmouseover="this.style.color=&#39;rgba(255,255,255,.75)&#39;" onmouseout="this.style.color=&#39;rgba(255,255,255,.4)&#39;" data-i18n="footerLegal1">Mentions Légales</a>
+        <a href="https://www.documatch.eu/" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:.2s;" onmouseover="this.style.color=&#39;rgba(255,255,255,.75)&#39;" onmouseout="this.style.color=&#39;rgba(255,255,255,.4)&#39;" data-i18n="footerLegal2">Conditions d'Utilisation</a>
+        <a href="https://www.documatch.eu/" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:.2s;" onmouseover="this.style.color=&#39;rgba(255,255,255,.75)&#39;" onmouseout="this.style.color=&#39;rgba(255,255,255,.4)&#39;" data-i18n="footerLegal3">Politique de Confidentialité</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-copy" data-i18n="footerCopy">© 2026 Documatch.eu — Tous droits réservés</p>
+      <div class="legal-links">
+        <a href="https://www.documatch.eu/" target="_blank" rel="noopener" data-i18n="footerLegal1">Mentions Légales</a>
+        <a href="https://www.documatch.eu/" target="_blank" rel="noopener" data-i18n="footerLegal2">Conditions d'Utilisation</a>
+        <a href="https://www.documatch.eu/" target="_blank" rel="noopener" data-i18n="footerLegal3">Politique de Confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  fr: {
+    pageTitle: "Documatch.eu — Comparateur GED & DMS pour Agences d'Intérim & RH",
+    metaDesc: "Comparateur indépendant GED et DMS pour ETTs et agences d'intérim. Génération de contrats en masse, relances automatiques et signature électronique par SMS.",
+    headerTagline: "Comparateur indépendant GED & DMS",
+    heroBadge: "Agences d'Intérim · ETTs · Recrutement & RH",
+    heroH1: 'Recruter 50 personnes en 1 heure, c\'est possible. <span class="accent">Automatisez vos contrats et signatures.</span>',
+    heroSub: "Imprimer, signer, scanner et archiver manuellement des dizaines de contrats de mission paralyse votre département RH. Documatch.eu sélectionne pour vous les meilleurs outils DMS/ERP de génération de contrats en masse avec signature numérique instantanée par SMS.",
+    heroCTA: "Accéder au Pré-Analyse Gratuit",
+    trust1: "Comparateur 100% indépendant",
+    trust2: "Analyse en 48h",
+    trust3: "Sans engagement, 100% gratuit",
+    gridLabel: "Gestion RH & Volume",
+    gridTitle: "4 piliers pour digitaliser vos processus de recrutement de masse",
+    card1Title: "Génération de Contrats en Masse",
+    card1Desc: "Publipostage et création automatique de 10, 50 ou 100 contrats de travail en quelques clics à partir d'un simple fichier Excel ou de votre ATS.",
+    card2Title: "Firma por SMS (OTP)",
+    card2Desc: "Envoyez les contrats directement sur le smartphone de l'intérimaire. Signature eIDAS par code SMS en 30 secondes pour une réactivité maximale.",
+    card3Title: "Coffre-fort Numérique Salarié",
+    card3Desc: "Archivage automatique et sécurisé des bulletins de paie, contrats et documents d'identité (CNI/Passeport) accessibles 24/7 par le salarié.",
+    card4Title: "Intégration SIRH & Paye",
+    card4Desc: "Synchronisation transparente des données du contrat vers vos logiciels de paie (Silae, Sage) pour éliminer les doubles saisies.",
+    formLabel: "Analyse Volume RH",
+    formTitle: "Trouvez l'outil adapté à votre flux de contrats",
+    formDesc: "Indiquez le volume moyen de contrats mensuels générés par votre structure et recevez un comparatif des 3 logiciels de gestion documentaire les plus performants.",
+    check1: "Analyse des coûts par pack de SMS de signature",
+    check2: "Compatibilité réglementaire et coffre-fort salarié",
+    check3: "Capacité de connexion API avec votre ATS / CRM actuel",
+    check4: "Conseil neutre, 100% gratuit pour l'utilisateur final",
+    fieldName: "Nom complet",
+    fieldCompany: "Entreprise / ETT",
+    fieldEmail: "Adresse e-mail professionnelle",
+    fieldPhone: "Téléphone",
+    placeholderName: "Thomas Laurent",
+    placeholderCompany: "Horizon Intérim",
+    placeholderEmail: "t.laurent@horizon-interim.fr",
+    placeholderPhone: "+33 1 00 00 00 00",
+    submitBtn: "Recevoir mon Pré-Analyse Gratuit →",
+    formDisclaimer: "Ce service est entièrement gratuit et sans engagement. Vos données sont protégées.",
+    footerDesc: "Plateforme européenne d'aide à la décision pour la sélection de logiciels GED, DMS et de gestion documentaire.",
+    footerSeoLink: "comparateur indépendant GED et DMS",
+    footerLegal1: "Mentions Légales",
+    footerLegal2: "Conditions d'Utilisation",
+    footerLegal3: "Politique de Confidentialité",
+    footerCopy: "© 2026 Documatch.eu — Tous droits réservés"
+  },
+  es: {
+    pageTitle: "Documatch.eu — Comparador GED & DMS para ETTs y Recursos Humanos",
+    metaDesc: "Comparador independiente GED y DMS para ETTs y agencias de empleo. Generación de contratos masivos, alertas y firma digital por SMS.",
+    headerTagline: "Comparador independiente GED y DMS",
+    heroBadge: "Empresas de Trabajo Temporal (ETTs) · RRHH",
+    heroH1: 'Contratar a 50 personas en 1 hora es posible. <span class="accent">Automatiza la creación de contratos y firmas.</span>',
+    heroSub: "Hacer contratos en papel, escanearlos y archivarlos a mano para un evento de un día para otro consume a tu departamento de administración. Documatch.eu selecciona las mejores herramientas de gestión documental y ERP con generación masiva y firma por SMS.",
+    heroCTA: "Acceder al Pre-Análisis Gratuito",
+    trust1: "Comparador 100% independiente",
+    trust2: "Análisis en 48h",
+    trust3: "Sin compromiso, 100% gratuito",
+    gridLabel: "Gestión de RRHH y Volumen",
+    gridTitle: "4 pilares para digitalizar la contratación de alto volumen",
+    card1Title: "Generación Masiva de Contratos",
+    card1Desc: "Automatiza la creación de decenas de contratos de puesta a disposición o laborales combinando datos de tu ATS o un simple Excel.",
+    card2Title: "Firma Digital por SMS (OTP)",
+    card2Desc: "Envía los contratos al móvil del trabajador. Firma electrónica certificada eIDAS mediante un código de un solo uso por SMS en segundos.",
+    card3Title: "Portal / Portal del Empleado",
+    card3Desc: "Distribución y archivo automatizado de nóminas, contratos firmados y entrega de EPIs en un espacio seguro en la nube.",
+    card4Title: "Conexión con Software de Nóminas",
+    card4Desc: "Vinculación nativa con sistemas de nómina y altas en la Seguridad Social para eliminar errores humanos y retrasos.",
+    formLabel: "Análisis Volumen RH",
+    formTitle: "Encuentra la herramienta para tu volumen de firmas",
+    formDesc: "Indica el volumen medio de contrataciones mensuales de tu empresa y filtraremos los 3 sistemas documentales más rentables para tu gestión.",
+    check1: "Comparativa del coste de firma por SMS frente a Email",
+    check2: "Cumplimiento estricto de RGPD y archivo seguro",
+    check3: "Integración vía API con tu software ERP o ATS de empleo",
+    check4: "Asesoramiento neutral, 100% gratuito para el usuario final",
+    fieldName: "Nombre completo",
+    fieldCompany: "Empresa / ETT",
+    fieldEmail: "Correo electrónico profesional",
+    fieldPhone: "Teléfono",
+    placeholderName: "Alejandro Ruiz",
+    placeholderCompany: "GTI Empleo ETT",
+    placeholderEmail: "a.ruiz@gtiempleo.es",
+    placeholderPhone: "+34 910 00 00 00",
+    submitBtn: "Recibir mi Pre-Análisis Gratuito →",
+    formDisclaimer: "Este servicio es totalmente gratuito y no supone ningún compromiso. Tus datos están protegidos.",
+    footerDesc: "Plataforma europea de ayuda a la decisión para la selección de software GED, DMS y gestión documental.",
+    footerSeoLink: "comparador independiente GED y DMS",
+    footerLegal1: "Aviso Legal",
+    footerLegal2: "Condiciones de Uso",
+    footerLegal3: "Política de Privacidad",
+    footerCopy: "© 2026 Documatch.eu — Todos los derechos reservados"
+  },
+  en: {
+    pageTitle: "Documatch.eu — GED & DMS Comparator for Staffing Agencies & HR",
+    metaDesc: "Independent GED and DMS comparator for staffing and recruitment agencies. Mass contract generation, automatic reminders, and SMS e-signatures.",
+    headerTagline: "Independent GED & DMS comparator",
+    heroBadge: "Staffing Agencies · HR · Mass Recruitment",
+    heroH1: 'Hiring 50 people in 1 hour is possible. <span class="accent">Automate your contract generation and signatures.</span>',
+    heroSub: "Printing, signing, scanning, and archiving high volumes of contracts overnight paralyzes your HR administration. Documatch.eu finds the top document software featuring bulk generation and instant e-signature via SMS.",
+    heroCTA: "Access Free Pre-Analysis",
+    trust1: "100% independent comparator",
+    trust2: "Analysis within 48h",
+    trust3: "No commitment, 100% free",
+    gridLabel: "HR Management & Volume",
+    gridTitle: "4 pillars to scale your high-volume hiring operations",
+    card1Title: "Bulk Contract Generation",
+    card1Desc: "Automatically generate 10, 50, or 100 employment contracts in seconds using data from your ATS or a standard spreadsheet.",
+    card2Title: "SMS E-Signature (OTP)",
+    card2Desc: "Send contracts straight to the candidate's phone. Legally-binding eIDAS signature via SMS code completed in under 30 seconds.",
+    card3Title: "Digital Employee Portal",
+    card3Desc: "Automatic delivery and secure storage of payslips, signed contracts, and compliance files accessible by employees 24/7.",
+    card4Title: "Payroll & ATS Integration",
+    card4Desc: "Seamless data transfer from contracts to payroll processing systems to completely avoid manual double entry.",
+    formLabel: "HR Volume Analysis",
+    formTitle: "Find the right match for your contract flow",
+    formDesc: "Enter your average monthly hiring volume and discover the top 3 document platforms that maximize cost-efficiency for mass recruitment.",
+    check1: "Cost analysis comparing SMS packs vs. Email signing",
+    check2: "Strict GDPR compliance and secure audit trails",
+    check3: "API connection capabilities with your current ATS / ERP",
+    check4: "Neutral advice, 100% free for the end user",
+    fieldName: "Full name",
+    fieldCompany: "Company / Staffing Agency",
+    fieldEmail: "Professional email address",
+    fieldPhone: "Phone number",
+    placeholderName: "John Connor",
+    placeholderCompany: "Apex Staffing",
+    placeholderEmail: "j.connor@apexstaffing.com",
+    placeholderPhone: "+44 20 7946 0000",
+    submitBtn: "Receive my Free Pre-Analysis →",
+    formDisclaimer: "This service is completely free with no obligations. Your data is strictly protected.",
+    footerDesc: "European decision-support platform for selecting GED, DMS and document management software.",
+    footerSeoLink: "independent GED and DMS comparator",
+    footerLegal1: "Legal Notice",
+    footerLegal2: "Terms of Use",
+    footerLegal3: "Privacy Policy",
+    footerCopy: "© 2026 Documatch.eu — All rights reserved"
+  }
+};
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  if (!translations[lang]) return;
+  currentLang = lang;
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      if (translations[lang][key].includes('<')) {
+        el.innerHTML = translations[lang][key];
+      } else {
+        el.textContent = translations[lang][key];
+      }
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(input => {
+    const key = input.getAttribute('data-i18n-placeholder');
+    if (translations[lang][key]) {
+      input.setAttribute('placeholder', translations[lang][key]);
+    }
+  });
+}
+
+function handleSubmit() {
+  const name = document.getElementById('fName').value.trim();
+  const company = document.getElementById('fCompany').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+
+  if (!name || !company || !email) {
+    const alertMsgs = {
+      fr: "Veuillez remplir tous les champs obligatoires (Nom, Société, E-mail).",
+      es: "Por favor, rellene todos los campos obligatorios (Nombre, Empresa, E-mail).",
+      en: "Please fill in all required fields (Name, Company, Email)."
+    };
+    alert(alertMsgs[currentLang]);
+    return;
+  }
+
+  // Redirección con UTMs específicos para el sector de ETTs / RRHH
+  const targetUrl = `https://www.documatch.eu/?utm_source=linkedin&utm_medium=landing_etts&utm_campaign=sectorial&name=${encodeURIComponent(name)}&company=${encodeURIComponent(company)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
+  window.location.href = targetUrl;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const userLang = navigator.language || navigator.userLanguage;
+  if (userLang.startsWith('es')) {
+    setLang('es');
+  } else if (userLang.startsWith('en')) {
+    setLang('en');
+  } else {
+    setLang('fr');
+  }
+});
+</script>
+
+
+</body></html>
