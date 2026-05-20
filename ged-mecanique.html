@@ -1,972 +1,254 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title data-i18n="pageTitle">Documatch.eu — Comparateur GED pour Cliniques & Centres de Santé</title>
-<meta name="description" data-i18n="metaDesc" content="Comparateur indépendant GED pour cliniques privées. Digitalisez vos consentements éclairés avec signature biométrique et archivage légal sécurisé HDS / RGPD."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<style>
-  :root {
-    --blue: #0080FF;
-    --blue-dark: #0065CC;
-    --blue-light: #E8F3FF;
-    --blue-pale: #F0F7FF;
-    --slate-900: #0F172A;
-    --slate-700: #334155;
-    --slate-500: #64748B;
-    --slate-300: #CBD5E1;
-    --slate-100: #F1F5F9;
-    --white: #FFFFFF;
-    --bg: #F8FAFC;
-    --radius: 16px;
-    --radius-sm: 10px;
-    --shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,128,255,.07);
-    --shadow-logo: 0 2px 8px rgba(0,0,0,.10), 0 0 0 1px rgba(0,0,0,.04);
-    --font: 'Sora', sans-serif;
-    --mono: 'JetBrains Mono', monospace;
-    --transition: .2s cubic-bezier(.4,0,.2,1);
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font);
-    background: var(--bg);
-    color: var(--slate-900);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── HEADER ─────────────────────────────────────────────── */
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--slate-100);
-  }
-
-  .header-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-
-  .logo-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--white);
-    border-radius: 14px;
-    box-shadow: var(--shadow-logo);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .logo-icon span {
-    font-family: var(--font);
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--blue);
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
-  }
-
-  .logo-name {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--slate-900);
-    letter-spacing: -.3px;
-  }
-
-  .logo-tagline {
-    font-size: 10.5px;
-    font-weight: 400;
-    color: var(--slate-500);
-    letter-spacing: .3px;
-    font-family: var(--mono);
-    text-transform: uppercase;
-  }
-
-  .lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    background: var(--slate-100);
-    border-radius: 8px;
-    padding: 3px;
-  }
-
-  .lang-btn {
-    padding: 5px 10px;
-    border: none;
-    background: transparent;
-    color: var(--slate-500);
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: var(--transition);
-    letter-spacing: .5px;
-  }
-
-  .lang-btn.active {
-    background: var(--white);
-    color: var(--blue);
-    box-shadow: 0 1px 3px rgba(0,0,0,.1);
-  }
-
-  .lang-btn:hover:not(.active) { color: var(--slate-700); }
-
-  /* ── HERO ────────────────────────────────────────────────── */
-  .hero {
-    background: var(--white);
-    padding: 80px 24px 72px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,128,255,.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--blue-light);
-    color: var(--blue);
-    font-size: 12px;
-    font-weight: 600;
-    font-family: var(--mono);
-    padding: 5px 14px;
-    border-radius: 100px;
-    margin-bottom: 28px;
-    letter-spacing: .3px;
-    border: 1px solid rgba(0,128,255,.15);
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--blue);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: .6; transform: scale(.8); }
-  }
-
-  .hero h1 {
-    font-size: clamp(28px, 4.8vw, 48px);
-    font-weight: 800;
-    color: var(--slate-900);
-    line-height: 1.2;
-    letter-spacing: -1.5px;
-    max-width: 980px;
-    margin: 0 auto 24px;
-  }
-
-  .hero h1 .accent { color: var(--blue); }
-
-  .hero-sub {
-    font-size: clamp(15px, 2vw, 17px);
-    color: var(--slate-500);
-    max-width: 720px;
-    margin: 0 auto 36px;
-    line-height: 1.7;
-    font-weight: 400;
-  }
-
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--blue);
-    color: var(--white);
-    font-family: var(--font);
-    font-size: 15px;
-    font-weight: 600;
-    padding: 14px 28px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: var(--transition);
-    box-shadow: 0 4px 20px rgba(0,128,255,.35);
-    letter-spacing: -.1px;
-  }
-
-  .cta-btn:hover {
-    background: var(--blue-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 24px rgba(0,128,255,.45);
-  }
-
-  .trust-row {
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--slate-500);
-    font-weight: 500;
-  }
-
-  .trust-item svg { color: var(--blue); }
-
-  /* ── GRID SECTION ────────────────────────────────────────── */
-  .section {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 72px 24px;
-  }
-
-  .section-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--blue);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-size: clamp(22px, 3.5vw, 34px);
-    font-weight: 700;
-    color: var(--slate-900);
-    letter-spacing: -1px;
-    margin-bottom: 48px;
-    max-width: 650px;
-    line-height: 1.25;
-  }
-
-  .grid-4 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-
-  .card {
-    background: var(--white);
-    border: 1px solid var(--slate-100);
-    border-radius: var(--radius);
-    padding: 28px 24px;
-    box-shadow: var(--shadow-card);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--blue);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .3s ease;
-  }
-
-  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,128,255,.12); }
-  .card:hover::after { transform: scaleX(1); }
-
-  .card-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--blue-pale);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-    color: var(--blue);
-  }
-
-  .card h3 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--slate-900);
-    margin-bottom: 8px;
-    letter-spacing: -.3px;
-  }
-
-  .card p {
-    font-size: 14px;
-    color: var(--slate-500);
-    line-height: 1.65;
-  }
-
-  .card-tag {
-    display: inline-block;
-    margin-top: 14px;
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--blue);
-    background: var(--blue-light);
-    padding: 3px 8px;
-    border-radius: 4px;
-    letter-spacing: .3px;
-  }
-
-  /* ── SEPARATOR ───────────────────────────────────────────── */
-  .sep {
-    border: none;
-    border-top: 1px solid var(--slate-100);
-    margin: 0 24px;
-  }
-
-  /* ── FORM SECTION ────────────────────────────────────────── */
-  .form-section {
-    background: var(--white);
-    border-top: 1px solid var(--slate-100);
-    border-bottom: 1px solid var(--slate-100);
-  }
-
-  .form-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-    padding: 72px 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-  }
-
-  @media (max-width: 768px) {
-    .form-inner { grid-template-columns: 1fr; gap: 40px; }
-    .header-inner { flex-wrap: wrap; }
-  }
-
-  .form-copy h2 {
-    font-size: clamp(22px, 3vw, 32px);
-    font-weight: 700;
-    color: var(--slate-900);
-    letter-spacing: -1px;
-    margin-bottom: 16px;
-    line-height: 1.25;
-  }
-
-  .form-copy p {
-    font-size: 15px;
-    color: var(--slate-500);
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-
-  .checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-  .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--slate-700);
-    font-weight: 500;
-  }
-
-  .checklist li::before {
-    content: '✓';
-    width: 20px;
-    height: 20px;
-    background: var(--blue);
-    color: var(--white);
-    border-radius: 50%;
-    font-size: 11px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .lead-form { display: flex; flex-direction: column; gap: 14px; }
-
-  .field-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-
-  @media (max-width: 480px) { .field-group { grid-template-columns: 1fr; } }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .field label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--slate-700);
-    letter-spacing: .2px;
-  }
-
-  .field input {
-    background: var(--bg);
-    border: 1.5px solid #E2E8F0;
-    border-radius: 8px;
-    padding: 11px 14px;
-    font-family: var(--font);
-    font-size: 14px;
-    color: var(--slate-900);
-    outline: none;
-    transition: var(--transition);
-  }
-
-  .field input:focus {
-    border-color: var(--blue);
-    background: var(--white);
-    box-shadow: 0 0 0 3px rgba(0,128,255,.12);
-  }
-
-  .field input::placeholder { color: var(--slate-300); }
-
-  .submit-btn {
-    width: 100%;
-    background: var(--blue);
-    color: var(--white);
-    border: none;
-    border-radius: 10px;
-    padding: 14px 24px;
-    font-family: var(--font);
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    box-shadow: 0 4px 20px rgba(0,128,255,.30);
-    letter-spacing: -.1px;
-    margin-top: 4px;
-  }
-
-  .submit-btn:hover {
-    background: var(--blue-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 24px rgba(0,128,255,.40);
-  }
-
-  .form-disclaimer {
-    font-size: 12px;
-    color: var(--slate-500);
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  /* ── FOOTER ──────────────────────────────────────────────── */
-  footer {
-    background: var(--slate-900);
-    color: var(--slate-300);
-    padding: 48px 24px 32px;
-  }
-
-  .footer-inner {
-    max-width: 1160px;
-    margin: 0 auto;
-  }
-
-  .footer-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 32px;
-    flex-wrap: wrap;
-    padding-bottom: 32px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    margin-bottom: 24px;
-  }
-
-  .footer-logo-wrap .logo-icon {
-    background: rgba(255,255,255,.06);
-    box-shadow: none;
-    border: 1px solid rgba(255,255,255,.1);
-  }
-
-  .footer-logo-wrap .logo-name { color: var(--white); }
-  .footer-logo-wrap .logo-tagline { color: rgba(255,255,255,.4); }
-
-  .footer-desc {
-    font-size: 13px;
-    color: rgba(255,255,255,.45);
-    max-width: 280px;
-    line-height: 1.65;
-    margin-top: 12px;
-  }
-
-  .footer-seo-link {
-    font-size: 14px;
-    margin-top: 14px;
-  }
-
-  .footer-seo-link a {
-    color: #60A5FA;
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid rgba(96,165,250,.3);
-    transition: var(--transition);
-  }
-
-  .footer-seo-link a:hover { color: var(--white); border-color: var(--white); }
-
-  .footer-legal {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .footer-copy {
-    font-size: 12px;
-    color: rgba(255,255,255,.3);
-  }
-
-  .legal-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .legal-links a {
-    font-size: 12px;
-    color: rgba(255,255,255,.4);
-    text-decoration: none;
-    transition: var(--transition);
-  }
-
-  .legal-links a:hover { color: rgba(255,255,255,.75); }
-
-  /* ── ANIMATIONS ──────────────────────────────────────────── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-badge { animation: fadeUp .5s ease both; }
-  .hero h1 { animation: fadeUp .5s .1s ease both; }
-  .hero-sub { animation: fadeUp .5s .2s ease both; }
-  .cta-btn { animation: fadeUp .5s .3s ease both; }
-  .trust-row { animation: fadeUp .5s .4s ease both; }
-</style>
-</head>
-<body>
-
-<header>
-  <div class="header-inner">
-    <a href="https://www.documatch.eu" class="logo" target="_blank" rel="noopener">
-      <div class="logo-icon"><span>D</span></div>
-      <div class="logo-text">
-        <span class="logo-name">Documatch.eu</span>
-        <span class="logo-tagline" data-i18n="headerTagline">Comparateur indépendant GED &amp; DMS</span>
-      </div>
-    </a>
-    <div class="lang-switcher" role="group" aria-label="Language selector">
-      <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-    </div>
-  </div>
-</header>
-
-<section class="hero">
-  <span class="hero-badge" data-i18n="heroBadge">Cliniques Privées · Centres Médicaux · Hôpitaux</span>
-  <h1 data-i18n="heroH1">Le papier dans votre clinique est un risque juridique. <span class="accent">Passez au dossier 100% numérique et crypté.</span></h1>
-  <p class="hero-sub" data-i18n="heroSub">
-    Les consentements éclairés papier encombrent vos locaux et menacent votre responsabilité en cas de perte. Documatch.eu sélectionne de manière neutre les meilleurs logiciels GED conformes santé pour signer sur tablette et sécuriser l'archivage légal de vos patients.
-  </p>
-  <a href="#form" class="cta-btn">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
-    <span data-i18n="heroCTA">Accéder au Pré-Analyse Gratuit</span>
-  </a>
-  <div class="trust-row">
-    <span class="trust-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span data-i18n="trust1">Comparateur 100% indépendant</span>
-    </span>
-    <span class="trust-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <span data-i18n="trust2">Analyse en 48h</span>
-    </span>
-    <span class="trust-item">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-      <span data-i18n="trust3">Sans engagement, 100% gratuit</span>
-    </span>
-  </div>
-</section>
-
-<div class="section">
-  <p class="section-label" data-i18n="gridLabel">Sécurité Médicale &amp; GED</p>
-  <h2 class="section-title" data-i18n="gridTitle">Zéro papier, zéro litige : protégez votre établissement</h2>
-  <div class="grid-4">
-    <div class="card">
-      <div class="card-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"/><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"/></svg>
-      </div>
-      <h3 data-i18n="card1Title">Signature Biométrique</h3>
-      <p data-i18n="card1Desc">Faites signer les consentements et fiches de soins sur tablette à l'accueil. Capture cryptographique du tracé, de la pression et de la vitesse pour une valeur juridique incontestable.</p>
-      <span class="card-tag">Valeur Probante</span>
-    </div>
-    <div class="card">
-      <div class="card-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      </div>
-      <h3 data-i18n="card2Title">Hébergement Certifié Santé</h3>
-      <p data-i18n="card2Desc">Filtrage strict des serveurs certifiés HDS (France) ou conformes aux exigences strictes de la LPD (Suisse) et du RGPD européen. Cryptage de bout en bout.</p>
-      <span class="card-tag">Conformité RGPD / HDS</span>
-    </div>
-    <div class="card">
-      <div class="card-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </div>
-      <h3 data-i18n="card3Title">Recherche Patient Instantanée</h3>
-      <p data-i18n="card3Desc">Retrouvez n'importe quel historique médical ou consentement signé en 3 secondes par nom, date ou type d'intervention, directement depuis le box médical.</p>
-      <span class="card-tag">Gain d'Espace Absolu</span>
-    </div>
-    <div class="card">
-      <div class="card-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      </div>
-      <h3 data-i18n="card4Title">Interopérabilité DPI / HIS</h3>
-      <p data-i18n="card4Desc">Passerelles d'intégration fluides avec vos progiciels de Dossier Patient Informatisé et systèmes de facturation médicale existants.</p>
-      <span class="card-tag">Intégration API</span>
-    </div>
-  </div>
-</div>
-
-<hr class="sep"/>
-
-<section class="form-section" id="form">
-  <div class="form-inner">
-    <div class="form-copy">
-      <p class="section-label" data-i18n="formLabel">Audit GED Cliniques</p>
-      <h2 data-i18n="formTitle">Sécurisez votre responsabilité médicale</h2>
-      <p data-i18n="formDesc">Indiquez la taille de votre établissement et vos besoins réglementaires pour obtenir sous 48h un comparatif indépendant des 3 solutions de gestion documentaire conformes aux normes de santé.</p>
-      <ul class="checklist">
-        <li data-i18n="check1">Solutions avec chiffrement et traçabilité stricte des accès (Audit Trail)</li>
-        <li data-i18n="check2">Analyse des coûts de licence pour tablettes de signature</li>
-        <li data-i18n="check3">Vérification de la conformité géographique des données (UE / Suisse)</li>
-        <li data-i18n="check4">Conseil neutre, 100% gratuit pour l'utilisateur final</li>
-      </ul>
-    </div>
-
-    <div>
-      <div class="lead-form" id="leadForm">
-        <div class="field-group">
-          <div class="field">
-            <label data-i18n="fieldName">Nom complet</label>
-            <input type="text" id="fName" data-i18n-placeholder="placeholderName" placeholder="Dr. Pierre Dubois" required/>
-          </div>
-          <div class="field">
-            <label data-i18n="fieldCompany">Nom de la Clinique / Centre</label>
-            <input type="text" id="fCompany" data-i18n-placeholder="placeholderCompany" placeholder="Clinique Léman" required/>
-          </div>
-        </div>
-        <div class="field">
-          <label data-i18n="fieldEmail">Adresse e-mail professionnelle</label>
-          <input type="email" id="fEmail" data-i18n-placeholder="placeholderEmail" placeholder="p.dubois@clinique-leman.ch" required/>
-        </div>
-        <div class="field">
-          <label data-i18n="fieldPhone">Téléphone</label>
-          <input type="tel" id="fPhone" data-i18n-placeholder="placeholderPhone" placeholder="+41 22 000 00 00"/>
-        </div>
-        <button class="submit-btn" type="button" onclick="handleSubmit()" data-i18n="submitBtn">
-          Recevoir mon Pré-Analyse Gratuit →
-        </button>
-        <p class="form-disclaimer" data-i18n="formDisclaimer">
-          Ce service est entièrement gratuit et sans engagement. Vos données sont protégées.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <a href="https://www.documatch.eu" class="logo footer-logo-wrap" target="_blank" rel="noopener">
-          <div class="logo-icon"><span>D</span></div>
-          <div class="logo-text">
-            <span class="logo-name">Documatch.eu</span>
-            <span class="logo-tagline" data-i18n="headerTagline">Comparateur indépendant GED &amp; DMS</span>
-          </div>
-        </a>
-        <p class="footer-desc" data-i18n="footerDesc">
-          Plateforme européenne d'aide à la décision pour la sélection de logiciels GED, DMS et de gestion documentaire.
-        </p>
-        <p class="footer-seo-link">
-          <a href="https://www.documatch.eu" target="_blank" rel="noopener" data-i18n="footerSeoLink">
-            comparateur indépendant GED et DMS
-          </a>
-        </p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
-        <a href="https://www.documatch.eu" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:.2s;" onmouseover="this.style.color='rgba(255,255,255,.75)'" onmouseout="this.style.color='rgba(255,255,255,.4)'" data-i18n="footerLegal1">Mentions Légales</a>
-        <a href="https://www.documatch.eu" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:.2s;" onmouseover="this.style.color='rgba(255,255,255,.75)'" onmouseout="this.style.color='rgba(255,255,255,.4)'" data-i18n="footerLegal2">Conditions d'Utilisation</a>
-        <a href="https://www.documatch.eu" target="_blank" rel="noopener" style="font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:.2s;" onmouseover="this.style.color='rgba(255,255,255,.75)'" onmouseout="this.style.color='rgba(255,255,255,.4)'" data-i18n="footerLegal3">Politique de Confidentialité</a>
-      </div>
-    </div>
-    <div class="footer-legal">
-      <p class="footer-copy" data-i18n="footerCopy">© 2026 Documatch.eu — Tous droits réservés</p>
-      <div class="legal-links">
-        <a href="https://www.documatch.eu" target="_blank" rel="noopener" data-i18n="footerLegal1">Mentions Légales</a>
-        <a href="https://www.documatch.eu" target="_blank" rel="noopener" data-i18n="footerLegal2">Conditions d'Utilisation</a>
-        <a href="https://www.documatch.eu" target="_blank" rel="noopener" data-i18n="footerLegal3">Politique de Confidentialité</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-const translations = {
-  fr: {
-    pageTitle: "Documatch.eu — Comparateur GED pour Cliniques & Centres de Santé",
-    metaDesc: "Comparateur indépendant GED pour cliniques privées. Digitalisez vos consentements éclairés avec signature biométrique et archivage légal sécurisé HDS / RGPD.",
-    headerTagline: "Comparateur indépendant GED & DMS",
-    heroBadge: "Cliniques Privées · Centres Médicaux · Hôpitaux",
-    heroH1: 'Le papier dans votre clinique est un risque juridique. <span class="accent">Passez au dossier 100% numérique et crypté.</span>',
-    heroSub: "Les consentements éclairés papier encombrent vos locaux et menacent votre responsabilité en cas de perte. Documatch.eu sélectionne de manière neutre les meilleurs logiciels GED conformes santé pour signer sur tablette et sécuriser l'archivage légal de vos patients.",
-    heroCTA: "Accéder au Pré-Analyse Gratuit",
-    trust1: "Comparateur 100% indépendant",
-    trust2: "Analyse en 48h",
-    trust3: "Sans engagement, 100% gratuit",
-    gridLabel: "Sécurité Médicale & GED",
-    gridTitle: "Zéro papier, zéro litige : protégez votre établissement",
-    card1Title: "Signature Biométrique",
-    card1Desc: "Faites signer les consentements et fiches de soins sur tablette à l'accueil. Capture cryptographique du tracé, de la pression et de la vitesse pour une valeur juridique incontestable.",
-    card2Title: "Hébergement Certifié Santé",
-    card2Desc: "Filtrage strict des serveurs certifiés HDS (France) ou conformes aux exigences strictes de la LPD (Suisse) et du RGPD européen. Cryptage de bout en bout.",
-    card3Title: "Recherche Patient Instantanée",
-    card3Desc: "Retrouvez n'importe quel historique médical ou consentement signé en 3 secondes par nom, date ou type d'intervention, directement depuis le box médical.",
-    card4Title: "Interopérabilité DPI / HIS",
-    card4Desc: "Passerelles d'intégration fluides avec vos progiciels de Dossier Patient Informatisé et systèmes de facturation médicale existants.",
-    formLabel: "Audit GED Cliniques",
-    formTitle: "Sécurisez votre responsabilité médicale",
-    formDesc: "Indiquez la taille de votre établissement et vos besoins réglementaires pour obtenir sous 48h un comparatif indépendant des 3 solutions de gestion documentaire conformes aux normes de santé.",
-    check1: "Solutions avec chiffrement et traçabilité stricte des accès (Audit Trail)",
-    check2: "Analyse des coûts de licence pour tablettes de signature",
-    check3: "Vérification de la conformité géographique des données (UE / Suisse)",
-    check4: "Conseil neutre, 100% gratuit pour l'utilisateur final",
-    fieldName: "Nom complet",
-    fieldCompany: "Nom de la Clinique / Centre",
-    fieldEmail: "Adresse e-mail professionnelle",
-    fieldPhone: "Téléphone",
-    placeholderName: "Dr. Pierre Dubois",
-    placeholderCompany: "Clinique Léman",
-    placeholderEmail: "p.dubois@clinique-leman.ch",
-    placeholderPhone: "+41 22 000 00 00",
-    submitBtn: "Recevoir mon Pré-Analyse Gratuit →",
-    formDisclaimer: "Ce service est entièrement gratuit et sans engagement. Vos données sont protégées.",
-    footerDesc: "Plateforme européenne d'aide à la décision pour la sélection de logiciels GED, DMS et de gestion documentaire.",
-    footerSeoLink: "comparateur indépendant GED et DMS",
-    footerLegal1: "Mentions Légales",
-    footerLegal2: "Conditions d'Utilisation",
-    footerLegal3: "Politique de Confidentialité",
-    footerCopy: "© 2026 Documatch.eu — Tous droits réservés"
-  },
-  es: {
-    pageTitle: "Documatch.eu — Comparador GED para Clínicas Privadas y Centros de Salud",
-    metaDesc: "Comparador independiente GED para clínicas privadas. Digitaliza tus consentimientos informados con firma biométrica y custodia legal RGPD.",
-    headerTagline: "Comparador independiente GED y DMS",
-    heroBadge: "Clínicas Privadas · Centros Médicos · Hospitales",
-    heroH1: 'El papel en tu clínica es un riesgo legal. <span class="accent">Pasa al historial 100% digital con firma biométrica y custodia segura.</span>',
-    heroSub: "Los consentimientos informados de los pacientes en papel ocupan habitaciones enteras y son un riesgo legal enorme si se pierden o dañan. Documatch.eu te ayuda a encontrar el sistema GED médico idóneo para firmar en tablet y blindar tus expedientes.",
-    heroCTA: "Acceder al Pre-Análisis Gratuito",
-    trust1: "Comparador 100% independiente",
-    trust2: "Análisis en 48h",
-    trust3: "Sin compromiso, 100% gratuito",
-    gridLabel: "Seguridad Médica y GED",
-    gridTitle: "Adiós al papel, adiós al riesgo: protege tu centro médico",
-    card1Title: "Firma Biométrica Avanzada",
-    card1Desc: "Los pacientes firman los consentimientos en una tablet en recepción. Captura cifrada de rasgos, presión y velocidad con plena validez judicial.",
-    card2Title: "Custodia Legal Blindada",
-    card2Desc: "Filtrado de proveedores con servidores e infraestructura certificada para datos de salud (cumplimiento estricto de RGPD en España/Bélgica y LPD en Suiza).",
-    card3Title: "Búsqueda de Historiales en 3s",
-    card3Desc: "Localiza cualquier documento o consentimiento al instante por nombre, DNI/Pasaporte o fecha desde el propio box de consulta. Libera salas enteras de archivo.",
-    card4Title: "Integración con tu HIS / HIS",
-    card4Desc: "Conexión directa con tus sistemas actuales de gestión de clínica e historial clínico informatizado para un flujo sin fisuras.",
-    formLabel: "Auditoría GED Clínicas",
-    formTitle: "Asegura el cumplimiento normativo de tu centro",
-    formDesc: "Indica el tamaño de tu clínica y tus requisitos legales para recibir en 48h una comparativa independiente de los 3 softwares de gestión documental médica más seguros.",
-    check1: "Sistemas con encriptación y trazabilidad estricta de accesos (Audit Trail)",
-    check2: "Comparativa de costes de licencias para tablets de firma",
-    check3: "Garantía de cumplimiento geográfico de datos (UE / Suiza)",
-    check4: "Asesoramiento neutral, 100% gratuito para el usuario final",
-    fieldName: "Nombre completo",
-    fieldCompany: "Clínica / Centro de Salud",
-    fieldEmail: "Correo electrónico profesional",
-    fieldPhone: "Teléfono",
-    placeholderName: "Dr. Alejandro Tejera",
-    placeholderCompany: "Clínica Dental Tejera",
-    placeholderEmail: "a.tejera@clinicatejera.es",
-    placeholderPhone: "+34 910 00 00 00",
-    submitBtn: "Recibir mi Pre-Análisis Gratuito →",
-    formDisclaimer: "Este servicio es totalmente gratuito y no supone ningún compromiso. Tus datos están protegidos.",
-    footerDesc: "Plataforma europea de ayuda a la decisión para la selección de software GED, DMS y gestión documental.",
-    footerSeoLink: "comparador independiente GED y DMS",
-    footerLegal1: "Aviso Legal",
-    footerLegal2: "Condiciones de Uso",
-    footerLegal3: "Política de Privacidad",
-    footerCopy: "© 2026 Documatch.eu — Todos los derechos reservados"
-  },
-  en: {
-    pageTitle: "Documatch.eu — GED/DMS Comparator for Private Clinics & Health Centers",
-    metaDesc: "Independent GED comparator for private clinics. Digitize informed consents with biometric signatures and secure compliance storage.",
-    headerTagline: "Independent GED & DMS comparator",
-    heroBadge: "Private Clinics · Medical Centers · Hospitals",
-    heroH1: 'Paperwork in your clinic is a legal risk. <span class="accent">Switch to 100% digital patient files with biometric signing.</span>',
-    heroSub: "Paper informed consents take up entire rooms and present huge legal vulnerabilities if misplaced. Documatch.eu provides neutral evaluations to find health-compliant document systems for tablet-signing and secure data custody.",
-    heroCTA: "Access Free Pre-Analysis",
-    trust1: "100% independent comparator",
-    trust2: "Analysis within 48h",
-    trust3: "No commitment, 100% free",
-    gridLabel: "Medical Security & GED",
-    gridTitle: "Zero paper, zero liabilities: protect your medical facility",
-    card1Title: "Biometric Signatures",
-    card1Desc: "Have patients sign consents and care sheets on a tablet at reception. Crypted capture of stroke, pressure, and speed for bulletproof legal validity.",
-    card2Title: "Certified Health Hosting",
-    card2Desc: "Strict screening of servers complying with European GDPR, Belgian standards, and Swiss FADP regulations. End-to-end data encryption.",
-    card3Title: "Instant Patient Search",
-    card3Desc: "Retrieve any medical history or signed consent in 3 seconds by name, ID, or date right from the doctor's consulting desk. Reclaim valuable square footage.",
-    card4Title: "EHR / HIS Interoperability",
-    card4Desc: "Smooth integration bridges to link your current Electronic Health Record systems and medical billing software.",
-    formLabel: "Clinic GED Audit",
-    formTitle: "Secure your medical liabilities today",
-    formDesc: "Enter your facility size and regulatory needs to receive an independent evaluation of the top 3 healthcare-compliant document management platforms within 48 hours.",
-    check1: "Platforms featuring data encryption and strict entry tracking (Audit Trails)",
-    check2: "Clear cost breakdowns for hardware signing licenses",
-    check3: "Guaranteed geographical compliance of server locations (EU / Swiss)",
-    check4: "Neutral advice, 100% free for the end user",
-    fieldName: "Full name",
-    fieldCompany: "Clinic / Health Center",
-    fieldEmail: "Professional email address",
-    fieldPhone: "Phone number",
-    placeholderName: "Dr. Arthur Vance",
-    placeholderCompany: "Vance Medical Center",
-    placeholderEmail: "a.vance@vancemedical.ch",
-    placeholderPhone: "+41 22 700 00 00",
-    submitBtn: "Receive my Free Pre-Analysis →",
-    formDisclaimer: "This service is completely free with no obligations. Your data is strictly protected.",
-    footerDesc: "European decision-support platform for selecting GED, DMS and document management software.",
-    footerSeoLink: "independent GED and DMS comparator",
-    footerLegal1: "Legal Notice",
-    footerLegal2: "Terms of Use",
-    footerLegal3: "Privacy Policy",
-    footerCopy: "© 2026 Documatch.eu — All rights reserved"
-  }
-};
-
-let currentLang = 'fr';
-
-function setLang(lang) {
-  if (!translations[lang]) return;
-  currentLang = lang;
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    if (btn.getAttribute('data-lang') === lang) {
-      btn.classList.add('active');
-    } else {
-      btn.classList.remove('active');
-    }
-  });
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang][key]) {
-      if (translations[lang][key].includes('<')) {
-        el.innerHTML = translations[lang][key];
-      } else {
-        el.textContent = translations[lang][key];
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">Documatch.eu — Comparateur GED & DMS pour les Ressources Humaines (RH)</title>
+    <meta name="description" data-i18n="metaDesc" content="Comparateur indépendant GED et DMS pour les services RH. Dématérialisation des dossiers salariés, bulletins de paie et contrats de travail.">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --blue: #0080FF;
+        --blue-dark: #0065CC;
+        --blue-light: #E8F3FF;
+        --blue-pale: #F0F7FF;
+        --slate-900: #0F172A;
+        --slate-700: #334155;
+        --slate-500: #64748B;
+        --slate-300: #CBD5E1;
+        --slate-100: #F1F5F9;
+        --white: #FFFFFF;
+        --bg: #F8FAFC;
+        --radius: 16px;
+        --radius-sm: 10px;
+        --shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,128,255,.07);
+        --shadow-logo: 0 2px 8px rgba(0,0,0,.10), 0 0 0 1px rgba(0,0,0,.04);
+        --font: 'Sora', sans-serif;
+        --mono: 'JetBrains Mono', monospace;
+        --transition: .2s cubic-bezier(.4,0,.2,1);
       }
-    }
-  });
-
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(input => {
-    const key = input.getAttribute('data-i18n-placeholder');
-    if (translations[lang][key]) {
-      input.setAttribute('placeholder', translations[lang][key]);
-    }
-  });
-}
-
-function handleSubmit() {
-  const name = document.getElementById('fName').value.trim();
-  const company = document.getElementById('fCompany').value.trim();
-  const email = document.getElementById('fEmail').value.trim();
-  const phone = document.getElementById('fPhone').value.trim();
-
-  if (!name || !company || !email) {
-    const alertMsgs = {
-      fr: "Veuillez remplir tous les champs obligatoires (Nom, Société, E-mail).",
-      es: "Por favor, rellene todos los campos obligatorios (Nombre, Empresa, E-mail).",
-      en: "Please fill in all required fields (Name, Company, Email)."
-    };
-    alert(alertMsgs[currentLang]);
-    return;
-  }
-
-  // Redirección con UTMs específicos para el sector de Clínicas / Salud Privada
-  const targetUrl = `https://www.documatch.eu/?utm_source=linkedin&utm_medium=landing_clinicas&utm_campaign=sectorial&name=${encodeURIComponent(name)}&company=${encodeURIComponent(company)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}`;
-  window.location.href = targetUrl;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const userLang = navigator.language || navigator.userLanguage;
-  if (userLang.startsWith('es')) {
-    setLang('es');
-  } else if (userLang.startsWith('en')) {
-    setLang('en');
-  } else {
-    setLang('fr');
-  }
-});
-</script>
-
-</body>
-</html>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--slate-900);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255,255,255,.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--slate-100);
+      }
+      .header-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .logo-icon {
+        width: 44px;
+        height: 44px;
+        background: var(--white);
+        border-radius: 14px;
+        box-shadow: var(--shadow-logo);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .logo-icon span {
+        font-family: var(--font);
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--blue);
+        line-height: 1;
+        letter-spacing: -1px;
+      }
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+      }
+      .logo-name {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--slate-900);
+        letter-spacing: -.3px;
+      }
+      .logo-tagline {
+        font-size: 10.5px;
+        font-weight: 400;
+        color: var(--slate-500);
+        letter-spacing: .3px;
+        font-family: var(--mono);
+        text-transform: uppercase;
+      }
+      .lang-switcher {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        background: var(--slate-100);
+        border-radius: 8px;
+        padding: 3px;
+      }
+      .lang-btn {
+        padding: 5px 10px;
+        border: none;
+        background: transparent;
+        color: var(--slate-500);
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: var(--transition);
+        letter-spacing: .5px;
+      }
+      .lang-btn.active {
+        background: var(--white);
+        color: var(--blue);
+        box-shadow: 0 1px 3px rgba(0,0,0,.1);
+      }
+      .lang-btn:hover:not(.active) { color: var(--slate-700); }
+      .hero {
+        background: var(--white);
+        padding: 80px 24px 72px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,128,255,.08) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--blue-light);
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 600;
+        font-family: var(--mono);
+        padding: 5px 14px;
+        border-radius: 100px;
+        margin-bottom: 28px;
+        letter-spacing: .3px;
+        border: 1px solid rgba(0,128,255,.15);
+      }
+      .hero-badge::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: var(--blue);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: .6; transform: scale(.8); }
+      }
+      .hero h1 {
+        font-size: clamp(28px, 5vw, 50px);
+        font-weight: 800;
+        color: var(--slate-900);
+        line-height: 1.15;
+        letter-spacing: -1.5px;
+        max-width: 820px;
+        margin: 0 auto 20px;
+      }
+      .hero h1 .accent { color: var(--blue); }
+      .hero-sub {
+        font-size: clamp(15px, 2vw, 17px);
+        color: var(--slate-500);
+        max-width: 600px;
+        margin: 0 auto 36px;
+        line-height: 1.7;
+        font-weight: 400;
+      }
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--blue);
+        color: var(--white);
+        font-family: var(--font);
+        font-size: 15px;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: var(--transition);
+        box-shadow: 0 4px 20px rgba(0,128,255,.35);
+        letter-spacing: -.1px;
+      }
+      .cta-btn:hover {
+        background: var(--blue-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 24px rgba(0,128,255,.45);
+      }
+      .trust-row {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: var(--slate-500);
+        font-weight: 500;
+      }
+      .trust-item svg { color: var(--blue); }
+      .section {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 72px 24px;
+      }
+      .section-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--blue);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .section-title {
+        font-size: clamp(22px, 3.5vw, 34px);
+        font-weight: 700;
+        color: var(--slate-900);
+        letter-spacing: -1px;
+        margin-bottom: 48px;
+        max-width: 600px;
+        line-height: 1.25;
+      }
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24
