@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documatch.eu | Comparateur Indépendant GED &amp; DMS</title>
+    <title>Documatch.eu | Comparateur Indépendant GED & DMS</title>
     <style>
         :root {
             --blue-documatch: #0087d1;
@@ -10,8 +12,11 @@
             --text-muted: #475569;
             --border-color: #e2e8f0;
         }
+
         *, *::before, *::after { box-sizing: border-box; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-dark); background-color: #ffffff; margin: 0; padding: 0; line-height: 1.5; }
+        
+        /* Navbar con Branding */
         .navbar { display: table; width: 100%; padding: 15px 5%; background: #ffffff; border-bottom: 1px solid var(--border-color); }
         .nav-container { display: table-row; }
         .nav-branding { display: table-cell; vertical-align: middle; }
@@ -19,28 +24,34 @@
         .logo-img { height: 48px; width: auto; border-radius: 8px; display: block; }
         .brand-text-box { display: inline-block; vertical-align: middle; margin-left: 12px; font-size: 0.85rem; color: #1e293b; line-height: 1.2; }
         .brand-title { font-weight: bold; font-size: 1.1rem; color: #000000; letter-spacing: 0.5px; }
+        
         .nav-actions { display: table-cell; text-align: right; vertical-align: middle; }
         .lang-buttons { display: inline-flex; gap: 6px; }
         .btn-lang { padding: 6px 12px; font-size: 0.8rem; font-weight: bold; color: var(--text-dark); border: 1px solid var(--border-color); border-radius: 4px; background: #ffffff; cursor: pointer; }
         .btn-lang.active { background: var(--blue-documatch); color: #ffffff; border-color: var(--blue-documatch); }
-        
+
+        /* Barra de Sectores */
         .sector-nav { background: #0f172a; padding: 10px 5%; display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; }
         .btn-sector { padding: 8px 16px; font-size: 0.85rem; background: #1e293b; border: none; border-radius: 4px; color: #94a3b8; cursor: pointer; font-weight: 500; transition: all 0.2s; }
         .btn-sector.active { background: var(--blue-documatch); color: #ffffff; }
-        
+
+        /* Estructura Principal */
         .main-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         .layout-table { display: table; width: 100%; table-layout: fixed; }
         .layout-row { display: table-row; }
         .left-column { display: table-cell; width: 55%; padding-right: 40px; vertical-align: top; }
-        .right-column { display: table-cell; width: 45%; padding: 35px; vertical-align: top; background: #ffffff; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: relative; }
-        
+        .right-column { display: table-cell; width: 45%; padding: 35px; vertical-align: top; background: #ffffff; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+
+        /* Textos Hero */
         .badge-tag { display: inline-block; padding: 4px 10px; background: #e0f2fe; color: var(--blue-documatch); font-size: 0.75rem; font-weight: bold; border-radius: 4px; text-transform: uppercase; margin-bottom: 15px; }
         h1 { font-size: 2.2rem; color: #000000; line-height: 1.25; margin: 0 0 15px 0; }
         .hero-desc { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 30px; }
-        
+
+        /* Mini Argumentos Rápidos */
         .quick-arguments { display: table; width: 100%; margin-bottom: 40px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
         .arg-item { display: table-cell; width: 33.33%; text-align: center; font-size: 0.85rem; font-weight: bold; color: #1e293b; }
-        
+
+        /* Formulario */
         .form-box h3 { font-size: 1.3rem; margin: 0 0 5px 0; color: #000000; }
         .form-box p { font-size: 0.85rem; color: var(--text-muted); margin: 0 0 20px 0; }
         .form-group { margin-bottom: 15px; }
@@ -48,51 +59,65 @@
         .form-group input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; }
         .btn-submit { width: 100%; padding: 14px; background: var(--blue-documatch); color: #ffffff; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
         .form-privacy { font-size: 0.75rem; color: #64748b; text-align: center; margin-top: 12px; line-height: 1.3; }
-        
+
+        /* Sección Especial: Análisis IA (Redirección a tu web) */
         .ia-section { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 40px; border-radius: 12px; margin: 50px 0; text-align: center; }
-        .ia-badge { display: inline-block; padding: 4px 10px; background: var(--blue-documatch); color: #ffffff; font-size: 0.75rem; font-weight: bold; border-radius: 4px; margin-bottom: 15px; text-transform: uppercase; }
-        .ia-title { font-size: 1.8rem; font-weight: bold; margin: 0 0 10px 0; }
-        .ia-desc { color: #94a3b8; max-width: 600px; margin: 0 auto 25px auto; font-size: 1rem; }
-        
-        .section-title { font-size: 1.6rem; font-weight: bold; margin-bottom: 30px; text-align: center; text-transform: uppercase; color: #000000; }
-        .pillars-grid { display: table; width: 100%; table-layout: fixed; margin-bottom: 40px; border-collapse: separate; border-spacing: 15px 0; margin-left: -15px; margin-right: -15px; }
-        .pillar-card { display: table-cell; width: 25%; padding: 25px; background: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; vertical-align: top; }
-        .pillar-icon { font-size: 1.8rem; color: var(--blue-documatch); margin-bottom: 15px; font-weight: bold; }
-        .pillar-card h4 { font-size: 1.1rem; margin: 0 0 10px 0; color: #000000; }
-        .pillar-card p { font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
-        
-        .check-list { list-style: none; padding: 0; margin: 30px 0; }
-        .check-item { position: relative; padding-left: 28px; margin-bottom: 12px; font-size: 1rem; color: #334155; }
-        .check-item::before { content: "✓"; position: absolute; left: 0; color: var(--blue-documatch); font-weight: bold; font-size: 1.1rem; }
-        
-        .footer { background: #0f172a; color: #94a3b8; padding: 40px 5% 30px 5%; border-top: 4px solid var(--blue-documatch); font-size: 0.85rem; }
-        .footer-table { display: table; width: 100%; }
+        .ia-badge { display: inline-block; padding: 4px 10px; background: var(--blue-documatch); color: #ffffff; font-size: 0.75rem; font-weight: bold; border-radius: 4px; margin-bottom: 15px; }
+        .ia-section h2 { font-size: 1.8rem; margin: 0 0 10px 0; }
+        .ia-section p { color: #94a3b8; margin: 0 0 25px 0; font-size: 1rem; }
+        .btn-ia { display: inline-block; padding: 14px 30px; background: #ffffff; color: #0f172a; text-decoration: none; font-weight: bold; border-radius: 6px; transition: background 0.2s; }
+        .btn-ia:hover { background: #e2e8f0; }
+
+        /* Bloque de 4 Pilares / Argumentos Ampliados */
+        .section-title { font-size: 1.6rem; font-weight: bold; margin-bottom: 30px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
+        .pillars-grid { display: table; width: 100%; table-layout: fixed; margin-bottom: 40px; }
+        .pillars-row { display: table-row; }
+        .pillar-card { display: table-cell; width: 25%; padding: 20px; background: var(--bg-light); border: 1px solid var(--border-color); border-right: none; vertical-align: top; }
+        .pillar-card:last-child { border-right: 1px solid var(--border-color); border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+        .pillar-card:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+        .pillar-tag { font-size: 0.7rem; font-weight: bold; color: var(--blue-documatch); text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .pillar-card h4 { font-size: 1.05rem; margin: 0 0 10px 0; color: #000000; }
+        .pillar-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
+
+        /* Lista de Verificación en el Hero */
+        .check-list { list-style: none; padding: 0; margin: 0 0 30px 0; }
+        .check-item { position: relative; padding-left: 24px; margin-bottom: 10px; font-size: 0.95rem; color: #334155; }
+        .check-item::before { content: "✓"; position: absolute; left: 0; color: var(--blue-documatch); font-weight: bold; }
+
+        /* FOOTER CORPORATIVO */
+        .footer { background: #0f172a; color: #94a3b8; padding: 50px 5% 30px 5%; font-size: 0.85rem; border-top: 4px solid var(--blue-documatch); }
+        .footer-table { display: table; width: 100%; margin-bottom: 30px; }
         .footer-row { display: table-row; }
-        .footer-col { display: table-cell; vertical-align: top; }
-        .footer-right { text-align: right; }
-        .footer-links a { color: #94a3b8; text-decoration: none; margin-left: 15px; cursor: pointer; }
-        .footer-links a:hover { color: #ffffff; }
-        
-        .legal-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); z-index: 10000; padding: 20px; overflow-y: auto; backdrop-filter: blur(4px); }
-        .modal-content { background: #ffffff; max-width: 700px; margin: 40px auto; padding: 30px; border-radius: 12px; position: relative; color: var(--text-dark); }
-        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); font-weight: bold; }
-        .modal-content h3 { margin-top: 0; color: #000000; }
-        
+        .footer-col-brand { display: table-cell; width: 50%; vertical-align: top; padding-right: 30px; }
+        .footer-col-links { display: table-cell; width: 50%; vertical-align: top; text-align: right; }
+        .footer-brand-title { color: #ffffff; font-weight: bold; font-size: 1.1rem; margin-bottom: 10px; }
+        .footer-links-nav { display: inline-flex; gap: 20px; }
+        .footer-link { color: #94a3b8; text-decoration: none; }
+        .footer-link:hover { color: #ffffff; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; display: table; width: 100%; font-size: 0.8rem; }
+        .footer-copy { display: table-cell; width: 50%; }
+        .footer-seo { display: table-cell; width: 50%; text-align: right; color: #475569; text-transform: uppercase; font-size: 0.75rem; font-weight: bold; }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .layout-table, .layout-row, .left-column, .right-column, .quick-arguments, .arg-item, .pillars-grid, .pillar-card, .footer-table, .footer-row, .footer-col { display: block; width: 100%; padding-right: 0; margin-bottom: 20px; text-align: left; }
-            .pillars-grid { border-spacing: 0; margin-left: 0; margin-right: 0; }
-            .pillar-card { margin-bottom: 15px; }
-            .footer-right { text-align: left; margin-top: 15px; }
-            .footer-links a { margin-left: 0; margin-right: 15px; display: inline-block; }
+            .layout-table, .layout-row, .left-column, .right-column, .quick-arguments, .arg-item, .pillars-grid, .pillars-row, .pillar-card, .footer-table, .footer-row, .footer-col-brand, .footer-col-links, .footer-bottom, .footer-copy, .footer-seo { display: block; width: 100%; text-align: left; }
+            .right-column { margin-top: 30px; padding: 20px; }
+            .pillar-card { border-right: 1px solid var(--border-color) !important; border-bottom: none; border-radius: 0 !important; }
+            .pillar-card:last-child { border-bottom: 1px solid var(--border-color); border-bottom-left-radius: 8px !important; border-bottom-right-radius: 8px !important; }
+            .pillar-card:first-child { border-top-left-radius: 8px !important; border-top-right-radius: 8px !important; }
+            .footer-col-links { margin-top: 25px; }
+            .footer-links-nav { display: flex; flex-direction: column; gap: 10px; }
+            .footer-seo { margin-top: 10px; }
         }
     </style>
 </head>
 <body>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-branding">
-                <a href="https://www.documatch.eu/" class="logo-link">
-                    <img src="logo.jpg?v=123" alt="Documatch.eu" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x48.jpg?text=DOCUMATCH'">
+                <a href="https://www.documatch.eu" class="logo-link">
+                    <img src="logo docu3.0 jpg.jpg" alt="Documatch.eu" class="logo-img">
                 </a>
                 <div class="brand-text-box">
                     <div class="brand-title">DOCUMATCH</div>
@@ -101,53 +126,40 @@
             </div>
             <div class="nav-actions">
                 <div class="lang-buttons">
-                    <button class="btn-lang active" id="lang-fr">FR</button>
-                    <button class="btn-lang" id="lang-es">ES</button>
-                    <button class="btn-lang" id="lang-en">EN</button>
+                    <button class="btn-lang" id="lang-fr" onclick="changeLanguage('fr')">FR</button>
+                    <button class="btn-lang" id="lang-es" onclick="changeLanguage('es')">ES</button>
+                    <button class="btn-lang" id="lang-en" onclick="changeLanguage('en')">EN</button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="sector-nav" id="sector-tabs">
-        <button class="btn-sector active" data-sector="btp">Bâtiment / BTP</button>
-        <button class="btn-sector" data-sector="immo">Immobilier</button>
-        <button class="btn-sector" data-sector="legal">Juridique</button>
-        <button class="btn-sector" data-sector="compta">Comptabilité</button>
-        <button class="btn-sector" data-sector="sante">Santé</button>
-        <button class="btn-sector" data-sector="indus">Industrie</button>
-        <button class="btn-sector" data-sector="rh">Ressources Humaines</button>
-        <button class="btn-sector" data-sector="finance">Banque / Finance</button>
-        <button class="btn-sector" data-sector="asso">Associations / ONG</button>
-    </div>
+    <div class="sector-nav" id="sector-tabs"></div>
 
     <div class="main-container">
         <div class="layout-table">
             <div class="layout-row">
+                
                 <div class="left-column">
-                    <div class="badge-tag" id="ui-badge-top">Comparateur Indépendant GED &amp; DMS</div>
-                    <h1 id="hero-title">La gestion des factures sous-traitants sur papier ralentit vos chantiers</h1>
-                    <p class="hero-desc" id="hero-subtitle">Documatch.eu analyse objectivement les meilleures solutions GED adaptées au BTP.</p>
+                    <div class="badge-tag" id="ui-badge-top">Comparateur Indépendant</div>
+                    <h1 id="hero-title">Chargement...</h1>
+                    <p class="hero-desc" id="hero-subtitle">Chargement...</p>
                     
-                    <div class="quick-arguments" id="ui-arguments">
-                        <div class="arg-item" id="arg1">✓ 100% Indépendant</div>
-                        <div class="arg-item" id="arg2">✓ Analyse en 48h</div>
-                        <div class="arg-item" id="arg3">✓ Gratuit &amp; Sans engagement</div>
+                    <div class="quick-arguments">
+                        <div class="arg-item" id="arg-1">✓ 100% indépendant</div>
+                        <div class="arg-item" id="arg-2">✓ Analyse en 48h</div>
+                        <div class="arg-item" id="arg-3">✓ Sans engagement</div>
                     </div>
 
-                    <ul class="check-list" id="ui-bullets">
-                        <li class="check-item">Analyse de vos circuits de validation de factures spécifiques</li>
-                        <li class="check-item">Vérification de l'intégration avec vos logiciels de comptabilité</li>
-                        <li class="check-item">Évaluation de la conformité réglementaire (Facturation Électronique)</li>
-                    </ul>
+                    <ul class="check-list" id="hero-checks"></ul>
                 </div>
 
                 <div class="right-column">
-                    <div class="form-box" id="main-form-box">
-                        <h3 id="form-title">PRÉ-ANALYSE GRATUITE</h3>
-                        <p id="form-subtitle">Obtenez votre rapport personnalisé en 48h</p>
+                    <div class="form-box">
+                        <h3 id="form-title">Pré-Analyse Gratuit</h3>
+                        <p id="form-subtitle">Rapport personnalisé en 48h</p>
                         
-                        <form action="https://formspree.io/f/mpqndldg" method="POST">
+                        <form action="https://www.documatch.eu/" method="GET">
                             <input type="hidden" name="utm_source" value="landing_satelite">
                             <input type="hidden" name="sector" id="hidden-sector" value="btp">
                             <input type="hidden" name="lang" id="hidden-lang" value="fr">
@@ -174,304 +186,334 @@
                         </form>
                     </div>
                 </div>
+
+            </div>
+        </div>
+
+        <div style="margin-top: 60px;">
+            <div class="section-title" id="pillars-main-title">Écosystème</div>
+            <div class="pillars-grid">
+                <div class="pillars-row" id="pillars-container"></div>
             </div>
         </div>
 
         <div class="ia-section">
-            <div class="ia-badge" id="ia-badge-txt">Analyse Algorithmique</div>
-            <div class="ia-title" id="ia-title-txt">L'intelligence artificielle au service de votre choix GED</div>
-            <div class="ia-desc" id="ia-desc-txt">Notre moteur croise vos besoins métiers avec les fonctionnalités réelles de plus de 45 logiciels du marché pour extraire le top 3 idéal.</div>
-        </div>
-
-        <h3 class="section-title" id="pillars-title">Les 4 Piliers de notre Audit Objectif</h3>
-        <div class="pillars-grid" id="pillars-container">
-            <div class="pillar-card">
-                <div class="pillar-icon">01</div>
-                <h4 id="p1-t">Volume &amp; Stockage</h4>
-                <p id="p1-d">Évaluation de l'espace nécessaire et de la vitesse d'indexation de vos fichiers historiques.</p>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-icon">02</div>
-                <h4 id="p2-t">Sécurité &amp; Droits</h4>
-                <p id="p2-d">Analyse fine des matrices de droits d'accès nécessaires pour vos collaborateurs et tiers.</p>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-icon">03</div>
-                <h4 id="p3-t">Workflows Métiers</h4>
-                <p id="p3-d">Cartographie des circuits de relecture, visa, validation et signature électronique.</p>
-            </div>
-            <div class="pillar-card">
-                <div class="pillar-icon">04</div>
-                <h4 id="p4-t">Interopérabilité</h4>
-                <p id="p4-d">Mesure de la compatibilité technique native avec vos ERP, CRM and outils comptables existants.</p>
-            </div>
+            <div class="ia-badge">DOCUMATCH.EU GENERATIVE AI</div>
+            <h2 id="ia-title">Analyseur IA de besoins GED</h2>
+            <p id="ia-subtitle">Questionnaire GED gratuit • Résultats personnalisés en moins de 5 minutes</p>
+            <a href="https://www.documatch.eu/#analyseur-ia" class="btn-ia" id="ia-btn">Démarrer l'analyse IA</a>
         </div>
     </div>
 
     <footer class="footer">
         <div class="footer-table">
             <div class="footer-row">
-                <div class="footer-col">
-                    <div>&copy; 2026 Documatch.eu. Tous droits réservés.</div>
+                <div class="footer-col-brand">
+                    <div class="footer-brand-title">Documatch.eu</div>
+                    <p id="footer-desc" style="margin:0; line-height:1.4;">Plateforme européenne d'aide à la décision pour la sélection de logiciels GED, DMS et de gestion documentaire.</p>
                 </div>
-                <div class="footer-col footer-right footer-links">
-                    <a id="link-legal">Mentions Légales</a>
-                    <a id="link-privacy">Confidentialité</a>
+                <div class="footer-col-links">
+                    <div class="footer-links-nav">
+                        <a href="https://www.documatch.eu/conditions" class="footer-link" id="f-link-cond">Conditions</a>
+                        <a href="https://www.documatch.eu/confidentialite" class="footer-link" id="f-link-priv">Confidentialité</a>
+                        <a href="https://www.documatch.eu/mentions-legales" class="footer-link" id="f-link-legal">Mentions légales</a>
+                        <a href="https://www.documatch.eu/cookies" class="footer-link" id="f-link-cook">Cookies</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="footer-bottom">
+            <div class="footer-copy">© 2026 Documatch.eu — Tous droits réservés</div>
+            <div class="footer-seo" id="footer-seo-term">comparateur indépendant GED et DMS BTP</div>
+        </div>
     </footer>
 
-    <div class="legal-modal" id="modal-legal">
-        <div class="modal-content">
-            <span class="modal-close" id="modal-close-btn">&times;</span>
-            <h3 id="modal-title">Informations</h3>
-            <div id="modal-body" style="font-size:0.9rem; line-height:1.6; color:#334155; max-height:400px; overflow-y:auto;"></div>
-        </div>
-    </div>
-
     <script>
-        const contentData = {
-            fr: {
-                brandTagline: "Comparateur de logiciels GED pour entreprises",
-                badgeTop: "Comparateur Indépendant GED & DMS",
-                formTitle: "PRÉ-ANALYSE GRATUITE",
-                formSubtitle: "Obtenez votre rapport personnalisé en 48h",
-                lblName: "Nom complet",
-                lblCompany: "Entreprise / Société",
-                lblEmail: "Adresse e-mail professionnelle",
-                lblPhone: "Téléphone",
-                btnSubmit: "Recevoir mon Pré-Analyse Gratuit →",
-                uiPrivacy: "Aucun démarchage commercial. Vos données restent confidentielles et ne sont jamais revendues.",
-                arg1: "✓ 100% Indépendant",
-                arg2: "✓ Analyse en 48h",
-                arg3: "✓ Gratuit & Sans engagement",
-                iaBadge: "Analyse Algorithmique",
-                iaTitle: "L'intelligence artificielle au service de votre choix GED",
-                iaDesc: "Notre moteur croise vos besoins métiers avec les fonctionnalités réelles de plus de 45 logiciels du marché pour extraire le top 3 idéal.",
-                pillarsTitle: "Les 4 Piliers de notre Audit Objectif",
-                legalLink: "Mentions Légales",
-                privacyLink: "Confidentialité",
-                sectors: {
-                    btp: {
-                        tab: "Bâtiment / BTP",
-                        title: "La gestion des factures sous-traitants sur papier ralentit vos chantiers",
-                        subtitle: "Documatch.eu analyse objectivement les meilleures solutions GED adaptées au BTP.",
-                        bullets: ["Analyse de vos circuits de validation de factures spécifiques", "Vérification de l'intégration avec vos logiciels de comptabilité", "Évaluation de la conformité réglementaire (Facturation Électronique)"],
-                        p1_t: "Volume & Chantiers", p1_d: "Classement automatique des documents par dossier de chantier et gestion des plans lourds.",
-                        p2_t: "Accès Chantiers", p2_d: "Droits d'accès mobiles sécurisés pour les conducteurs de travaux directement depuis le terrain.",
-                        p3_t: "Validation Factures", p3_d: "Circuit automatisé de validation des situations de travaux et des factures sous-traitants.",
-                        p4_t: "Liaisons ERP BTP", p4_d: "Passerelles certifiées avec les principaux ERP et logiciels de gestion du bâtiment du marché."
-                    },
-                    immo: {
-                        tab: "Immobilier",
-                        title: "La dispersion des dossiers de diagnostics et baux fragilise vos mandats",
-                        subtitle: "Découvrez les outils GED leaders pour centraliser et sécuriser vos actifs immobiliers.",
-                        bullets: ["Centralisation des dossiers techniques par immeuble, lot ou copropriété", "Automatisation des relances pour les pièces manquantes ou obsolètes", "Partage sécurisé des documents avec les locataires, acheteurs et notaires"],
-                        p1_t: "Gestion des Lots", p1_d: "Arborescence intelligente structurée par immeuble, étage, appartement y bail de location.",
-                        p2_t: "Extranet Sécurisé", p2_d: "Espaces clients dédiés pour les copropriétaires, locataires y conseils syndicaux.",
-                        p3_t: "Relances Auto", p3_d: "Détection automatique des diagnostics techniques périmés y alertes automatiques.",
-                        p4_t: "Outils Métiers", p4_d: "Synchronisation transparente avec vos logiciels de gestion locative y de syndic de copropriété."
-                    },
-                    legal: { tab: "Juridique", title: "Law firm content dispersed across systems bottlenecks client casework productivity", subtitle: "Consolidate matter documentation inside highly audited and compliant safe zones.", bullets: ["Granular permission sets for casework safety", "Tamperproof trails tracking file activity loops", "Integrated case system interconnectivity workflows"], p1_t: "Matter Security", p1_d: "Lock down client data with rigorous cryptographic protections.", p2_t: "Audit Invariance", p2_d: "Maintains accurate operational logs for standard regulatory reviews.", p3_t: "Case File Unification", p3_d: "Aggregates all casework assets within one trusted environment.", p4_t: "Integrated Loops", p4_d: "Direct interface mappings with established legal accounting packages." },
-                    compta: { tab: "Comptabilité", title: "Fragmented client receipt collection loops create operational accounting resource gaps", subtitle: "Structure your data pipeline to consolidate tax and ledger source material safely.", bullets: ["Automated client source extraction loops", "OCR intelligent data parsing routines", "Integrated financial bookkeeping ledger sync"], p1_t: "Source Extraction", p1_d: "Direct vendor connectivity for automated source asset collection.", p2_t: "Intelligent Parsing", p2_d: "Automatically extract amounts, dates and tax specifics for bookkeeping.", p3_t: "Compliance Vaults", p3_d: "Secure legal retention vaults with full regulatory certifications.", p4_t: "Ledger Connectivity", p4_d: "Production accounting platform interface mappings." },
-                    sante: { tab: "Santé", title: "Securing patient records across fragmented hospital systems leaves no room for error", subtitle: "Unify chronological diagnostic history within HDS-compliant trusted document zones.", bullets: ["Certified HDS server environments", "Single longitudinal patient records", "Identity-based clinical access controls"], p1_t: "HDS Compliance", p1_d: "Flawless technical matching against strict French medical data standards.", p2_t: "Patient Records", p2_d: "Chronological diagnostic logs unified for immediate provider visibility.", p3_t: "Prescription Chains", p3_d: "Validated e-prescribing chains for seamless clinical operations.", p4_t: "Clinical Integration", p4_d: "Direct mappings into main healthcare management platform architectures." },
-                    indus: { tab: "Industrie", title: "Scattered delivery slips and engineering blueprints fracture your critical quality loop", subtitle: "Consolidate manufacturing quality documentation to mitigation liability exposure.", bullets: ["Central engineering asset tree structures", "Barcode slip scanning and direct routing", "Active ISO compliance documentation visibility"], p1_t: "ISO Compliance", p1_d: "Production blueprint control matching current ISO operational requirements.", p2_t: "Barcode Scanning", p2_d: "Instant digital capture of inbound and outbound supply chain slips.", p3_t: "Workflow Chains", p3_d: "Automated routing for multi-stage quality review and validations.", p4_t: "ERP/MES Mappings", p4_d: "Production loop interfaces with active factory management platform loops." },
-                    rh: { tab: "Ressources Humaines", title: "Fragmented employee records management break internal talent lifecycle operations", subtitle: "Safeguard critical talent asset files inside restricted and audited safe zones.", bullets: ["Single employee record view architecture", "Digital contract execution workflows", "Private salary slip vault delivery"], p1_t: "Talent Folders", p1_d: "Document expiration monitors ensuring critical license compliance.", p2_t: "Private Vaults", p2_d: "Restricted and audited vaults for salary slips and sensitive reviews.", p3_t: "Onboarding Flow", p3_d: "Structured workflow patterns for automated file collection loops.", p4_t: "Privacy Firewalls", p4_d: "Strict profile isolation enforcing GDPR data protection guidelines." },
-                    finance: { tab: "Banque / Finance", title: "Auditing document transaction trails for active compliance MITIGATE Exposure Risks", subtitle: "Lock down your active transaction paperwork within immutable legal archives.", bullets: ["KYC operations automated extraction loop", "Tamperproof activity loops for all files", "Immutable data vault architectures for retention"], p1_t: "KYC Operations", p1_d: "Immediate data consolidation for identity validation routines.", p2_t: "Activity Auditing", p2_d: "Flawless chronological tracking of document lifecycle loops.", p3_t: "Vault Protections", p3_d: "Hardened secure vaults meeting high institutional cryptography standards.", p4_t: "Institutional Map", p4_d: "Direct mappings into established financial banking network loop flows." },
-                    asso: { tab: "Associations / ONG", title: "Donor paper records dispersed across systems paralyze fundraising potential", subtitle: "Consolidate association and donor documentation within audited trusted spheres.", bullets: ["Grant document management lifecycles", "Volunteer access structure control loops", "Automated donor acknowledgement generation"], p1_t: "Grant Tracking", p1_d: "Consolidated grant asset paperwork structured for easy auditing loops.", p2_t: "Donor Acknowledgement", p2_d: "Automated Generation and tracking of donor relationship documentation.", p3_t: "Volunteer Access", p3_d: "Granular data visibility for remote and local field operatives.", p4_t: "Cost-Optimized", p4_d: "Lean operational models mapped into limited budget association structures." }
-                }
-            },
-            es: { /* Las traducciones de ES se mantienen dinámicas con la estructura idéntica */ 
-                brandTagline: "Comparador de software GED para empresas",
-                badgeTop: "Comparador Independiente GED & DMS",
-                formTitle: "PREANÁLISIS GRATUITO",
-                formSubtitle: "Obtenga su informe personalizado en 48h",
-                lblName: "Nombre completo", lblCompany: "Empresa / Sociedad", lblEmail: "Correo electrónico profesional", lblPhone: "Teléfono",
-                btnSubmit: "Recibir mi Preanálisis Gratis →", uiPrivacy: "Sin prospección comercial. Sus datos son confidenciales y nunca se revenden.",
-                arg1: "✓ 100% Independiente", arg2: "✓ Análisis en 48h", arg3: "✓ Gratis y sin compromiso",
-                iaBadge: "Análisis Algorítmico", iaTitle: "Inteligencia artificial al servicio de su elección de GED", iaDesc: "Nuestro motor cruza sus necesidades comerciales con las características reales de más de 45 soluciones del mercado para extraer el top 3 ideal.",
-                pillarsTitle: "Los 4 Pilares de nuestra Auditoría Objetiva", legalLink: "Aviso Legal", privacyLink: "Privacidad",
-                sectors: {
-                    btp: {
-                        tab: "Construcción / BTP",
-                        title: "La gestión de facturas de subcontratistas en papel ralentiza sus obras",
-                        subtitle: "Documatch.eu analiza objetivamente las mejores soluciones GED adaptadas a la construcción.",
-                        bullets: ["Análisis de sus circuitos específicos de validación de facturas", "Verificación de la integración con sus programas de contabilidad", "Evaluación del cumplimiento normativo (Facturación Electrónica)"],
-                        p1_t: "Volumen y Obras", p1_d: "Clasificación automática de documentos por expediente de obra y gestión de planos pesados.",
-                        p2_t: "Acceso a Obras", p2_d: "Derechos de acceso móvil seguros para los jefes de obra directamente desde el terreno.",
-                        p3_t: "Validación de Facturas", p3_d: "Circuito automatizado de validación de estados de obra y facturas de subcontratistas.",
-                        p4_t: "Conexiones ERP BTP", p4_d: "Pasarelas certificadas con los principales ERP y software de gestión de la construcción del mercado."
-                    },
-                    immo: {
-                        tab: "Inmobiliaria",
-                        title: "La dispersión de contratos y diagnósticos debilita sus mandatos",
-                        subtitle: "Descubra las herramientas GED líderes para centralizar y asegurar sus activos inmobiliarios.",
-                        bullets: ["Centralización de expedientes técnicos por edificio, lote o copropiedad", "Automatización de recordatorios para documentos faltantes o desactualizados", "Uso compartido seguro de documentos con inquilinos, compradores y notarios"],
-                        p1_t: "Gestión de Lotes", p1_d: "Árbol inteligente estructurado por edificio, planta, apartamento y contrato de arrendamiento.",
-                        p2_t: "Extranet Segura", p2_d: "Espacios de cliente dedicados para copropietarios, inquilinos y consejos de administración.",
-                        p3_t: "Avisos Automáticos", p3_d: "Detección automática de diagnósticos técnicos caducados y alertas automatizadas.",
-                        p4_t: "Herramientas de Sector", p4_d: "Sincronización transparente con sus programas de gestión de alquileres y administración de fincas."
-                    },
-                    legal: { tab: "Jurídico", title: "Law firm content dispersed across systems bottlenecks client casework productivity", subtitle: "Consolidate matter documentation inside highly audited and compliant safe zones.", bullets: ["Granular permission sets for casework safety", "Tamperproof trails tracking file activity loops", "Integrated case system interconnectivity workflows"], p1_t: "Matter Security", p1_d: "Lock down client data with rigorous cryptographic protections.", p2_t: "Audit Invariance", p2_d: "Maintains accurate operational logs for standard regulatory reviews.", p3_t: "Case File Unification", p3_d: "Aggregates all casework assets within one trusted environment.", p4_t: "Integrated Loops", p4_d: "Direct interface mappings with established legal accounting packages." },
-                    compta: { tab: "Comptabilidad", title: "Fragmented client receipt collection loops create operational accounting resource gaps", subtitle: "Structure your data pipeline to consolidate tax and ledger source material safely.", bullets: ["Automated client source extraction loops", "OCR intelligent data parsing routines", "Integrated financial bookkeeping ledger sync"], p1_t: "Source Extraction", p1_d: "Direct vendor connectivity for automated source asset collection.", p2_t: "Intelligent Parsing", p2_d: "Automatically extract amounts, dates and tax specifics for bookkeeping.", p3_t: "Compliance Vaults", p3_d: "Secure legal retention vaults with full regulatory certifications.", p4_t: "Ledger Connectivity", p4_d: "Production accounting platform interface mappings." },
-                    sante: { tab: "Santé", title: "Securing patient records across fragmented hospital systems leaves no room for error", subtitle: "Unify chronological diagnostic history within HDS-compliant trusted document zones.", bullets: ["Certified HDS server environments", "Single longitudinal patient records", "Identity-based clinical access controls"], p1_t: "HDS Compliance", p1_d: "Flawless technical matching against strict French medical data standards.", p2_t: "Patient Records", p2_d: "Chronological diagnostic logs unified for immediate provider visibility.", p3_t: "Prescription Chains", p3_d: "Validated e-prescribing chains for seamless clinical operations.", p4_t: "Clinical Integration", p4_d: "Direct mappings into main healthcare management platform architectures." },
-                    indus: { tab: "Industrie", title: "Scattered delivery slips and engineering blueprints fracture your critical quality loop", subtitle: "Consolidate manufacturing quality documentation to mitigation liability exposure.", bullets: ["Central engineering asset tree structures", "Barcode slip scanning and direct routing", "Active ISO compliance documentation visibility"], p1_t: "ISO Compliance", p1_d: "Production blueprint control matching current ISO operational requirements.", p2_t: "Barcode Scanning", p2_d: "Instant digital capture of inbound and outbound supply chain slips.", p3_t: "Workflow Chains", p3_d: "Automated routing for multi-stage quality review and validations.", p4_t: "ERP/MES Mappings", p4_d: "Production loop interfaces with active factory management platform loops." },
-                    rh: { tab: "Ressources Humaines", title: "Fragmented employee records management break internal talent lifecycle operations", subtitle: "Safeguard critical talent asset files inside restricted and audited safe zones.", bullets: ["Single employee record view architecture", "Digital contract execution workflows", "Private salary slip vault delivery"], p1_t: "Talent Folders", p1_d: "Document expiration monitors ensuring critical license compliance.", p2_t: "Private Vaults", p2_d: "Restricted and audited vaults for salary slips and sensitive reviews.", p3_t: "Onboarding Flow", p3_d: "Structured workflow patterns for automated file collection loops.", p4_t: "Privacy Firewalls", p4_d: "Strict profile isolation enforcing GDPR data protection guidelines." },
-                    finance: { tab: "Banque / Finance", title: "Auditing document transaction trails for active compliance MITIGATE Exposure Risks", subtitle: "Lock down your active transaction paperwork within immutable legal archives.", bullets: ["KYC operations automated extraction loop", "Tamperproof activity loops for all files", "Immutable data vault architectures for retention"], p1_t: "KYC Operations", p1_d: "Immediate data consolidation for identity validation routines.", p2_t: "Activity Auditing", p2_d: "Flawless chronological tracking of document lifecycle loops.", p3_t: "Vault Protections", p3_d: "Hardened secure vaults meeting high institutional cryptography standards.", p4_t: "Institutional Map", p4_d: "Direct mappings into established financial banking network loop flows." },
-                    asso: { tab: "Associations / ONG", title: "Donor paper records dispersed across systems paralyze fundraising potential", subtitle: "Consolidate association and donor documentation within audited trusted spheres.", bullets: ["Grant document management lifecycles", "Volunteer access structure control loops", "Automated donor acknowledgement generation"], p1_t: "Grant Tracking", p1_d: "Consolidated grant asset paperwork structured for easy auditing loops.", p2_t: "Donor Acknowledgement", p2_d: "Automated Generation and tracking of donor relationship documentation.", p3_t: "Volunteer Access", p3_d: "Granular data visibility for remote and local field operatives.", p4_t: "Cost-Optimized", p4_d: "Lean operational models mapped into limited budget association structures." }
-                }
-            },
-            en: { /* Estructura idéntica para EN para asegurar la carga limpia */
-                brandTagline: "Independent Document Management Software Comparator",
-                badgeTop: "Independent DMS & Document Management Comparator",
-                formTitle: "FREE PRE-ANALYSIS", formSubtitle: "Get your personalized report within 48 hours",
-                lblName: "Full Name", lblCompany: "Company / Organization", lblEmail: "Professional Email Address", lblPhone: "Phone Number",
-                btnSubmit: "Receive My Free Pre-Analysis →", uiPrivacy: "No commercial solicitation. Your data remains completely confidential and is never resold.",
-                arg1: "✓ 100% Independent", arg2: "✓ 48h Turnaround", arg3: "✓ Free & No Obligation",
-                iaBadge: "Algorithmic Analysis", iaTitle: "Artificial Intelligence Focused on Document Management Selection", iaDesc: "Our analytical system processes your precise business requirements against 45+ market tools to accurately generate your optimal top 3 selection.",
-                pillarsTitle: "The 4 Core Pillars of Our Objective Audit", legalLink: "Legal Notice", privacyLink: "Privacy Policy",
-                sectors: {
-                    btp: {
-                        tab: "Construction / Engineering",
-                        title: "Paper-based subcontractor invoice management is stalling your building sites",
-                        subtitle: "Documatch.eu offers an objective assessment of leading DMS platforms tailored for construction companies.",
-                        bullets: ["Custom structural review of workflow and approval processes", "Detailed interface verification against current financial accounting packages", "Regulatory compliance assessment concerning mandatory electronic invoicing rules"],
-                        p1_t: "Volume & Site Filings", p1_d: "Automated indexing structured by project directories and heavy blueprint file handling.",
-                        p2_t: "Mobile Site Access", p2_d: "Robust identity and access management for project supervisors operating directly on site.",
-                        p3_t: "Invoice Workflow", p3_d: "Automated routing for progress certificates and third-party vendor bill verification.",
-                        p4_t: "ERP Integrations", p4_d: "Production-ready connectors supporting specialized building management enterprise systems."
-                    },
-                    immo: {
-                        tab: "Real Estate",
-                        title: "Scattered technical audits and lease documents weaken your mandates",
-                        subtitle: "Discover the best cloud document management frameworks built to safeguard property data.",
-                        bullets: ["Unified file indexing structured by property, unit, or community association", "Automated triggers scanning for expired, outdated or missing mandatory items", "Granular information sharing across tenants, asset managers, and legal networks"],
-                        p1_t: "Unit Classification", p1_d: "Hierarchical folders mapping individual assets, floors, units, and active rental leases.",
-                        p2_t: "Secure Portal Extranets", p2_d: "Dedicated interfaces provisioned for individual owners, tenants, and oversight boards.",
-                        p3_t: "Automated Triggers", p3_d: "Automated validation loops detecting aging building codes and pending renewal events.",
-                        p4_t: "Property Systems Integration", p4_d: "Native synchronization mapping into your accounting and daily leasing systems."
-                    },
-                    legal: { tab: "Juridique", title: "Law firm content dispersed across systems bottlenecks client casework productivity", subtitle: "Consolidate matter documentation inside highly audited and compliant safe zones.", bullets: ["Granular permission sets for casework safety", "Tamperproof trails tracking file activity loops", "Integrated case system interconnectivity workflows"], p1_t: "Matter Security", p1_d: "Lock down client data with rigorous cryptographic protections.", p2_t: "Audit Invariance", p2_d: "Maintains accurate operational logs for standard regulatory reviews.", p3_t: "Case File Unification", p3_d: "Aggregates all casework assets within one trusted environment.", p4_t: "Integrated Loops", p4_d: "Direct interface mappings with established legal accounting packages." },
-                    compta: { tab: "Comptabilité", title: "Fragmented client receipt collection loops create operational accounting resource gaps", subtitle: "Structure your data pipeline to consolidate tax and ledger source material safely.", bullets: ["Automated client source extraction loops", "OCR intelligent data parsing routines", "Integrated financial bookkeeping ledger sync"], p1_t: "Source Extraction", p1_d: "Direct vendor connectivity for automated source asset collection.", p2_t: "Intelligent Parsing", p2_d: "Automatically extract amounts, dates and tax specifics for bookkeeping.", p3_t: "Compliance Vaults", p3_d: "Secure legal retention vaults with full regulatory certifications.", p4_t: "Ledger Connectivity", p4_d: "Production accounting platform interface mappings." },
-                    sante: { tab: "Santé", title: "Securing patient records across fragmented hospital systems leaves no error", subtitle: "Unify chronological diagnostic history within HDS-compliant trusted document zones.", bullets: ["Certified HDS server environments", "Single longitudinal patient records", "Identity-based clinical access controls"], p1_t: "HDS Compliance", p1_d: "Flawless technical matching against strict French medical data standards.", p2_t: "Patient Records", p2_d: "Chronological diagnostic logs unified for immediate provider visibility.", p3_t: "Prescription Chains", p3_d: "Validated e-prescribing chains for seamless clinical operations.", p4_t: "Clinical Integration", p4_d: "Direct mappings into main healthcare management platform architectures." },
-                    indus: { tab: "Industrie", title: "Scattered delivery slips and engineering blueprints fracture your critical quality loop", subtitle: "Consolidate manufacturing quality documentation to mitigation liability exposure.", bullets: ["Central engineering asset tree structures", "Barcode slip scanning and direct routing", "Active ISO compliance documentation visibility"], p1_t: "ISO Compliance", p1_d: "Production blueprint control matching current ISO operational requirements.", p2_t: "Barcode Scanning", p2_d: "Instant digital capture of inbound and outbound supply chain slips.", p3_t: "Workflow Chains", p3_d: "Automated routing for multi-stage quality review and validations.", p4_t: "ERP/MES Mappings", p4_d: "Production loop interfaces with active factory management platform loops." },
-                    rh: { tab: "Ressources Humaines", title: "Fragmented employee records management break internal talent lifecycle operations", subtitle: "Safeguard critical talent asset files inside restricted and audited safe zones.", bullets: ["Single employee record view architecture", "Digital contract execution workflows", "Private salary slip vault delivery"], p1_t: "Talent Folders", p1_d: "Document expiration monitors ensuring critical license compliance.", p2_t: "Private Vaults", p2_d: "Restricted and audited vaults for salary slips and sensitive reviews.", p3_t: "Onboarding Flow", p3_d: "Structured workflow patterns for automated file collection loops.", p4_t: "Privacy Firewalls", p4_d: "Strict profile isolation enforcing GDPR data protection guidelines." },
-                    finance: { tab: "Banque / Finance", title: "Auditing document transaction trails MITIGATE Exposure Risks", subtitle: "Lock down your active transaction paperwork within immutable legal archives.", bullets: ["KYC operations automated extraction loop", "Tamperproof activity loops for all files", "Immutable data vault architectures for retention"], p1_t: "KYC Operations", p1_d: "Immediate data consolidation for identity validation routines.", p2_t: "Activity Auditing", p2_d: "Flawless chronological tracking of document lifecycle loops.", p3_t: "Vault Protections", p3_d: "Hardened secure vaults meeting high institutional cryptography standards.", p4_t: "Institutional Map", p4_d: "Direct mappings into established financial banking network loop flows." },
-                    asso: { tab: "Associations / ONG", title: "Donor paper records dispersed across systems paralyze fundraising potential", subtitle: "Consolidate association and donor documentation within audited trusted spheres.", bullets: ["Grant document management lifecycles", "Volunteer access structure control loops", "Automated donor acknowledgement generation"], p1_t: "Grant Tracking", p1_d: "Consolidated grant asset paperwork structured for easy auditing loops.", p2_t: "Donor Acknowledgement", p2_d: "Automated Generation and tracking of donor relationship documentation.", p3_t: "Volunteer Access", p3_d: "Granular data visibility for remote and local field operatives.", p4_t: "Cost-Optimized", p4_d: "Lean operational models mapped into limited budget association structures." }
-                }
-            }
-        };
-
         let currentLang = 'fr';
         let currentSector = 'btp';
 
-        function updateUI() {
-            const data = contentData[currentLang];
-            const sectorData = data.sectors[currentSector] || data.sectors['btp'];
+        const uiLexicon = {
+            fr: {
+                tagline: "Comparateur de logiciels GED pour entreprises",
+                badge_top: "Comparateur Indépendant GED & DMS",
+                arg1: "✓ Comparateur 100% indépendant", arg2: "✓ Analyse en 48h", arg3: "✓ Sans engagement ni frais",
+                f_title: "PRÉ-ANALYSE GRATUIT", f_sub: "Obtenez votre rapport personnalisé en 48h",
+                lbl_name: "Nom complet", lbl_company: "Entreprise / Société", lbl_email: "Adresse e-mail professionnelle", lbl_phone: "Téléphone",
+                btn_send: "Recevoir mon Pré-Analyse Gratuit →",
+                privacy: "Aucun démarchage commercial. Vos données restent confidentielles et ne sont jamais revendues.",
+                ia_title: "Analyseur IA de besoins GED", ia_sub: "Questionnaire GED gratuit • Résultats personnalisés en moins de 5 minutes", ia_btn: "Démarrer l'analyse IA",
+                f_desc: "Plateforme européenne d'aide à la décision pour la sélection de logiciels GED, DMS et de gestion documentaire.",
+                f_cond: "Conditions", f_priv: "Confidentialité", f_legal: "Mentions légales", f_cook: "Cookies",
+                pillar_sect_title: "ÉCOSYSTÈME ", pillar_sect_sub: "4 piliers pour digitaliser votre activité",
+                seo_prefix: "comparateur indépendant GED et DMS "
+            },
+            es: {
+                tagline: "Comparador de software GED para empresas",
+                badge_top: "Comparador Independiente GED & DMS",
+                arg1: "✓ Comparador 100% independiente", arg2: "✓ Análisis en 48h", arg3: "✓ Sin costes ni compromiso",
+                f_title: "PRE-ANÁLISIS GRATUITO", f_sub: "Obtén tu informe personalizado en 48h",
+                lbl_name: "Nombre completo", lbl_company: "Empresa / Sociedad", lbl_email: "Correo electrónico profesional", lbl_phone: "Teléfono",
+                btn_send: "Recibir mi Pre-Análisis Gratis →",
+                privacy: "Sin prospección comercial. Tus datos son confidenciales y nunca se revenden.",
+                ia_title: "Analizador IA de necesidades GED", ia_sub: "Cuestionario GED gratuito • Resultados personalizados en menos de 5 minutos", ia_btn: "Iniciar análisis IA",
+                f_desc: "Plataforma europea de ayuda a la decisión para la selección de software GED, DMS y gestión documental.",
+                f_cond: "Condiciones", f_priv: "Privacidad", f_legal: "Avisos legales", f_cook: "Cookies",
+                pillar_sect_title: "ECOSISTEMA ", pillar_sect_sub: "4 pilares para digitalizar tu actividad",
+                seo_prefix: "comparador independiente GED y DMS "
+            },
+            en: {
+                tagline: "DMS software comparator for companies",
+                badge_top: "Independent DMS & DMS Comparator",
+                arg1: "✓ 100% independent comparator", arg2: "✓ Analysis in 48h", arg3: "✓ No fee nor commitment",
+                f_title: "FREE PRE-ANALYSIS", f_sub: "Get your personalized report in 48h",
+                lbl_name: "Full name", lbl_company: "Company / Organization", lbl_email: "Professional email address", lbl_phone: "Phone number",
+                btn_send: "Get My Free Pre-Analysis →",
+                privacy: "No sales harassment. Your data remains confidential and is never resold.",
+                ia_title: "AI DMS Needs Analyzer", ia_sub: "Free DMS questionnaire • Personalized results in under 5 minutes", ia_btn: "Start AI Analysis",
+                f_desc: "European decision-making platform for selecting DMS, GED, and document management software.",
+                f_cond: "Terms", f_priv: "Privacy policy", f_legal: "Legal notice", f_cook: "Cookies",
+                pillar_sect_title: "ECOSYSTEM ", pillar_sect_sub: "4 pillars to digitize your activity",
+                seo_prefix: "independent comparator DMS and GED "
+            }
+        };
 
-            document.getElementById('brand-tagline').innerText = data.brandTagline;
-            document.getElementById('ui-badge-top').innerText = data.badgeTop;
-            document.getElementById('form-title').innerText = data.formTitle;
-            document.getElementById('form-subtitle').innerText = data.formSubtitle;
-            document.getElementById('lbl-name').innerText = data.lblName;
-            document.getElementById('lbl-company').innerText = data.lblCompany;
-            document.getElementById('lbl-email').innerText = data.lblEmail;
-            document.getElementById('lbl-phone').innerText = data.lblPhone;
-            document.getElementById('btn-submit').innerText = data.btnSubmit;
-            document.getElementById('ui-privacy').innerText = data.uiPrivacy;
-            document.getElementById('arg1').innerText = data.arg1;
-            document.getElementById('arg2').innerText = data.arg2;
-            document.getElementById('arg3').innerText = data.arg3;
-            document.getElementById('ia-badge-txt').innerText = data.iaBadge;
-            document.getElementById('ia-title-txt').innerText = data.iaTitle;
-            document.getElementById('ia-desc-txt').innerText = data.iaDesc;
-            document.getElementById('pillars-title').innerText = data.pillarsTitle;
-            document.getElementById('link-legal').innerText = data.legalLink;
-            document.getElementById('link-privacy').innerText = data.privacyLink;
+        const sectorsData = {
+            btp: {
+                nav: { fr: "Bâtiment / BTP", es: "Construcción / Obras", en: "Construction / BTP" },
+                title: { fr: "La gestion des factures sous-traitants sur papier ralentit vos chantiers", es: "La gestión de facturas de subcontratas en papel frena tus obras", en: "Paper-based subcontractor invoice management delays your building sites" },
+                desc: { fr: "Documatch.eu analyse objectivement les meilleures solutions GED & DMS adaptées au secteur du BTP : centralisation des plans, validation des factures fournisseurs et suivi de la conformité légale des sous-traitants.", es: "Documatch.eu analiza objetivamente las mejores soluciones GED y DMS para la construcción: centralización de planos, validación de facturas de proveedores y cumplimiento legal.", en: "Documatch.eu objectively analyzes the best DMS systems for Construction: blueprint centralization, supplier invoice automation, and subcontractor compliance." },
+                checks: {
+                    fr: ["Analyse des circuits de validation de factures", "Vérification de la gestion des gros volumes de documents", "Compatibilité avec l'archivage légal des chantiers", "Recommandation adaptée à votre structure (PME/ETI)"],
+                    es: ["Análisis de circuitos de aprobación de facturas", "Verificación de gestión de grandes volúmenes de planos", "Compatibilidad con archivo legal de fin de obra", "Recomendación adaptada a tu estructura (PME/ETI)"],
+                    en: ["Invoice validation workflow analysis", "Large-scale blueprint handling verification", "Compatibility with legal site archiving", "Tailored recommendation based on your layout (SME/Enterprise)"]
+                },
+                pillars: [
+                    { tag: "GED", fr: { t: "GED Chantiers", d: "Centralisez les plans, devis et situations dans un espace unique accessible sur tablette." }, es: { t: "GED de Obras", d: "Centraliza planos, presupuestos y certificaciones en un espacio único accesible desde tablets." }, en: { t: "Site DMS", d: "Centralize blueprints, quotes, and work progress updates in one space accessible via tablets." } },
+                    { tag: "Workflows", fr: { t: "Validation Fournisseurs", d: "Automatisez les circuits des factures de matériaux avec des workflows simples." }, es: { t: "Validación Proveedores", d: "Automatiza los circuitos de facturas de materiales con flujos de aprobación sencillos." }, en: { t: "Workflows", d: "Automate material supplier invoice processing through straightforward approval workflows." } },
+                    { tag: "Conformité", fr: { t: "Dossier Sous-traitant", d: "Contrôlez automatiquement les documents légaux obligatoires (URSSAF, Kbis) pour éviter les risques." }, es: { t: "Expediente Subcontratista", d: "Controla automáticamente los documentos legales obligatorios (Coface, REA) para evitar riesgos." }, en: { t: "Compliance", d: "Automatically track mandatory legal profiles (tax clearances, company registration) to avoid exposure." } },
+                    { tag: "API", fr: { t: "Connecteur ERP BTP", d: "Synchronisez votre logiciel de suivi de chantier ou comptable avec la GED choisie." }, es: { t: "Conector ERP Obras", d: "Sincroniza tu software de seguimiento de obras o contabilidad con la GED elegida." }, en: { t: "API Link", d: "Synchronize your job costing software or accounting platform with the designated DMS." } }
+                ]
+            },
+            services: {
+                nav: { fr: "Services / PME", es: "Servicios / Consultoras", en: "Services / Consulting" },
+                title: { fr: "La dispersion des contrats clients nuit à la rentabilité de vos projets", es: "La dispersión de contratos de clientes daña la rentabilidad de tus proyectos", en: "Scattered client contracts undermine your project profitability" },
+                desc: { fr: "Identifiez les outils documentaires capables de centraliser vos propositions et d'automatiser les relances de facturation.", es: "Identifica las herramientas documentales capaces de centralizar propuestas y automatizar reclamaciones de facturas.", en: "Identify the document utilities capable of centralizing sales proposals and automating invoice reminders." },
+                checks: {
+                    fr: ["Suivi du cycle de vie des contrats", "Intégration temps passé / ERP", "Signature électronique sécurisée"],
+                    es: ["Seguimiento del ciclo de vida de contratos", "Integración horas facturables / ERP", "Firma electrónica integrada"],
+                    en: ["Contract lifecycle tracking monitoring", "Billable hours tracking / ERP match", "Secure embedded e-signatures"]
+                },
+                pillars: [
+                    { tag: "GED", fr: { t: "Dossier Client Unique", d: "Regroupez contrats, livrables et échanges dans une vue client 360°." }, es: { t: "Expediente de Cliente", d: "Agrupa contratos, entregables y correos en una vista de cliente 360°." }, en: { t: "Single Client File", d: "Consolidate agreements, deliverables, and correspondence in a full client overview." } },
+                    { tag: "Workflows", fr: { t: "Validation Revues", d: "Validez les rapports et propositions commerciales avant envoi client." }, es: { t: "Validación de Informes", d: "Valida informes y propuestas comerciales antes del envío al cliente." }, en: { t: "Validation", d: "Approve business assessments and proposals before formal client delivery." } },
+                    { tag: "Firma", fr: { t: "Signatures Contrats", d: "Faites signer vos avenants et contrats en ligne en moins de 24h." }, es: { t: "Firma de Contratos", d: "Haz firmar anexos y contratos en línea en menos de 24 horas." }, en: { t: "E-Signature", d: "Get contract extensions and statements of work signed online in under 24 hours." } },
+                    { tag: "ERP", fr: { t: "Lien CRM & Factures", d: "Connectez la GED à votre solution de facturation ou CRM de référence." }, es: { t: "Enlace CRM y Facturas", d: "Conecta la GED a tu solución de facturación o CRM de referencia." }, en: { t: "CRM Bridge", d: "Link your documentation platform to your default billing engine or CRM." } }
+                ]
+            },
+            compta: {
+                nav: { fr: "Comptabilité", es: "Asesorías / Gestores", en: "Accounting Firms" },
+                title: { fr: "La relance permanente des justificants clients use vos collaborateurs", es: "La reclamación constante de facturas a tus clientes quema a tu equipo", en: "Chasing clients for missing receipts drains your staff's energy" },
+                desc: { fr: "Trouvez l'écosystème GED intelligent avec OCR pour collecter, trier et injecter les pièces comptables sans effort.", es: "Encuentra el ecosistema GED inteligente con OCR para recoger, clasificar e inyectar asientos sin esfuerzo.", en: "Find the smart DMS ecosystem featuring OCR to collect, sort, and process bookkeeping receipts effortlessly." },
+                checks: {
+                    fr: ["Performance de l'OCR lignes", "Coffre-fort fort certifié NF", "Interfaçage outils de production"],
+                    es: ["Rendimiento de OCR por líneas", "Caja fuerte conforme y sellada", "Conexión con herramientas contables"],
+                    en: ["Line-item OCR processing capacity", "Certified secure data storage", "Direct bridge into production software"]
+                },
+                pillars: [
+                    { tag: "OCR", fr: { t: "Lecture Automatique", d: "Extrayez automatiquement la TVA, les montants et dates des factures reçues." }, es: { t: "Lectura Automática", d: "Extrae automáticamente IVA, bases e importes de las facturas recibidas." }, en: { t: "Smart Capture", d: "Automatically capture VAT, totals, and transaction dates from incoming bills." } },
+                    { tag: "Caja Fuerte", fr: { t: "Coffre-fort Légal", d: "Garantissez l'archivage à valeur probante des bilans et grands livres." }, es: { t: "Caja Fuerte Legal", d: "Garantiza el archivo con valor probatorio de balances y libros oficiales." }, en: { t: "Digital Vault", d: "Secure legally-binding archiving for balance sheets and corporate ledgers." } },
+                    { tag: "Portail", fr: { t: "Espace Client Dédié", d: "Offrez un point de dépôt web et mobile ultra-simple à vos clients." }, es: { t: "Espacio de Clientes", d: "Ofrece un punto de entrega web y móvil ultra sencillo a tus clientes." }, en: { t: "Portal", d: "Deploy an incredibly intuitive web and mobile drop-box station for your clients." } },
+                    { tag: "Workflow", fr: { t: "Circuits d'Achat", d: "Mettez en place des règles de rapprochement bancaire de pointe." }, es: { t: "Conciliación Bancaria", d: "Configura reglas avanzadas de casación y conciliación de movimientos." }, en: { t: "Workflows", d: "Set up advanced bank matching and automated entry generation routines." } }
+                ]
+            },
+            sante: {
+                nav: { fr: "Santé / Cliniques", es: "Sanidad / Clínicas", en: "Healthcare / Clinics" },
+                title: { fr: "La sécurité des données de vos patients ne tolère aucun compromis", es: "La seguridad de los datos de tus pacientes no admite riesgos", en: "Patient data security demands absolute system compliance" },
+                desc: { fr: "Comparez les logiciels GED certifiés (HDS/RGPD) pour héberger les dossiers de soins et encadrer la signature des consentements.", es: "Compara softwares GED certificados para alojar expedientes de salud y gestionar la firma de consentimientos.", en: "Compare certified DMS tools tailored to host health cases and handle formal informed consent signing." },
+                checks: {
+                    fr: ["Hébergement certifié Données de Santé", "Traçabilité des accès logs", "Gestion des droits d'accès"],
+                    es: ["Alojamiento de datos de salud", "Trazabilidad extrema de accesos", "Gestión granular de permisos"],
+                    en: ["Certified Health Data Hosting rules", "Strict audit trails on log entries", "Granular role-based access limits"]
+                },
+                pillars: [
+                    { tag: "HDS", fr: { t: "Dossier Patient Sécurisé", d: "Centralisez les comptes-rendus dans un environnement hautement protégé." }, es: { t: "Expediente Clínico Seguro", d: "Centraliza informes clínicos en un entorno altamente protegido." }, en: { t: "Protected Records", d: "Centralize medical summaries in a strictly monitored, compliant ecosystem." } },
+                    { tag: "Firma", fr: { t: "Consentements Éclairés", d: "Faites signer numériquement les décharges et protocoles au chevet du patient." }, es: { t: "Consentimientos Firmados", d: "Haz firmar digitalmente autorizaciones y protocolos junto al paciente." }, en: { t: "E-Signature", d: "Collect digitally signed liability forms and procedures right at the bedside." } },
+                    { tag: "Archivage", fr: { t: "Coffre Médical", d: "Assurez la conservation réglementaire à long terme du dossier médical." }, es: { t: "Archivo a Largo Plazo", d: "Asegura la conservación reglamentaria histórica del historial médico." }, en: { t: "Storage", d: "Guarantee long-term historical maintenance of healthcare archives." } },
+                    { tag: "Connecteur", fr: { t: "Lien Logiciel Métier", d: "Interfacer la GED avec votre dossier patient informatisé (DPI) actuel." }, es: { t: "Enlace Software Médico", d: "Interconecta la GED con tu sistema de gestión de clínica (HIS/DPI)." }, en: { t: "Integration", d: "Interface your DMS node directly with your active Hospital Information System." } }
+                ]
+            },
+            logistique: {
+                nav: { fr: "Logistique", es: "Logística / Transporte", en: "Logistics" },
+                title: { fr: "Les litiges sur les bons de livraison papier plombent votre trésorerie", es: "Las disputas por albaranes en papel dañan tu flujo de caja", en: "Paper delivery note disputes strain your monthly cash flow" },
+                desc: { fr: "Éliminez le papier. Suivez vos bons de transport, lettres de voiture et factures logistiques en temps réel.", es: "Elimina el papel. Sigue tus albaranes de transporte, cartas de porte y facturas en tiempo real.", en: "Eliminate paper. Track your shipping documents, bills of lading, and freight invoices in real time." },
+                checks: {
+                    fr: ["Capture mobile des émargements", "Rapprochement BL / Facture", "Indexation automatique"],
+                    es: ["Captura móvil de firmas en ruta", "Casación Albarán / Factura", "Indexación automatizada"],
+                    en: ["Mobile capture for delivery proofs", "Matching routine Delivery / Invoice", "Automated index matching"]
+                },
+                pillars: [
+                    { tag: "Mobile", fr: { t: "Preuve de Livraison", d: "Signez et transmettez les bons d'émargement instantanément depuis le terrain." }, es: { t: "Prueba de Entrega", d: "Firma y transmite albaranes de entrega al instante desde la ruta." }, en: { t: "Proof of Delivery", d: "Sign and broadcast delivery receipts instantly right from the road truck." } },
+                    { tag: "Workflows", fr: { t: "Gestion des Litiges", d: "Déclenchez une alerte automatique si un bon comporte des réserves." }, es: { t: "Gestión de Incidencias", d: "Dispara una alerta automática si un albarán contiene reservas o daños." }, en: { t: "Alerts", d: "Trigger an automatic review if a delivery note reports cargo damage or shortages." } },
+                    { tag: "GED", fr: { t: "Dossier de Transport", d: "Rassemblez commande, BL et facture sous une même référence unique." }, es: { t: "Carpeta de Expedición", d: "Reúne pedido, albarán y factura bajo una misma referencia única." }, en: { t: "Shipping Folder", d: "Group purchase orders, delivery sheets, and invoices under one label." } },
+                    { tag: "ERP", fr: { t: "Synchro Chaîne Logistique", d: "Connectez les documents capturés avec votre outil WMS o ERP." }, es: { t: "Sincronización WMS/ERP", d: "Conecta los documentos capturados con tu herramienta WMS o ERP." }, en: { t: "ERP Link", d: "Bridge operational documentation streams with your WMS or central ERP node." } }
+                ]
+            },
+            education: {
+                nav: { fr: "Éducation", es: "Educación / Centros", en: "Education / Schools" },
+                title: { fr: "La paperasse administrative freine l'inscription de vos élèves", es: "El papeleo administrativo ralentiza la matrícula de tus alumnos", en: "Administrative paperwork bottlenecks your student enrollment process" },
+                desc: { fr: "Centralisez les dossiers scolaires, dématérialisez les inscriptions et certifiez l'envoi des diplômes.", es: "Centraliza los expedientes escolares, desmaterializa las matrículas y certifica el envío de títulos.", en: "Centralize academic files, run digital-only admissions, and certify formal graduate diplomas." },
+                checks: {
+                    fr: ["Collecte sécurisée des pièces", "Signature des conventions", "Archivage à long terme"],
+                    es: ["Recogida segura de justificantes", "Firma de convenios y prácticas", "Archivo de expedientes a largo plazo"],
+                    en: ["Secure verification document intake", "Digital internship agreements setup", "Long-term registry archiving safety"]
+                },
+                pillars: [
+                    { tag: "Portail", fr: { t: "Inscriptions en Ligne", d: "Permettez aux familles de téléverser les pièces justificatives sur un portail web." }, es: { t: "Matrículas Online", d: "Permite a las familias subir la documentación obligatoria en un portal web." }, en: { t: "Online Intake", d: "Let families upload mandatory background documents directly via an intuitive web node." } },
+                    { tag: "Firma", fr: { t: "Conventions & Émargements", d: "Faites signer électroniquement les contrats de formation et feuilles de présence." }, es: { t: "Convenios y Asistencias", d: "Haz firmar electrónicamente contratos de formación y hojas de asistencia." }, en: { t: "Signatures", d: "Collect online e-signatures on tuition frameworks and student attendance logs." } },
+                    { tag: "Caja Fuerte", fr: { t: "Diplômes Certifiés", d: "Scellez et stockez les bulletins et diplômes dans un coffre numérique à vie." }, es: { t: "Títulos Certificados", d: "Sella y almacena boletines y títulos en una caja fuerte digital de por vida." }, en: { t: "Secure Vault", d: "Seal and deposit report cards and graduate diplomas in a lifelong digital safe." } },
+                    { tag: "ERP", fr: { t: "Lien Logiciel Écoles", d: "Assurez l'échange de données avec votre système de gestion scolaire." }, es: { t: "Conexión Gestión Escolar", d: "Asegura el intercambio de datos con tu sistema de gestión académica." }, en: { t: "School ERP", d: "Ensure smooth records updates across your core Academic Management framework." } }
+                ]
+            },
+            rrhh: {
+                nav: { fr: "Recursos Humanos", es: "Recursos Humanos", en: "Human Resources" },
+                title: { fr: "La gestion manuelle des bulletins de paie et contrats vous fait perdre un temps précieux", es: "La gestión manual de nóminas y contratos te hace perder un tiempo valioso", en: "Manual processing of payslips and contracts drains your valuable time" },
+                desc: { fr: "Automatisez la distribution de vos bulletins de paie et gérez tout l'onboarding de vos salariés à distance.", es: "Automatiza la distribución de nóminas y gestiona todo el onboarding de tus trabajadores a distancia.", en: "Automate your corporate payslip delivery workflows and run full employee onboarding journeys remotely." },
+                checks: {
+                    fr: ["Distribution conforme des bulletins", "Signature contrats de travail", "Coffre-fort électronique salarié"],
+                    es: ["Distribución conforme de nóminas", "Firma de contratos laborales", "Caja fuerte digital del empleado"],
+                    en: ["Compliant automated payroll split", "Employment contract e-signing", "Personal employee secure vault space"]
+                },
+                pillars: [
+                    { tag: "Paie", fr: { t: "Bulletins Dématérialisés", d: "Distribuez en masse les fiches de paie directement dans le coffre de chaque salarié." }, es: { t: "Nóminas Digitales", d: "Distribuye masivamente las nóminas directamente en la caja fuerte de cada empleado." }, en: { t: "Payslips", d: "Bulk distribute financial statements straight into individual employee vaults." } },
+                    { tag: "Firma", fr: { t: "Contrats & Avenants", d: "Faites signer électroniquement les nouveaux contrats de travail avant l'onboarding." }, es: { t: "Contratos y Anexos", d: "Haz firmar electrónicamente los nuevos contratos de trabajo antes de la incorporación." }, en: { t: "Signatures", d: "Collect electronic signatures on employment agreements before day-one onboarding." } },
+                    { tag: "GED", fr: { t: "Dossier RH Unique", d: "Regroupez les pièces d'identité, arrêts de travail et demandes de congés." }, es: { t: "Expediente Único de Empleado", d: "Agrupa documentos de identidad, bajas médicas y solicitudes de vacaciones." }, en: { t: "HR Folder", d: "Consolidate identification logs, medical leaves, and vacation requests." } },
+                    { tag: "ERP", fr: { t: "Lien SIRH", d: "Connectez la GED à votre logiciel de paie ou SIRH pour automatiser les flux." }, es: { t: "Conexión con SIRH", d: "Conecta la GED a tu software de nómina o SIRH para automatizar flujos." }, en: { t: "HRIS Link", d: "Interface document distribution steps directly with your running core HRIS backend." } }
+                ]
+            },
+            industrie: {
+                nav: { fr: "Industrie / Production", es: "Industria / Fábricas", en: "Manufacturing" },
+                title: { fr: "L'utilisation de mauvaises versions de plans techniques met en péril votre production", es: "El uso de versiones erróneas de planos técnicos pone en peligro tu producción", en: "Using outdated technical blueprint revisions compromises your factory floor output" },
+                desc: { fr: "Garantissez la maîtrise absolue de vos processus, gérez vos manuels qualité et répondez sans stress aux audits ISO.", es: "Garantiza el control absoluto de tus procesos, gestiona manuales de calidad y responde sin estrés a auditorías ISO.", en: "Guarantee rigorous process reviews, manage quality frameworks, and face structural ISO audits stress-free." },
+                checks: {
+                    fr: ["Gestion stricte des versions (indices)", "Validation des ordres de modif", "Traçabilité complète ISO"],
+                    es: ["Control estricto de versiones de planos", "Aprobación de órdenes de cambio", "Trazabilidad completa ISO"],
+                    en: ["Strict blueprint version tracking", "Formal engineering change orders approval", "Comprehensive ISO audit trails"]
+                },
+                pillars: [
+                    { tag: "ISO", fr: { t: "Documentation Technique", d: "Assurez-vous que l'atelier utilise toujours la version validée d'un plan." }, es: { t: "Documentación Técnica", d: "Asegúrate de que la fábrica utiliza siempre la versión validada de un plano." }, en: { t: "Tech Records", d: "Ensure operations personnel always query the approved version of a drawing." } },
+                    { tag: "Workflows", fr: { t: "Ordres de Modification", d: "Faites valider numériquement les changements de conception par vos ingénieurs." }, es: { t: "Órdenes de Cambio (ECO)", d: "Haz validar digitalmente los cambios de diseño por tus ingenieros." }, en: { t: "ECO Flows", d: "Route conceptual modifications dynamically through target engineering sign-offs." } },
+                    { tag: "GED", fr: { t: "Manuels Qualité", d: "Centralisez les procédures ISO et instructions de travail pour un accès immédiat." }, es: { t: "Manuales de Calidad", d: "Centraliza procedimientos ISO e instrucciones de trabajo para acceso inmediato." }, en: { t: "Quality Manuals", d: "Centralize ISO operational rules and floor blueprints for instant querying." } },
+                    { tag: "ERP", fr: { t: "Lien ERP / GPAO", d: "Associez les fiches techniques aux articles ou fiches de fabrication de l'ERP." }, es: { t: "Enlace ERP / GPAO", d: "Asocia las fichas técnicas a los artículos o lotes de fabricación del ERP." }, en: { t: "Production Link", d: "Map technical datasheets directly to material parts or production batch logs." } }
+                ]
+            }
+        };
 
-            document.getElementById('hero-title').innerText = sectorData.title;
-            document.getElementById('hero-subtitle').innerText = sectorData.subtitle;
-
-            const bulletsContainer = document.getElementById('ui-bullets');
-            bulletsContainer.innerHTML = '';
-            sectorData.bullets.forEach(b => {
-                const li = document.createElement('li');
-                li.className = 'check-item';
-                li.innerText = b;
-                bulletsContainer.appendChild(li);
-            });
-
-            document.getElementById('p1-t').innerText = sectorData.p1_t;
-            document.getElementById('p1-d').innerText = sectorData.p1_d;
-            document.getElementById('p2-t').innerText = sectorData.p2_t;
-            document.getElementById('p2-d').innerText = sectorData.p2_d;
-            document.getElementById('p3-t').innerText = sectorData.p3_t;
-            document.getElementById('p3-d').innerText = sectorData.p3_d;
-            document.getElementById('p4-t').innerText = sectorData.p4_t;
-            document.getElementById('p4-d').innerText = sectorData.p4_d;
-
-            // Actualizar textos de las pestañas dinámicamente
-            document.querySelectorAll('.btn-sector').forEach(btn => {
-                const secKey = btn.getAttribute('data-sector');
-                if(data.sectors[secKey]) {
-                    btn.innerText = data.sectors[secKey].tab;
-                }
-            });
-
-            document.getElementById('hidden-sector').value = currentSector;
-            document.getElementById('hidden-lang').value = currentLang;
-        }
-
-        // Eventos de Idioma
-        ['fr', 'es', 'en'].forEach(lang => {
-            document.getElementById(`lang-${lang}`).addEventListener('click', function() {
-                document.querySelectorAll('.btn-lang').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentLang = lang;
-                updateUI();
-            });
-        });
-
-        // Eventos de Sector
-        document.querySelectorAll('.btn-sector').forEach(button => {
-            button.addEventListener('click', function() {
-                document.querySelectorAll('.btn-sector').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentSector = this.getAttribute('data-sector');
-                updateUI();
-            });
-        });
-
-        // Modales Legales
-        const modal = document.getElementById('modal-legal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-
-        document.getElementById('link-legal').addEventListener('click', () => {
-            modalTitle.innerText = "Mentions Légales / Aviso Legal";
-            modalBody.innerHTML = "<p><strong>Documatch.eu</strong> est un service d'analyse indépendant de solutions logicielles destiné aux professionnels.</p><p>Hébergement: GitHub Pages. Contact technique: info@documatch.eu</p><p>SIREN: 992 752 980 (France)</p>";
-            modal.style.display = 'block';
-        });
-
-        document.getElementById('link-privacy').addEventListener('click', () => {
-            modalTitle.innerText = "Confidentialité / Privacidad";
-            modalBody.innerHTML = "<p>Les données collectées (nom, entreprise, email, téléphone, sector) via ce formulaire sont cryptées et transmises de manière sécurisée via le service Formspree.io à la direction technique de Documatch.eu afin de générer votre rapport personnalisé.</p><p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression en écrivant à privacy@documatch.eu. Vos données sont conservées pendant la durée nécessaire à l'analyse y ne sont jamais revendues à des tiers.</p>";
-            modal.style.display = 'block';
-        });
-
-        document.getElementById('modal-close-btn').addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
+        function renderTabs() {
+            const container = document.getElementById('sector-tabs');
+            container.innerHTML = '';
+            for (const key in sectorsData) {
+                const btn = document.createElement('button');
+                btn.className = `btn-sector ${key === currentSector ? 'active' : ''}`;
+                btn.innerText = sectorsData[key].nav[currentLang];
+                btn.setAttribute('onclick', `switchSector('${key}')`);
+                container.appendChild(btn);
             }
         }
 
-        // Arrancar interfaz limpia
-        updateUI();
+        function refreshPage() {
+            const lexicon = uiLexicon[currentLang];
+            const data = sectorsData[currentSector];
+
+            // Navbar e Interfaces Estáticas
+            document.getElementById('brand-tagline').innerText = lexicon.tagline;
+            document.getElementById('ui-badge-top').innerText = lexicon.badge_top;
+            document.getElementById('arg-1').innerText = lexicon.arg1;
+            document.getElementById('arg-2').innerText = lexicon.arg2;
+            document.getElementById('arg-3').innerText = lexicon.arg3;
+            document.getElementById('form-title').innerText = lexicon.f_title;
+            document.getElementById('form-subtitle').innerText = lexicon.f_sub;
+            document.getElementById('lbl-name').innerText = lexicon.lbl_name;
+            document.getElementById('lbl-company').innerText = lexicon.lbl_company;
+            document.getElementById('lbl-email').innerText = lexicon.lbl_email;
+            document.getElementById('lbl-phone').innerText = lexicon.lbl_phone;
+            document.getElementById('btn-submit').innerText = lexicon.btn_send;
+            document.getElementById('ui-privacy').innerText = lexicon.privacy;
+            
+            document.getElementById('ia-title').innerText = lexicon.ia_title;
+            document.getElementById('ia-subtitle').innerText = lexicon.ia_sub;
+            document.getElementById('ia-btn').innerText = lexicon.ia_btn;
+            document.getElementById('footer-desc').innerText = lexicon.f_desc;
+            document.getElementById('f-link-cond').innerText = lexicon.f_cond;
+            document.getElementById('f-link-priv').innerText = lexicon.f_priv;
+            document.getElementById('f-link-legal').innerText = lexicon.f_legal;
+            document.getElementById('f-link-cook').innerText = lexicon.f_cook;
+
+            // Textos Dinámicos del Sector
+            document.getElementById('hero-title').innerText = data.title[currentLang];
+            document.getElementById('hero-subtitle').innerText = data.desc[currentLang];
+            document.getElementById('pillars-main-title').innerText = lexicon.pillar_sect_title + data.nav[currentLang].toUpperCase();
+
+            // Inputs del Formulario ocultos
+            document.getElementById('hidden-sector').value = currentSector;
+            document.getElementById('hidden-lang').value = currentLang;
+
+            // Término de SEO en el footer
+            document.getElementById('footer-seo-term').innerText = lexicon.seo_prefix + sectorsData[currentSector].nav[currentLang].toLowerCase();
+
+            // Lista de verificación (Hero Checks)
+            const checkContainer = document.getElementById('hero-checks');
+            checkContainer.innerHTML = '';
+            data.checks[currentLang].forEach(text => {
+                const li = document.createElement('li');
+                li.className = 'check-item';
+                li.innerText = text;
+                checkContainer.appendChild(li);
+            });
+
+            // Reconstrucción de los 4 Pilares
+            const pillarsContainer = document.getElementById('pillars-container');
+            pillarsContainer.innerHTML = '';
+            data.pillars.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'pillar-card';
+                
+                const span = document.createElement('span');
+                span.className = 'pillar-tag';
+                span.innerText = p.tag;
+                
+                const h4 = document.createElement('h4');
+                h4.innerText = p[currentLang].t;
+                
+                const pText = document.createElement('p');
+                pText.innerText = p[currentLang].d;
+                
+                card.appendChild(span);
+                card.appendChild(h4);
+                card.appendChild(pText);
+                pillarsContainer.appendChild(card);
+            });
+
+            // Manejo de clase activa de idiomas
+            document.querySelectorAll('.btn-lang').forEach(b => b.classList.remove('active'));
+            document.getElementById(`lang-${currentLang}`).classList.add('active');
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            renderTabs();
+            refreshPage();
+        }
+
+        function switchSector(sect) {
+            currentSector = sect;
+            renderTabs();
+            refreshPage();
+        }
+
+        window.onload = function() {
+            renderTabs();
+            refreshPage();
+        };
     </script>
 </body>
 </html>
