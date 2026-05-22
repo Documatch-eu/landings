@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documatch.eu | Comparateur Indépendant GED &amp; DMS</title>
     <style>
@@ -137,23 +138,23 @@
             </div>
             <div class="nav-actions">
                 <div class="lang-buttons">
-                    <button class="btn-lang active" id="lang-fr" onclick="changeLanguage(&#39;fr&#39;)">FR</button>
-                    <button class="btn-lang" id="lang-es" onclick="changeLanguage(&#39;es&#39;)">ES</button>
-                    <button class="btn-lang" id="lang-en" onclick="changeLanguage(&#39;en&#39;)">EN</button>
+                    <button class="btn-lang active" id="lang-fr" onclick="changeLanguage('fr')">FR</button>
+                    <button class="btn-lang" id="lang-es" onclick="changeLanguage('es')">ES</button>
+                    <button class="btn-lang" id="lang-en" onclick="changeLanguage('en')">EN</button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="sector-nav" id="sector-tabs"><button class="btn-sector active">Bâtiment / BTP</button><button class="btn-sector ">Immobilier</button><button class="btn-sector ">Santé</button><button class="btn-sector ">Comptabilité</button><button class="btn-sector ">Juridique</button><button class="btn-sector ">Commerce / Retail</button><button class="btn-sector ">Industrie</button><button class="btn-sector ">Ressources Humaines</button><button class="btn-sector ">Transport / Logistique</button></div>
+    <div class="sector-nav" id="sector-tabs"></div>
 
     <div class="main-container">
         <div class="layout-table">
             <div class="layout-row">
                 <div class="left-column">
                     <div class="badge-tag" id="ui-badge-top">Comparateur Indépendant GED &amp; DMS</div>
-                    <h1 id="hero-title">La gestion des factures sous-traitants sur papier ralentit vos chantiers</h1>
-                    <p class="hero-desc" id="hero-subtitle">Documatch.eu analyse objectivement les meilleures solutions GED adaptées au BTP : centralisation des plans, validation des factures fournisseurs et suivi de la conformité légale.</p>
+                    <h1 id="hero-title">...</h1>
+                    <p class="hero-desc" id="hero-subtitle">...</p>
                                                             
                     <div class="quick-arguments">
                         <div class="arg-item" id="arg-1">✓ Comparateur 100% indépendant</div>
@@ -161,7 +162,7 @@
                         <div class="arg-item" id="arg-3">✓ Sans engagement ni frais</div>
                     </div>
 
-                    <ul class="check-list" id="hero-checks"><li class="check-item">Analyse des circuits de validation de factures</li><li class="check-item">Vérification de la gestion des gros volumes de documents</li><li class="check-item">Compatibilité avec l'archivage légal des chantiers</li><li class="check-item">Recommandation adaptée à votre structure (PME/ETI)</li></ul>
+                    <ul class="check-list" id="hero-checks"></ul>
                 </div>
 
                 <div class="right-column">
@@ -169,7 +170,7 @@
                         <h3 id="form-title">PRÉ-ANALYSE GRATUIT</h3>
                         <p id="form-subtitle">Obtenez votre rapport personnalisé en 48h</p>
                                                                         
-                        <form id="lead-form" action="https://formspree.io/f/mpqndldg" method="POST">
+                        <form id="lead-form" action="https://www.documatch.eu/" method="GET" onsubmit="handleFormSubmit(event)">
                             <input type="hidden" name="utm_source" value="landing_satelite">
                             <input type="hidden" name="sector" id="hidden-sector" value="btp">
                             <input type="hidden" name="lang" id="hidden-lang" value="fr">
@@ -206,25 +207,9 @@
         </div>
 
         <div style="margin-top: 60px;">
-            <div class="section-title" id="pillars-main-title">ÉCOSYSTÈME Bâtiment / BTP</div>
+            <div class="section-title" id="pillars-main-title">ÉCOSYSTÈME</div>
             <div class="pillars-grid">
-                <div class="pillars-row" id="pillars-container"><div class="pillar-card">
-                        <span class="pillar-tag">GED</span>
-                        <h4>GED Chantiers</h4>
-                        <p>Centralisez les plans, devis et situations dans un espace unique accessible sur tablette.</p>
-                    </div><div class="pillar-card">
-                        <span class="pillar-tag">Workflows</span>
-                        <h4>Validation Fournisseurs</h4>
-                        <p>Automatisez les circuits des factures de matériaux avec des workflows simples.</p>
-                    </div><div class="pillar-card">
-                        <span class="pillar-tag">Conformité</span>
-                        <h4>Dossier Sous-traitant</h4>
-                        <p>Contrôlez automatiquement les documents légaux obligatoires (URSSAF, Kbis).</p>
-                    </div><div class="pillar-card">
-                        <span class="pillar-tag">API</span>
-                        <h4>Connecteur ERP BTP</h4>
-                        <p>Synchronisez votre logiciel de suivi de chantier ou comptable avec la GED choisie.</p>
-                    </div></div>
+                <div class="pillars-row" id="pillars-container"></div>
             </div>
         </div>
 
@@ -245,9 +230,9 @@
                 </div>
                 <div class="footer-col-links">
                     <div class="footer-links-nav">
-                        <a class="footer-link" id="f-link-cond" onclick="openLegal(&#39;cond&#39;)">Conditions d'utilisation</a>
-                        <a class="footer-link" id="f-link-priv" onclick="openLegal(&#39;priv&#39;)">Politique de confidentialité</a>
-                        <a class="footer-link" id="f-link-legal" onclick="openLegal(&#39;legal&#39;)">Mentions légales</a>
+                        <a class="footer-link" id="f-link-cond" onclick="openLegal('cond')">Conditions d'utilisation</a>
+                        <a class="footer-link" id="f-link-priv" onclick="openLegal('priv')">Politique de confidentialité</a>
+                        <a class="footer-link" id="f-link-legal" onclick="openLegal('legal')">Mentions légales</a>
                     </div>
                 </div>
             </div>
@@ -323,7 +308,7 @@
         const legalTexts = {
             legal: {
                 title: "Mentions légales",
-                html: `<h3>Éditeur du site</h3><p>Documatch est un service de comparaison de solutions de gestion électronique de documents destiné aux entreprises.<br>Email de contact : <strong>info@documatch.eu</strong></p><p>Directeur de publication : Documatch<br>SIREN : 992 752 980, société immatriculée en France<br>TVA non applicable conformément à l'article 293 B du Code Général des Impôts.</p><h3>Hébergement</h3><p>Le site Documatch.eu est hébergé par OVH.<br>Adresse : 2 rue Kellermann, 59100 Roubaix, France.<br>Téléphone : +33 9 72 10 10 07.</p><h3>Propriété intellectuelle</h3><p>L'ensemble des contenus du site Documatch.eu (textes, visuels, logos, éléments graphiques) est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive de Documatch ou de ses partenaires. Toute reproduction ou exploitation non autorisée est interdite.</p><h3>Responsabilité</h3><p>Documatch s'efforce de fournir des informations fiables et régulièrement mises à jour. Toutefois, aucune guarantee n'est apportée quant à l'exactitude ou l'exhaustivité des informations présentées. L'utilisateur reconnaît utiliser ces informations sous sa seule responsabilité.</p>`
+                html: `<h3>Éditeur du site</h3><p>Documatch est un service de comparaison de solutions de gestion électronique de documents destiné aux entreprises.<br>Email de contact : <strong>info@documatch.eu</strong></p><p>Directeur de publication : Documatch<br>SIREN : 992 752 980, société immatriculée en France<br>TVA non applicable conformément à l'article 293 B du Code Général des Impôts.</p><h3>Hébergement</h3><p>Le site Documatch.eu est hébergé par OVH.<br>Adresse : 2 rue Kellermann, 59100 Roubaix, France.<br>Téléphone : +33 9 72 10 10 07.</p><h3>Propriété intellectuelle</h3><p>L'ensemble des contenus du site Documatch.eu (textes, visuels, logos, éléments graphiques) est protégé par le droit de la propriété intellectuelle et demeure la propiedad exclusive de Documatch ou de ses partenaires. Toute reproduction ou exploitation non autorisée est interdite.</p><h3>Responsabilité</h3><p>Documatch s'efforce de fournir des informations fiables et régulièrement mises à jour. Toutefois, aucune garantie n'est apportée quant à l'exactitude ou l'exhaustivité des informations présentées. L'utilisateur reconnaît utiliser ces informations sous sa seule responsabilité.</p>`
             },
             priv: {
                 title: "Politique de confidentialité",
@@ -381,7 +366,7 @@
                     { tag: "Security", fr: { t: "Confidentialité Totale", d: "Chiffrement avancé et traçabilité complète de chaque consultation de document." }, es: { t: "Confidencialidad Total", d: "Cifrado avanzado y trazabilidad completa de cada consulta de documento." }, en: { t: "Security", d: "Advanced encryption mechanisms and complete traceability for every document view." } },
                     { tag: "Dossier", fr: { t: "Dossier Patient Unique", d: "Historique complet des consultations, analyses et ordonnances accessible en un clic." }, es: { t: "Historial Único", d: "Historial completo de consultas, análisis y recetas accesible en un clic." }, en: { t: "Patient File", d: "Full history of consults, lab results, and prescriptions accessible in one single click." } },
                     { tag: "Partage", fr: { t: "Échanges Sécurisés", d: "Partagez des documents de manière sécurisée avec d'autres professionnels de santé." }, es: { t: "Intercambio Seguro", d: "Comparte documentos de forma segura con otros profesionales médicos." }, en: { t: "Secure Share", d: "Share documentation securely with external healthcare specialists." } },
-                    { tag: "Régulation", fr: { t: "Conformité Médicale", d: "Respect rigoureux des normes et des décrets sur la conservation des dossiers." }, es: { t: "Cumplimiento Médico", d: "Respeto riguroso de las normativas de conservación de documentation médicale." }, en: { t: "Compliance", d: "Rigorous compliance with legal standards regarding medical records retention." } }
+                    { tag: "Régulation", fr: { t: "Conformité Médicale", d: "Respect rigoureux des normes et des décrets sur la conservation des dossiers." }, es: { t: "Cumplimiento Médico", d: "Respeto riguroso de las normativas de conservación de documentación médica." }, en: { t: "Compliance", d: "Rigorous compliance with legal standards regarding medical records retention." } }
                 ]
             },
             compta: {
@@ -422,11 +407,11 @@
                 desc: { fr: "Automatisez le traitement des flux de marchandises et accélérez la validation des bons de commande.", es: "Automatiza la gestión de flujos de mercancías y agiliza la validación de pedidos.", en: "Automate supply chain paper flows and speed up purchase order validation workflows." },
                 checks: {
                     fr: ["Rapprochement automatique Commandes/Factures", "Gestion multisite des documents", "Accès mobile pour les équipes terrain", "Traitement rapide des litiges fournisseurs"],
-                    es: ["Cotejo automático Pedido/Albarán/Factura", "Gestión multitienda de documentos", "Acceso móvil para equipos de campo", "Tratamiento rápido de disputas de proveedores"],
+                    es: ["Cotejo automático Pedido/Albarán/Factura", "Gestión multidenda de documentos", "Acceso móvil para equipos de campo", "Tratamiento rápido de disputas de proveedores"],
                     en: ["Automated matching (PO/Receipt/Invoice)", "Multi-store document accessibility support", "Mobile application interface for store teams", "Fast resolution for vendor invoice claims"]
                 },
                 pillars: [
-                    { tag: "Flux", fr: { t: "Rapprochement Auto", d: "Associez automatiquement les bons de livraison aux factures correspondantes." }, es: { t: "Cotejo Automático", d: "Asocia automáticamente los albaranes de entrega con sus facturas." }, en: { t: "Workflows", d: "Automatically match delivery slips against incoming product invoices." } },
+                    { tag: "Flux", fr: { t: "Rapprochement Auto", d: "Associez automatiquement les bons de livraison aux factures correspondantes." }, es: { t: "Cotejo Automático", d: "Asocia automáticamente los albaranes de entrega con sus factures." }, en: { t: "Workflows", d: "Automatically match delivery slips against incoming product invoices." } },
                     { tag: "Contrats", fr: { t: "Contrats Fournisseurs", d: "Suivez les conditions d'achat et les remises négociées de manière centralisée." }, es: { t: "Acuerdos con Proveedores", d: "Sigue las condiciones de compra y descuentos pactados de forma centralizada." }, en: { t: "Vendors", d: "Track purchasing agreements and negotiated vendor discounts in one center." } },
                     { tag: "Logistique", fr: { t: "Dossier Logistique", d: "Regroupez tous les documents liés au transport et à la réception des stocks." }, es: { t: "Expediente de Stock", d: "Agrupa todos los documentos ligados al transporte y recepción de stock." }, en: { t: "Logistics", d: "Consolidate all paperwork regarding transport transit and stock intake." } },
                     { tag: "Factures", fr: { t: "Facturation Clients", d: "Générez, distribuez et archivez vos factures clients de manière automatisée." }, es: { t: "Facturación masiva", d: "Genera, distribuye y archiva tus facturas a clientes de forma automatizada." }, en: { t: "Invoicing", d: "Generate, dispatch, and archive customer retail invoices automatically." } }
@@ -461,7 +446,7 @@
                     { tag: "Dossier", fr: { t: "Coffre-fort Salarié", d: "Chaque collaborateur dispose d'un espace sécurisé pour ses documents RH." }, es: { t: "Expediente de Empleado", d: "Cada trabajador dispone de un espacio seguro para sus documentos y nóminas." }, en: { t: "Staff File", d: "Provide every employee with a private, secure digital space for HR records." } },
                     { tag: "Embauche", fr: { t: "Onboarding Fluide", d: "Faites signer le contrat et collectez les pièces d'identité avant le premier jour." }, es: { t: "Onboarding Ágil", d: "Haz firmar el contrato y recoge el DNI antes del primer día de trabajo." }, en: { t: "Onboarding", d: "Secure signed hiring offers and collect legal IDs before day one." } },
                     { tag: "Paie", fr: { t: "Bulletins de Salaire", d: "Générez et envoyez des centaines de fiches de paie en quelques minutes." }, es: { t: "Distribución de Nóminas", d: "Genera y envía cientos de nóminas de forma segura en pocos minutos." }, en: { t: "Payroll", d: "Distribute and deposit hundreds of encrypted staff payslips in minutes." } },
-                    { tag: "RGPD", fr: { t: "Droit à l'Oubli", d: "Gérez automatiquement la durée de conservation légale des données personnelles." }, es: { t: "Cumplimiento RGPD", d: "Gestiona automáticamente los plazos de conservación de datos de personal." }, en: { t: "GDPR", d: "Automatically cycle out employee private details matching legal retention rules." } }
+                    { tag: "RGPD", fr: { t: "Droit à l'Oubli", d: "Gerez automatiquement la durée de conservation légale des données personnelles." }, es: { t: "Cumplimiento RGPD", d: "Gestiona automáticamente los plazos de conservación de datos de personal." }, en: { t: "GDPR", d: "Automatically cycle out employee private details matching legal retention rules." } }
                 ]
             },
             transport: {
@@ -565,41 +550,27 @@
             if(activeLangBtn) activeLangBtn.classList.add('active');
         }
 
-        // INTEGRACIÓN DE FORMSPREE CON RESETEO AUTOMÁTICO DE VENTANA
         function handleFormSubmit(event) {
-            event.preventDefault(); // Detiene la recarga brusca de la web
+            event.preventDefault();
 
             const form = event.target;
             const formData = new FormData(form);
+            
+            const searchParams = new URLSearchParams(formData);
+            const actionUrl = form.getAttribute('action') + '?' + searchParams.toString();
 
-            // AJAX directo hacia Formspree
-            fetch(form.action, {
-                method: form.method,
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+            fetch(actionUrl, {
+                method: 'GET',
+                mode: 'no-cors'
             })
-            .then(response => {
-                if (response.ok) {
-                    // 1. Ocultar formulario y mostrar ventana de éxito nativa en el idioma activo
-                    document.getElementById('main-form-box').style.display = 'none';
-                    document.getElementById('success-message-box').style.display = 'block';
-
-                    // 2. RESET TOTAL: A los 5 segundos limpia los inputs y restaura el formulario original
-                    setTimeout(() => {
-                        form.reset(); 
-                        document.getElementById('success-message-box').style.display = 'none';
-                        document.getElementById('main-form-box').style.display = 'block';
-                    }, 5000); 
-
-                } else {
-                    alert("Erreur lors de l'envoi. / Error en el envío.");
-                }
+            .then(() => {
+                document.getElementById('main-form-box').style.display = 'none';
+                document.getElementById('success-message-box').style.display = 'block';
             })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("Erreur de connexion. / Error de conexión.");
+            .catch((error) => {
+                console.error('Error enviando formulario:', error);
+                document.getElementById('main-form-box').style.display = 'none';
+                document.getElementById('success-message-box').style.display = 'block';
             });
         }
 
@@ -645,16 +616,10 @@
             }
         }
 
-        // Event listener único para arrancar el ecosistema y enlazar el envío
         window.addEventListener('DOMContentLoaded', () => {
             renderTabs();
             updateContent();
-
-            const leadForm = document.getElementById('lead-form');
-            if (leadForm) {
-                leadForm.addEventListener('submit', handleFormSubmit);
-            }
         });
     </script>
-
-</body></html>
+</body>
+</html>
