@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documatch.eu | Comparateur Indépendant GED & DMS</title>
+    <title>Documatch.eu | Comparateur Indépendant GED &amp; DMS</title>
     <style>
         :root {
             --blue-documatch: #0087d1;
@@ -14,8 +12,6 @@
         }
         *, *::before, *::after { box-sizing: border-box; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; color: var(--text-dark); background-color: #ffffff; margin: 0; padding: 0; line-height: 1.5; }
-        
-        /* Navbar con Branding */
         .navbar { display: table; width: 100%; padding: 15px 5%; background: #ffffff; border-bottom: 1px solid var(--border-color); }
         .nav-container { display: table-row; }
         .nav-branding { display: table-cell; vertical-align: middle; }
@@ -28,28 +24,23 @@
         .btn-lang { padding: 6px 12px; font-size: 0.8rem; font-weight: bold; color: var(--text-dark); border: 1px solid var(--border-color); border-radius: 4px; background: #ffffff; cursor: pointer; }
         .btn-lang.active { background: var(--blue-documatch); color: #ffffff; border-color: var(--blue-documatch); }
         
-        /* Barra de Sectores */
         .sector-nav { background: #0f172a; padding: 10px 5%; display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; }
         .btn-sector { padding: 8px 16px; font-size: 0.85rem; background: #1e293b; border: none; border-radius: 4px; color: #94a3b8; cursor: pointer; font-weight: 500; transition: all 0.2s; }
         .btn-sector.active { background: var(--blue-documatch); color: #ffffff; }
         
-        /* Estructura Principal */
         .main-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         .layout-table { display: table; width: 100%; table-layout: fixed; }
         .layout-row { display: table-row; }
         .left-column { display: table-cell; width: 55%; padding-right: 40px; vertical-align: top; }
         .right-column { display: table-cell; width: 45%; padding: 35px; vertical-align: top; background: #ffffff; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(0,0,0,0.03); position: relative; }
         
-        /* Textos Hero */
         .badge-tag { display: inline-block; padding: 4px 10px; background: #e0f2fe; color: var(--blue-documatch); font-size: 0.75rem; font-weight: bold; border-radius: 4px; text-transform: uppercase; margin-bottom: 15px; }
         h1 { font-size: 2.2rem; color: #000000; line-height: 1.25; margin: 0 0 15px 0; }
         .hero-desc { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 30px; }
         
-        /* Mini Argumentos Rápidos */
         .quick-arguments { display: table; width: 100%; margin-bottom: 40px; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
         .arg-item { display: table-cell; width: 33.33%; text-align: center; font-size: 0.85rem; font-weight: bold; color: #1e293b; }
         
-        /* Formulario */
         .form-box h3 { font-size: 1.3rem; margin: 0 0 5px 0; color: #000000; }
         .form-box p { font-size: 0.85rem; color: var(--text-muted); margin: 0 0 20px 0; }
         .form-group { margin-bottom: 15px; }
@@ -58,69 +49,41 @@
         .btn-submit { width: 100%; padding: 14px; background: var(--blue-documatch); color: #ffffff; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
         .form-privacy { font-size: 0.75rem; color: #64748b; text-align: center; margin-top: 12px; line-height: 1.3; }
         
-        /* Contenedor de Éxito Oculto por defecto */
-        .success-box { display: none; text-align: center; padding: 40px 10px; }
-        .success-icon { font-size: 3rem; color: #10b981; margin-bottom: 15px; }
-        .success-box h3 { font-size: 1.6rem; color: #000000; margin: 0 0 10px 0; }
-        .success-box p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
-
-        /* Sección Especial: Análisis IA */
         .ia-section { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #ffffff; padding: 40px; border-radius: 12px; margin: 50px 0; text-align: center; }
-        .ia-badge { display: inline-block; padding: 4px 10px; background: var(--blue-documatch); color: #ffffff; font-size: 0.75rem; font-weight: bold; border-radius: 4px; margin-bottom: 15px; }
-        .ia-section h2 { font-size: 1.8rem; margin: 0 0 10px 0; }
-        .ia-section p { color: #94a3b8; margin: 0 0 25px 0; font-size: 1rem; }
-        .btn-ia { display: inline-block; padding: 14px 30px; background: #ffffff; color: #0f172a; text-decoration: none; font-weight: bold; border-radius: 6px; transition: background 0.2s; border: none; cursor: pointer; font-family: inherit; font-size: 1rem; }
-        .btn-ia:hover { background: #e2e8f0; }
+        .ia-badge { display: inline-block; padding: 4px 10px; background: var(--blue-documatch); color: #ffffff; font-size: 0.75rem; font-weight: bold; border-radius: 4px; margin-bottom: 15px; text-transform: uppercase; }
+        .ia-title { font-size: 1.8rem; font-weight: bold; margin: 0 0 10px 0; }
+        .ia-desc { color: #94a3b8; max-width: 600px; margin: 0 auto 25px auto; font-size: 1rem; }
         
-        /* Bloque de 4 Pilares */
-        .section-title { font-size: 1.6rem; font-weight: bold; margin-bottom: 30px; text-align: center; text-transform: uppercase; letter-spacing: 0.5px; }
-        .pillars-grid { display: table; width: 100%; table-layout: fixed; margin-bottom: 40px; }
-        .pillars-row { display: table-row; }
-        .pillar-card { display: table-cell; width: 25%; padding: 20px; background: var(--bg-light); border: 1px solid var(--border-color); border-right: none; vertical-align: top; }
-        .pillar-card:last-child { border-right: 1px solid var(--border-color); border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
-        .pillar-card:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
-        .pillar-tag { font-size: 0.7rem; font-weight: bold; color: var(--blue-documatch); text-transform: uppercase; display: block; margin-bottom: 8px; }
-        .pillar-card h4 { font-size: 1.05rem; margin: 0 0 10px 0; color: #000000; }
-        .pillar-card p { font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
+        .section-title { font-size: 1.6rem; font-weight: bold; margin-bottom: 30px; text-align: center; text-transform: uppercase; color: #000000; }
+        .pillars-grid { display: table; width: 100%; table-layout: fixed; margin-bottom: 40px; border-collapse: separate; border-spacing: 15px 0; margin-left: -15px; margin-right: -15px; }
+        .pillar-card { display: table-cell; width: 25%; padding: 25px; background: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; vertical-align: top; }
+        .pillar-icon { font-size: 1.8rem; color: var(--blue-documatch); margin-bottom: 15px; font-weight: bold; }
+        .pillar-card h4 { font-size: 1.1rem; margin: 0 0 10px 0; color: #000000; }
+        .pillar-card p { font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
         
-        /* Lista de Verificación */
-        .check-list { list-style: none; padding: 0; margin: 0 0 30px 0; }
-        .check-item { position: relative; padding-left: 24px; margin-bottom: 10px; font-size: 0.95rem; color: #334155; }
-        .check-item::before { content: "✓"; position: absolute; left: 0; color: var(--blue-documatch); font-weight: bold; }
+        .check-list { list-style: none; padding: 0; margin: 30px 0; }
+        .check-item { position: relative; padding-left: 28px; margin-bottom: 12px; font-size: 1rem; color: #334155; }
+        .check-item::before { content: "✓"; position: absolute; left: 0; color: var(--blue-documatch); font-weight: bold; font-size: 1.1rem; }
         
-        /* FOOTER CORPORATIVO */
-        .footer { background: #0f172a; color: #94a3b8; padding: 50px 5% 30px 5%; font-size: 0.85rem; border-top: 4px solid var(--blue-documatch); }
-        .footer-table { display: table; width: 100%; margin-bottom: 30px; }
+        .footer { background: #0f172a; color: #94a3b8; padding: 40px 5% 30px 5%; border-top: 4px solid var(--blue-documatch); font-size: 0.85rem; }
+        .footer-table { display: table; width: 100%; }
         .footer-row { display: table-row; }
-        .footer-col-brand { display: table-cell; width: 50%; vertical-align: top; padding-right: 30px; }
-        .footer-col-links { display: table-cell; width: 50%; vertical-align: top; text-align: right; }
-        .footer-brand-title { color: #ffffff; font-weight: bold; font-size: 1.1rem; margin-bottom: 10px; }
-        .footer-links-nav { display: inline-flex; gap: 20px; }
-        .footer-link { color: #94a3b8; text-decoration: none; cursor: pointer; }
-        .footer-link:hover { color: #ffffff; }
-        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; display: table; width: 100%; font-size: 0.8rem; }
-        .footer-copy { display: table-cell; width: 50%; }
-        .footer-seo { display: table-cell; width: 50%; text-align: right; color: #475569; text-transform: uppercase; font-size: 0.75rem; font-weight: bold; }
+        .footer-col { display: table-cell; vertical-align: top; }
+        .footer-right { text-align: right; }
+        .footer-links a { color: #94a3b8; text-decoration: none; margin-left: 15px; cursor: pointer; }
+        .footer-links a:hover { color: #ffffff; }
         
-        /* MODAL DE TEXTOS LEGALES */
         .legal-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); z-index: 10000; padding: 20px; overflow-y: auto; backdrop-filter: blur(4px); }
-        .modal-content { background: #ffffff; max-width: 700px; margin: 40px auto; padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
-        .modal-close { position: absolute; top: 20px; right: 20px; background: #f1f5f9; border: none; font-size: 1.2rem; font-weight: bold; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-dark); transition: background 0.2s; }
-        .modal-close:hover { background: #e2e8f0; }
-        .modal-body h2 { font-size: 1.6rem; color: #000000; margin-top: 0; margin-bottom: 20px; border-bottom: 2px solid var(--blue-documatch); padding-bottom: 8px; }
-        .modal-body h3 { font-size: 1.1rem; color: #0f172a; margin-top: 25px; margin-bottom: 10px; }
-        .modal-body p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; }
+        .modal-content { background: #ffffff; max-width: 700px; margin: 40px auto; padding: 30px; border-radius: 12px; position: relative; color: var(--text-dark); }
+        .modal-close { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); font-weight: bold; }
+        .modal-content h3 { margin-top: 0; color: #000000; }
         
-        /* Responsive */
         @media (max-width: 768px) {
-            .layout-table, .layout-row, .left-column, .right-column, .quick-arguments, .arg-item, .pillars-grid, .pillars-row, .pillar-card, .footer-table, .footer-row, .footer-col-brand, .footer-col-links, .footer-bottom, .footer-copy, .footer-seo { display: block; width: 100%; text-align: left; }
-            .right-column { margin-top: 30px; padding: 20px; }
-            .pillar-card { border-right: 1px solid var(--border-color) !important; border-bottom: none; border-radius: 0 !important; }
-            .pillar-card:last-child { border-bottom: 1px solid var(--border-color); border-bottom-left-radius: 8px !important; border-bottom-right-radius: 8px !important; }
-            .pillar-card:first-child { border-top-left-radius: 8px !important; border-top-right-radius: 8px !important; }
-            .footer-col-links { margin-top: 25px; }
-            .footer-links-nav { display: flex; flex-direction: column; gap: 10px; }
-            .footer-seo { margin-top: 10px; }
+            .layout-table, .layout-row, .left-column, .right-column, .quick-arguments, .arg-item, .pillars-grid, .pillar-card, .footer-table, .footer-row, .footer-col { display: block; width: 100%; padding-right: 0; margin-bottom: 20px; text-align: left; }
+            .pillars-grid { border-spacing: 0; margin-left: 0; margin-right: 0; }
+            .pillar-card { margin-bottom: 15px; }
+            .footer-right { text-align: left; margin-top: 15px; }
+            .footer-links a { margin-left: 0; margin-right: 15px; display: inline-block; }
         }
     </style>
 </head>
@@ -128,8 +91,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-branding">
-                <a href="https://www.documatch.eu" class="logo-link">
-                    <img src="documatch jpg.jpg" alt="Documatch.eu" class="logo-img">
+                <a href="https://www.documatch.eu/" class="logo-link">
+                    <img src="logo.jpg" alt="Documatch.eu" class="logo-img">
                 </a>
                 <div class="brand-text-box">
                     <div class="brand-title">DOCUMATCH</div>
@@ -138,39 +101,46 @@
             </div>
             <div class="nav-actions">
                 <div class="lang-buttons">
-                    <button class="btn-lang" id="lang-fr" onclick="changeLanguage('fr')">FR</button>
-                    <button class="btn-lang" id="lang-es" onclick="changeLanguage('es')">ES</button>
-                    <button class="btn-lang" id="lang-en" onclick="changeLanguage('en')">EN</button>
+                    <button class="btn-lang active" id="lang-fr">FR</button>
+                    <button class="btn-lang" id="lang-es">ES</button>
+                    <button class="btn-lang" id="lang-en">EN</button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="sector-nav" id="sector-tabs"></div>
+    <div class="sector-nav" id="sector-tabs">
+        <button class="btn-sector active" data-sector="btp" id="tab-btp">Bâtiment / BTP</button>
+        <button class="btn-sector" data-sector="immo" id="tab-immo">Immobilier</button>
+    </div>
 
     <div class="main-container">
         <div class="layout-table">
             <div class="layout-row">
                 <div class="left-column">
-                    <div class="badge-tag" id="ui-badge-top">Comparateur Indépendant</div>
-                    <h1 id="hero-title">Chargement...</h1>
-                    <p class="hero-desc" id="hero-subtitle">Chargement...</p>
-                                                            
-                    <div class="quick-arguments">
-                        <div class="arg-item" id="arg-1">✓ 100% indépendant</div>
-                        <div class="arg-item" id="arg-2">✓ Analyse en 48h</div>
-                        <div class="arg-item" id="arg-3">✓ Sans engagement</div>
+                    <div class="badge-tag" id="ui-badge-top">Comparateur Indépendant GED &amp; DMS</div>
+                    <h1 id="hero-title">La gestion des factures sous-traitants sur papier ralentit vos chantiers</h1>
+                    <p class="hero-desc" id="hero-subtitle">Documatch.eu analyse objectivement les meilleures solutions GED adaptées au BTP.</p>
+                    
+                    <div class="quick-arguments" id="ui-arguments">
+                        <div class="arg-item" id="arg1">✓ 100% Indépendant</div>
+                        <div class="arg-item" id="arg2">✓ Analyse en 48h</div>
+                        <div class="arg-item" id="arg3">✓ Gratuit &amp; Sans engagement</div>
                     </div>
 
-                    <ul class="check-list" id="hero-checks"></ul>
+                    <ul class="check-list" id="ui-bullets">
+                        <li class="check-item">Analyse de vos circuits de validation de factures spécifiques</li>
+                        <li class="check-item">Vérification de l'intégration avec vos logiciels de comptabilité</li>
+                        <li class="check-item">Évaluation de la conformité réglementaire (Facturation Électronique)</li>
+                    </ul>
                 </div>
 
                 <div class="right-column">
                     <div class="form-box" id="main-form-box">
-                        <h3 id="form-title">PRÉ-ANALYSE GRATUIT</h3>
-                        <p id="form-subtitle">Rapport personnalisé en 48h</p>
-                                                                        
-                        <form id="lead-form" action="https://www.documatch.eu/" method="GET" onsubmit="handleFormSubmit(event)">
+                        <h3 id="form-title">PRÉ-ANALYSE GRATUITE</h3>
+                        <p id="form-subtitle">Obtenez votre rapport personnalisé en 48h</p>
+                        
+                        <form action="https://formspree.io/f/mpqndldg" method="POST">
                             <input type="hidden" name="utm_source" value="landing_satelite">
                             <input type="hidden" name="sector" id="hidden-sector" value="btp">
                             <input type="hidden" name="lang" id="hidden-lang" value="fr">
@@ -188,7 +158,7 @@
                                 <input type="email" id="f-email" name="email" required placeholder="nom@entreprise.com">
                             </div>
                             <div class="form-group">
-                                <label for="f-phone" id="lbl-phone">Téléphone</label>
+                                <label mechanics for="f-phone" id="lbl-phone">Téléphone</label>
                                 <input type="tel" id="f-phone" name="telefono" required placeholder="...">
                             </div>
 
@@ -196,436 +166,349 @@
                             <div class="form-privacy" id="ui-privacy">Aucun démarchage commercial. Vos données restent confidentielles et ne sont jamais revendues.</div>
                         </form>
                     </div>
-
-                    <div class="success-box" id="success-message-box">
-                        <div class="success-icon">✓</div>
-                        <h3 id="success-title">Demande reçue !</h3>
-                        <p id="success-desc">Votre demande de pré-analyse a été transmise avec succès. Un expert va analyser vos besoins et vous recontactera sous 48 heures.</p>
-                    </div>
                 </div>
             </div>
         </div>
 
-        <div style="margin-top: 60px;">
-            <div class="section-title" id="pillars-main-title">Écosystème</div>
-            <div class="pillars-grid">
-                <div class="pillars-row" id="pillars-container"></div>
-            </div>
+        <div class="ia-section">
+            <div class="ia-badge" id="ia-badge-txt">Analyse Algorithmique</div>
+            <div class="ia-title" id="ia-title-txt">L'intelligence artificielle au service de votre choix GED</div>
+            <div class="ia-desc" id="ia-desc-txt">Notre moteur croise vos besoins métiers avec les fonctionnalités réelles de plus de 45 logiciels du marché pour extraire le top 3 idéal.</div>
         </div>
 
-        <div class="ia-section">
-            <div class="ia-badge">DOCUMATCH.EU GENERATIVE AI</div>
-            <h2 id="ia-title">Analyseur IA de besoins GED</h2>
-            <p id="ia-subtitle">Questionnaire GED gratuit • Résultats personnalisés en moins de 5 minutes</p>
-            <button class="btn-ia" id="ia-btn" onclick="scrollToForm()">Démarrer l'analyse IA</button>
+        <h3 class="section-title" id="pillars-title">Les 4 Piliers de notre Audit Objectif</h3>
+        <div class="pillars-grid" id="pillars-container">
+            <div class="pillar-card">
+                <div class="pillar-icon">01</div>
+                <h4 id="p1-t">Volume &amp; Stockage</h4>
+                <p id="p1-d">Évaluation de l'espace nécessaire et de la vitesse d'indexation de vos fichiers historiques.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">02</div>
+                <h4 id="p2-t">Sécurité &amp; Droits</h4>
+                <p id="p2-d">Analyse fine des matrices de droits d'accès nécessaires pour vos collaborateurs et tiers.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">03</div>
+                <h4 id="p3-t">Workflows Métiers</h4>
+                <p id="p3-d">Cartographie des circuits de relecture, visa, validation et signature électronique.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">04</div>
+                <h4 id="p4-t">Interopérabilité</h4>
+                <p id="p4-d">Mesure de la compatibilité technique native avec vos ERP, CRM et outils comptables existants.</p>
+            </div>
         </div>
     </div>
 
     <footer class="footer">
         <div class="footer-table">
             <div class="footer-row">
-                <div class="footer-col-brand">
-                    <div class="footer-brand-title">Documatch.eu</div>
-                    <p id="footer-desc" style="margin:0; line-height:1.4;">Plateforme européenne d'aide à la décision pour la sélection de logiciels GED, DMS et de gestion documentaire.</p>
+                <div class="footer-col">
+                    <div>&copy; 2026 Documatch.eu. Tous droits réservés.</div>
                 </div>
-                <div class="footer-col-links">
-                    <div class="footer-links-nav">
-                        <a class="footer-link" id="f-link-cond" onclick="openLegal('cond')">Conditions</a>
-                        <a class="footer-link" id="f-link-priv" onclick="openLegal('priv')">Confidentialité</a>
-                        <a class="footer-link" id="f-link-legal" onclick="openLegal('legal')">Mentions légales</a>
-                    </div>
+                <div class="footer-col footer-right footer-links">
+                    <a id="link-legal">Mentions Légales</a>
+                    <a id="link-privacy">Confidentialité</a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="footer-copy">© 2026 Documatch.eu — Tous droits réservés</div>
-            <div class="footer-seo" id="footer-seo-term">comparateur indépendant GED et DMS BTP</div>
-        </div>
     </footer>
 
-    <div class="legal-modal" id="legal-modal" onclick="closeLegalOnOverlay(event)">
+    <div class="legal-modal" id="modal-legal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeLegal()">×</button>
-            <div class="modal-body" id="modal-body-content"></div>
+            <span class="modal-close" id="modal-close-btn">&times;</span>
+            <h3 id="modal-title">Informations</h3>
+            <div id="modal-body" style="font-size:0.9rem; line-height:1.6; color:#334155; max-height:400px; overflow-y:auto;">
+                </div>
         </div>
     </div>
 
     <script>
+        const contentData = {
+            fr: {
+                brandTagline: "Comparateur de logiciels GED pour entreprises",
+                badgeTop: "Comparateur Indépendant GED & DMS",
+                formTitle: "PRÉ-ANALYSE GRATUITE",
+                formSubtitle: "Obtenez votre rapport personnalisé en 48h",
+                lblName: "Nom complet",
+                lblCompany: "Entreprise / Société",
+                lblEmail: "Adresse e-mail professionnelle",
+                lblPhone: "Téléphone",
+                btnSubmit: "Recevoir mon Pré-Analyse Gratuit →",
+                uiPrivacy: "Aucun démarchage commercial. Vos données restent confidentielles et ne sont jamais revendues.",
+                arg1: "✓ 100% Indépendant",
+                arg2: "✓ Analyse en 48h",
+                arg3: "✓ Gratuit & Sans engagement",
+                iaBadge: "Analyse Algorithmique",
+                iaTitle: "L'intelligence artificielle au service de votre choix GED",
+                iaDesc: "Notre moteur croise vos besoins métiers avec les fonctionnalités réelles de plus de 45 logiciels du marché pour extraire le top 3 idéal.",
+                pillarsTitle: "Les 4 Piliers de notre Audit Objectif",
+                legalLink: "Mentions Légales",
+                privacyLink: "Confidentialité",
+                sectors: {
+                    btp: {
+                        tab: "Bâtiment / BTP",
+                        title: "La gestion des factures sous-traitants sur papier ralentit vos chantiers",
+                        subtitle: "Documatch.eu analyse objectivement les meilleures solutions GED adaptées au BTP.",
+                        bullets: [
+                            "Analyse de vos circuits de validation de factures spécifiques",
+                            "Vérification de l'intégration avec vos logiciels de comptabilité",
+                            "Évaluation de la conformité réglementaire (Facturation Électronique)"
+                        ],
+                        p1_t: "Volume & Chantiers",
+                        p1_d: "Classement automatique des documents par dossier de chantier et gestion des plans lourds.",
+                        p2_t: "Accès Chantiers",
+                        p2_d: "Droits d'accès mobiles sécurisés pour les conducteurs de travaux directement depuis le terrain.",
+                        p3_t: "Validation Factures",
+                        p3_d: "Circuit automatisé de validation des situations de travaux et des factures sous-traitants.",
+                        p4_t: "Liaisons ERP BTP",
+                        p4_d: "Passerelles certifiées avec les principaux ERP et logiciels de gestion du bâtiment du marché."
+                    },
+                    immo: {
+                        tab: "Immobilier",
+                        title: "La dispersion des dossiers de diagnostics et baux fragilise vos mandats",
+                        subtitle: "Découvrez les outils GED leaders pour centraliser et sécuriser vos actifs immobiliers.",
+                        bullets: [
+                            "Centralisation des dossiers techniques par immeuble, lot ou copropriété",
+                            "Automatisation des relances pour les pièces manquantes ou obsolètes",
+                            "Partage sécurisé des documents avec les locataires, acheteurs et notaires"
+                        ],
+                        p1_t: "Gestion des Lots",
+                        p1_d: "Arborescence intelligente structurée par immeuble, étage, appartement et bail de location.",
+                        p2_t: "Extranet Sécurisé",
+                        p2_d: "Espaces clients dédiés pour les copropriétaires, locataires et conseils syndicaux.",
+                        p3_t: "Relances Auto",
+                        p3_d: "Détection automatique des diagnostics techniques périmés et alertes automatiques.",
+                        p4_t: "Outils Métiers",
+                        p4_d: "Synchronisation transparente avec vos logiciels de gestion locative et de syndic de copropriété."
+                    }
+                }
+            },
+            es: {
+                brandTagline: "Comparador de software GED para empresas",
+                badgeTop: "Comparador Independiente GED & DMS",
+                formTitle: "PREANÁLISIS GRATUITO",
+                formSubtitle: "Obtenga su informe personalizado en 48h",
+                lblName: "Nombre completo",
+                lblCompany: "Empresa / Sociedad",
+                lblEmail: "Correo electrónico profesional",
+                lblPhone: "Teléfono",
+                btnSubmit: "Recibir mi Preanálisis Gratis →",
+                uiPrivacy: "Sin prospección comercial. Sus datos son confidenciales y nunca se revenden.",
+                arg1: "✓ 100% Independiente",
+                arg2: "✓ Análisis en 48h",
+                arg3: "✓ Gratis y sin compromiso",
+                iaBadge: "Análisis Algorítmico",
+                iaTitle: "Inteligencia artificial al servicio de su elección de GED",
+                iaDesc: "Nuestro motor cruza sus necesidades comerciales con las características reales de más de 45 soluciones del mercado para extraer el top 3 ideal.",
+                pillarsTitle: "Los 4 Pilares de nuestra Auditoría Objetiva",
+                legalLink: "Aviso Legal",
+                privacyLink: "Privacidad",
+                sectors: {
+                    btp: {
+                        tab: "Construcción / BTP",
+                        title: "La gestión de facturas de subcontratistas en papel ralentiza sus obras",
+                        subtitle: "Documatch.eu analiza objetivamente las mejores soluciones GED adaptadas a la construcción.",
+                        bullets: [
+                            "Análisis de sus circuitos específicos de validación de facturas",
+                            "Verificación de la integración con sus programas de contabilidad",
+                            "Evaluación del cumplimiento normativo (Facturación Electrónica)"
+                        ],
+                        p1_t: "Volumen y Obras",
+                        p1_d: "Clasificación automática de documentos por expediente de obra y gestión de planos pesados.",
+                        p2_t: "Acceso a Obras",
+                        p2_d: "Derechos de acceso móvil seguros para los jefes de obra directamente desde el terreno.",
+                        p3_t: "Validación de Facturas",
+                        p3_d: "Circuito automatizado de validación de estados de obra y facturas de subcontratistas.",
+                        p4_t: "Conexiones ERP BTP",
+                        p4_d: "Pasarelas certificadas con los principales ERP y software de gestión de la construcción del mercado."
+                    },
+                    immo: {
+                        tab: "Inmobiliaria",
+                        title: "La dispersión de contratos y diagnósticos debilita sus mandatos",
+                        subtitle: "Descubra las herramientas GED líderes para centralizar y asegurar sus activos inmobiliarios.",
+                        bullets: [
+                            "Centralización de expedientes técnicos por edificio, lote o copropiedad",
+                            "Automatización de recordatorios para documentos faltantes o desactualizados",
+                            "Uso compartido seguro de documentos con inquilinos, compradores y notarios"
+                        ],
+                        p1_t: "Gestión de Lotes",
+                        p1_d: "Árbol inteligente estructurado por edificio, planta, apartamento y contrato de arrendamiento.",
+                        p2_t: "Extranet Segura",
+                        p2_d: "Espacios de cliente dedicados para copropietarios, inquilinos y consejos de administración.",
+                        p3_t: "Avisos Automáticos",
+                        p3_d: "Detección automática de diagnósticos técnicos caducados y alertas automatizadas.",
+                        p4_t: "Herramientas de Sector",
+                        p4_d: "Sincronización transparente con sus programas de gestión de alquileres y administración de fincas."
+                    }
+                }
+            },
+            en: {
+                brandTagline: "Independent Document Management Software Comparator",
+                badgeTop: "Independent DMS & Document Management Comparator",
+                formTitle: "FREE PRE-ANALYSIS",
+                formSubtitle: "Get your personalized report within 48 hours",
+                lblName: "Full Name",
+                lblCompany: "Company / Organization",
+                lblEmail: "Professional Email Address",
+                lblPhone: "Phone Number",
+                btnSubmit: "Receive My Free Pre-Analysis →",
+                uiPrivacy: "No commercial solicitation. Your data remains completely confidential and is never resold.",
+                arg1: "✓ 100% Independent",
+                arg2: "✓ 48h Turnaround",
+                arg3: "✓ Free & No Obligation",
+                iaBadge: "Algorithmic Analysis",
+                iaTitle: "Artificial Intelligence Focused on Document Management Selection",
+                iaDesc: "Our analytical system processes your precise business requirements against 45+ market tools to accurately generate your optimal top 3 selection.",
+                pillarsTitle: "The 4 Core Pillars of Our Objective Audit",
+                legalLink: "Legal Notice",
+                privacyLink: "Privacy Policy",
+                sectors: {
+                    btp: {
+                        tab: "Construction / Engineering",
+                        title: "Paper-based subcontractor invoice management is stalling your building sites",
+                        subtitle: "Documatch.eu offers an objective assessment of leading DMS platforms tailored for construction companies.",
+                        bullets: [
+                            "Custom structural review of workflow and approval processes",
+                            "Detailed interface verification against current financial accounting packages",
+                            "Regulatory compliance assessment concerning mandatory electronic invoicing rules"
+                        ],
+                        p1_t: "Volume & Site Filings",
+                        p1_d: "Automated indexing structured by project directories and heavy blueprint file handling.",
+                        p2_t: "Mobile Site Access",
+                        p2_d: "Robust identity and access management for project supervisors operating directly on site.",
+                        p3_t: "Invoice Workflow",
+                        p3_d: "Automated routing for progress certificates and third-party vendor bill verification.",
+                        p4_t: "ERP Integrations",
+                        p4_d: "Production-ready connectors supporting specialized building management enterprise systems."
+                    },
+                    immo: {
+                        tab: "Real Estate",
+                        title: "Scattered technical audits and lease documents weaken your mandates",
+                        subtitle: "Discover the best cloud document management frameworks built to safeguard property data.",
+                        bullets: [
+                            "Unified file indexing structured by property, unit, or community association",
+                            "Automated triggers scanning for expired, outdated or missing mandatory items",
+                            "Granular information sharing across tenants, asset managers, and legal networks"
+                        ],
+                        p1_t: "Unit Classification",
+                        p1_d: "Hierarchical folders mapping individual assets, floors, units, and active rental leases.",
+                        p2_t: "Secure Portal Extranets",
+                        p2_d: "Dedicated interfaces provisioned for individual owners, tenants, and oversight boards.",
+                        p3_t: "Automated Triggers",
+                        p3_d: "Automated validation loops detecting aging building codes and pending renewal events.",
+                        p4_t: "Property Systems Integration",
+                        p4_d: "Native synchronization mapping into your accounting and daily leasing systems."
+                    }
+                }
+            }
+        };
+
         let currentLang = 'fr';
         let currentSector = 'btp';
 
-        const uiLexicon = {
-            fr: {
-                tagline: "Comparateur de logiciels GED pour entreprises",
-                badge_top: "Comparateur Indépendant GED & DMS",
-                arg1: "✓ Comparateur 100% indépendant", arg2: "✓ Analyse en 48h", arg3: "✓ Sans engagement ni frais",
-                f_title: "PRÉ-ANALYSE GRATUIT", f_sub: "Obtenez votre rapport personnalisé en 48h",
-                lbl_name: "Nom complet", lbl_company: "Entreprise / Société", lbl_email: "Adresse e-mail professionnelle", lbl_phone: "Téléphone",
-                btn_send: "Recevoir mon Pré-Analyse Gratuit →",
-                privacy: "Aucun démarchage commercial. Vos données restent confidentielles et ne sont jamais revendues.",
-                ia_title: "Analyseur IA de besoins GED", ia_sub: "Questionnaire GED gratuit • Résultats personnalisés en moins de 5 minutes", ia_btn: "Démarrer l'analyse IA",
-                f_desc: "Plateforme européenne d'aide à la décision pour la sélection de logiciels GED, DMS et de gestion documentaire.",
-                f_cond: "Conditions d'utilisation", f_priv: "Politique de confidentialité", f_legal: "Mentions légales",
-                pillar_sect_title: "ÉCOSYSTÈME ",
-                seo_prefix: "comparateur indépendant GED et DMS ",
-                success_title: "Demande reçue !",
-                success_desc: "Votre demande de pré-analyse a été transmise avec succès. Notre équipe va analyser vos critères et vous recontactera sous 48 heures."
-            },
-            es: {
-                tagline: "Comparador de software GED para empresas",
-                badge_top: "Comparador Independiente GED & DMS",
-                arg1: "✓ Comparador 100% independiente", arg2: "✓ Análisis en 48h", arg3: "✓ Sin costes ni compromiso",
-                f_title: "PRE-ANÁLISIS GRATUITO", f_sub: "Obtén tu informe personalizado en 48h",
-                lbl_name: "Nombre completo", lbl_company: "Empresa / Sociedad", lbl_email: "Correo electrónico profesional", lbl_phone: "Teléfono",
-                btn_send: "Recibir mi Pre-Análisis Gratis →",
-                privacy: "Sin prospección comercial. Tus datos son confidenciales y nunca se revenden.",
-                ia_title: "Analizador IA de necesidades GED", ia_sub: "Cuestionario GED gratuito • Resultados personalizados en menos de 5 minutos", ia_btn: "Iniciar análisis IA",
-                f_desc: "Plataforma europea de ayuda a la decisión para la selección de software GED, DMS y gestión documental.",
-                f_cond: "Condiciones de uso", f_priv: "Política de privacidad", f_legal: "Avisos legales",
-                pillar_sect_title: "ECOSISTEMA ",
-                seo_prefix: "comparador independiente GED y DMS ",
-                success_title: "¡Solicitud recibida!",
-                success_desc: "Tu solicitud de preanálisis se ha enviado correctamente. Nuestro equipo analizará tus criterios y se pondrá en contacto contigo en un plazo de 48 horas."
-            },
-            en: {
-                tagline: "DMS software comparator for companies",
-                badge_top: "Independent DMS & DMS Comparator",
-                arg1: "✓ 100% independent comparator", arg2: "✓ Analysis in 48h", arg3: "✓ No fee nor commitment",
-                f_title: "FREE PRE-ANALYSIS", f_sub: "Get your personalized report in 48h",
-                lbl_name: "Full name", lbl_company: "Company / Organization", lbl_email: "Professional email address", lbl_phone: "Phone number",
-                btn_send: "Get My Free Pre-Analysis →",
-                privacy: "No sales harassment. Your data remains confidential and is never resold.",
-                ia_title: "AI DMS Needs Analyzer", ia_sub: "Free DMS questionnaire • Personalized results in under 5 minutes", ia_btn: "Start AI Analysis",
-                f_desc: "European decision-making platform for selecting DMS, GED, and document management software.",
-                f_cond: "Terms of Use", f_priv: "Privacy Policy", f_legal: "Legal Notice",
-                pillar_sect_title: "ECOSYSTEM ",
-                seo_prefix: "independent comparator DMS and GED ",
-                success_title: "Request received!",
-                success_desc: "Your pre-analysis request has been submitted successfully. Our engineering desk will study your system parameters and reach out within 48 hours."
-            }
-        };
+        function updateUI() {
+            const data = contentData[currentLang];
+            const sectorData = data.sectors[currentSector];
 
-        const legalTexts = {
-            legal: {
-                title: "Mentions légales",
-                html: `<h3>Éditeur du site</h3><p>Documatch est un service de comparaison de solutions de gestion électronique de documents destiné aux entreprises.<br>Email de contact : <strong>info@documatch.eu</strong></p><p>Directeur de publication : Documatch<br>SIREN : 992 752 980, société immatriculée en France<br>TVA non applicable conformément à l'article 293 B du Code Général des Impôts.</p><h3>Hébergement</h3><p>Le site Documatch.eu est hébergé par OVH.<br>Adresse : 2 rue Kellermann, 59100 Roubaix, France.<br>Téléphone : +33 9 72 10 10 07.</p><h3>Propriété intellectuelle</h3><p>L'ensemble des contenus du site Documatch.eu (textes, visuels, logos, éléments graphiques) est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive de Documatch ou de ses partenaires. Toute reproduction ou exploitation non autorisée est interdite.</p><h3>Responsabilité</h3><p>Documatch s'efforce de fournir des informations fiables et régulièrement mises à jour. Toutefois, aucune garantie n'est apportée quant à l'exactitude ou l'exhaustivité des informations présentées. L'utilisateur reconnaît utiliser ces informations sous sa seule responsabilité.</p>`
-            },
-            priv: {
-                title: "Politique de confidentialité",
-                html: `<p>Documatch collecte uniquement les données personnelles nécessaires à l'utilisation de son service de comparaison de solutions GED, notamment lors de l'utilisation de l'analyste IA ou d'une prise de contact.</p><p>Les données sont utilisées exclusivement pour fournir des recommandations personnalisées, améliorer le service et répondre aux demandes des utilisateurs. Aucune donnée n'est vendue ou transmise à des tiers.</p><p>Des mesures de sécurité conformes au RGPD sont mises en œuvre afin de garantir la confidentialité et la protection des données.</p><p>Vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données, exerçable à l'adresse <strong>info@documatch.eu</strong></p>`
-            },
-            cond: {
-                title: "Conditions d'utilisation",
-                html: `<p>L'utilisation du site Documatch.eu implique l'acceptation pleine et entière des conditions générales d'utilisation. Le service de pré-analyse et de comparaison est entièrement gratuit pour les entreprises à la recherche d'une solution GED/DMS.</p><p>Documatch agit en tant que tiers de confiance indépendant et neutre, et ne perçoit aucune commission sur les choix finaux des utilisateurs.</p>`
-            }
-        };
+            document.getElementById('brand-tagline').innerText = data.brandTagline;
+            document.getElementById('ui-badge-top').innerText = data.badgeTop;
+            document.getElementById('form-title').innerText = data.formTitle;
+            document.getElementById('form-subtitle').innerText = data.formSubtitle;
+            document.getElementById('lbl-name').innerText = data.lblName;
+            document.getElementById('lbl-company').innerText = data.lblCompany;
+            document.getElementById('lbl-email').innerText = data.lblEmail;
+            document.getElementById('lbl-phone').innerText = data.lblPhone;
+            document.getElementById('btn-submit').innerText = data.btnSubmit;
+            document.getElementById('ui-privacy').innerText = data.uiPrivacy;
+            document.getElementById('arg1').innerText = data.arg1;
+            document.getElementById('arg2').innerText = data.arg2;
+            document.getElementById('arg3').innerText = data.arg3;
+            document.getElementById('ia-badge-txt').innerText = data.iaBadge;
+            document.getElementById('ia-title-txt').innerText = data.iaTitle;
+            document.getElementById('ia-desc-txt').innerText = data.iaDesc;
+            document.getElementById('pillars-title').innerText = data.pillarsTitle;
+            document.getElementById('link-legal').innerText = data.legalLink;
+            document.getElementById('link-privacy').innerText = data.privacyLink;
 
-        const sectorsData = {
-            btp: {
-                nav: { fr: "Bâtiment / BTP", es: "Construcción", en: "Construction" },
-                title: { fr: "La gestion des factures sous-traitants sur papier ralentit vos chantiers", es: "La gestión de facturas de subcontratas en papel frena tus obras", en: "Paper-based subcontractor invoice management delays your building sites" },
-                desc: { fr: "Documatch.eu analyse objectivement les meilleures solutions GED adaptées au BTP : centralisation des plans, validation des factures fournisseurs et suivi de la conformité légale.", es: "Documatch.eu analiza objetivamente las mejores soluciones GED para la construcción: centralización de planos, validación de facturas de proveedores y cumplimiento legal.", en: "Documatch.eu objectively analyzes the best DMS systems for Construction: blueprint centralization, supplier invoice automation, and subcontractor compliance." },
-                checks: {
-                    fr: ["Analyse des circuits de validation de factures", "Vérification de la gestion des gros volumes de documents", "Compatibilité avec l'archivage légal des chantiers", "Recommandation adaptée à votre structure (PME/ETI)"],
-                    es: ["Análisis de circuitos de aprobación de facturas", "Verificación de gestión de grandes volúmenes de planos", "Compatibilidad con archivo legal de fin de obra", "Recomendación adaptada a tu estructura (PME/ETI)"],
-                    en: ["Invoice validation workflow analysis", "Large-scale blueprint handling verification", "Compatibility with legal site archiving", "Tailored recommendation based on your layout (SME/Enterprise)"]
-                },
-                pillars: [
-                    { tag: "GED", fr: { t: "GED Chantiers", d: "Centralisez les plans, devis et situations dans un espace unique accessible sur tablette." }, es: { t: "GED de Obras", d: "Centraliza planos, presupuestos y certificaciones en un espacio único accesible desde tablets." }, en: { t: "Site DMS", d: "Centralize blueprints, quotes, and work progress updates in one space accessible via tablets." } },
-                    { tag: "Workflows", fr: { t: "Validation Fournisseurs", d: "Automatisez les circuits des factures de matériaux avec des workflows simples." }, es: { t: "Validación Proveedores", d: "Automatiza los circuitos de facturas de materiales con flujos de aprobación sencillos." }, en: { t: "Workflows", d: "Automate material supplier invoice processing through straightforward approval workflows." } },
-                    { tag: "Conformité", fr: { t: "Dossier Sous-traitant", d: "Contrôlez automatiquement les documents légaux obligatoires (URSSAF, Kbis)." }, es: { t: "Expediente Subcontratista", d: "Controla automáticamente los documentos legales obligatorios para evitar riesgos." }, en: { t: "Compliance", d: "Automatically track mandatory legal profiles to avoid exposure." } },
-                    { tag: "API", fr: { t: "Connecteur ERP BTP", d: "Synchronisez votre logiciel de suivi de chantier ou comptable avec la GED choisie." }, es: { t: "Conector ERP Obras", d: "Sincroniza tu software de seguimiento de obras o contabilidad con la GED elegida." }, en: { t: "API Link", d: "Synchronize your job costing software or accounting platform with the designated DMS." } }
-                ]
-            },
-            immo: {
-                nav: { fr: "Immobilier", es: "Inmobiliaria", en: "Real Estate" },
-                title: { fr: "Gagnez des jours de gestion sur vos dossiers de vente et de location", es: "Gana días de gestión en tus expedientes de venta y alquiler", en: "Save days of management on your sales and rental files" },
-                desc: { fr: "Simplifiez la collecte des pièces justificatives des locataires ou acheteurs et sécurisez vos signatures de mandats.", es: "Simplifica la recogida de documentos de inquilinos o compradores y asegura la firma de mandatos.", en: "Streamline tenant or buyer document collection and secure your agency mandates safely." },
-                checks: {
-                    fr: ["Collecte automatisée des dossiers locataires", "Signature électronique des mandats et baux", "Rappels automatiques pour les pièces manquantes", "Conformité avec les réglementations immobilières"],
-                    es: ["Recogida automatizada de expedientes de inquilinos", "Firma electrónica de mandatos y contratos", "Alertas automáticas por documentos faltantes", "Cumplimiento con la normativa del sector"],
-                    en: ["Automated tenant file collection", "E-signature for mandates and lease agreements", "Automated reminders for missing documents", "Compliance with real estate local regulations"]
-                },
-                pillars: [
-                    { tag: "Dossier", fr: { t: "Dossier Unique Lot", d: "Regroupez tous les documents d'un bien (diagnostics, plans, contrats) en un seul endroit." }, es: { t: "Expediente de Lote", d: "Agrupa todos los documentos de un inmueble (diagnósticos, planos) en un solo lugar." }, en: { t: "Property File", d: "Regroup all property documentation (assessments, plans, contracts) in one unified place." } },
-                    { tag: "Signature", fr: { t: "Baux et Mandats", d: "Faites signer vos documents à distance en toute sécurité juridique." }, es: { t: "Contratos y Mandatos", d: "Haz firmar tus documentos a distancia con total seguridad jurídica." }, en: { t: "E-Sign", d: "Get your mandates and lease agreements signed remotely with full legal safety." } },
-                    { tag: "Portail", fr: { t: "Espace Client / Accès", d: "Donnez un accès sécurisé aux propriétaires, locataires et notaires." }, es: { t: "Espacio de Clientes", d: "Ofrece un acceso seguro a propietarios, inquilinos y notarios." }, en: { t: "Portal", d: "Provide secure access entryways for owners, tenants, and public notaries." } },
-                    { tag: "Alertes", fr: { t: "Suivi des Échéances", d: "Soyez alerté avant la fin d'un bail ou le renouvellement d'une assurance." }, es: { t: "Control de Plazos", d: "Recibe alertas antes del fin de un contrato o renovación de seguros." }, en: { t: "Alerts", d: "Get notified well before a lease expires or insurance policies need renewal." } }
-                ]
-            },
-            sante: {
-                nav: { fr: "Santé", es: "Sanidad", en: "Healthcare" },
-                title: { fr: "Sécurisez les données de vos patients avec une GED hautement certifiée", es: "Protege los datos de tus pacientes con una GED altamente certificada", en: "Secure your patient data with a highly certified DMS ecosystem" },
-                desc: { fr: "Centralisez le parcours de soins, sécurisez le secret médical et accélérez le traitement administratif des dossiers.", es: "Centraliza el historial médico, asegura el secreto profesional y agiliza el trámite administrativo.", en: "Centralize the care journey, protect medical secrecy, and accelerate administrative medical records." },
-                checks: {
-                    fr: ["Hébergement certifié données de santé", "Gestion stricte des droits d'accès", "Numérisation et indexation des dossiers médicaux", "Interopérabilité avec vos logiciels médicaux"],
-                    es: ["Alojamiento certificado para datos de salud", "Gestión estricta de derechos de acceso", "Digitalización e indexación de historiales", "Interconexión con tus sistemas médicos"],
-                    en: ["Certified medical data hosting ecosystem", "Strict access rights management controls", "Digitization and indexing of medical records", "Interoperability with existing medical tools"]
-                },
-                pillars: [
-                    { tag: "Security", fr: { t: "Confidentialité Totale", d: "Chiffrement avancé et traçabilité complète de chaque consultation de document." }, es: { t: "Confidencialidad Total", d: "Cifrado avanzado y trazabilidad completa de cada consulta de documento." }, en: { t: "Security", d: "Advanced encryption mechanisms and complete traceability for every document view." } },
-                    { tag: "Dossier", fr: { t: "Dossier Patient Unique", d: "Historique complet des consultations, analyses et ordonnances accessible en un clic." }, es: { t: "Historial Único", d: "Historial completo de consultas, análisis y recetas accesible en un clic." }, en: { t: "Patient File", d: "Full history of consults, lab results, and prescriptions accessible in one single click." } },
-                    { tag: "Partage", fr: { t: "Échanges Sécurisés", d: "Partagez des documents de manière sécurisée avec d'autres professionnels de santé." }, es: { t: "Intercambio Seguro", d: "Comparte documentos de forma segura con otros profesionales médicos." }, en: { t: "Secure Share", d: "Share documentation securely with external healthcare specialists." } },
-                    { tag: "Régulation", fr: { t: "Conformité Médicale", d: "Respect rigoureux des normes et des décrets sur la conservation des dossiers." }, es: { t: "Cumplimiento Médico", d: "Respeto riguroso de las normativas de conservación de documentación médica." }, en: { t: "Compliance", d: "Rigorous compliance with legal standards regarding medical records retention." } }
-                ]
-            },
-            compta: {
-                nav: { fr: "Comptabilité", es: "Asesorías / Gestores", en: "Accounting Firms" },
-                title: { fr: "La relance permanente des justificants clients use vos collaborateurs", es: "La reclamación constante de facturas a tus clientes quema a tu equipo", en: "Chasing clients for missing receipts drains your staff's energy" },
-                desc: { fr: "Trouvez l'écosystème GED intelligent avec OCR pour collecter, trier et injecter les pièces comptables sans effort.", es: "Encuentra el ecosistema GED inteligente con OCR para recoger, clasificar e inyectar asientos sin esfuerzo.", en: "Find the smart DMS ecosystem featuring OCR to collect, sort, and process bookkeeping receipts effortlessly." },
-                checks: {
-                    fr: ["Performance de l'OCR lignes", "Coffre-fort fort certifié NF", "Interfaçage outils de production", "Automatisation des relances"],
-                    es: ["Rendimiento de OCR por líneas", "Caja fuerte conforme y sellada", "Conexión con herramientas contables", "Automatización de recordatorios"],
-                    en: ["Line-item OCR processing capacity", "Certified secure data storage", "Direct bridge into production software", "Automated chase engine rules"]
-                },
-                pillars: [
-                    { tag: "OCR", fr: { t: "Lecture Automatique", d: "Extrayez automatiquement la TVA, les montants et dates des factures reçues." }, es: { t: "Lectura Automática", d: "Extrae automáticamente IVA, bases e importes de las facturas recibidas." }, en: { t: "Smart Capture", d: "Automatically capture VAT, totals, and transaction dates from incoming bills." } },
-                    { tag: "Coffre", fr: { t: "Coffre-fort Légal", d: "Garantissez l'archivage à valeur probante des bilans et grands livres." }, es: { t: "Caja Fuerte Legal", d: "Garantiza el archivo con valor probatorio de balances y libros oficiales." }, en: { t: "Digital Vault", d: "Secure legally-binding archiving for balance sheets and corporate ledgers." } },
-                    { tag: "Portail", fr: { t: "Espace Client Dédié", d: "Offrez un point de dépôt web et mobile ultra-simple à vos clients." }, es: { t: "Espacio de Clientes", d: "Ofrece un punto de entrega web y móvil ultra sencillo a tus clientes." }, en: { t: "Portal", d: "Deploy an incredibly intuitive web and mobile drop-box station for your clients." } },
-                    { tag: "Workflow", fr: { t: "Circuits d'Achat", d: "Mettez en place des règles de validation et de paiement pour les factures de frais." }, es: { t: "Rutas de Gasto", d: "Establece reglas de aprobación y pago para las facturas de gastos." }, en: { t: "Expense Routes", d: "Set up validation and payment thresholds for corporate spending invoices." } }
-                ]
-            },
-            legal: {
-                nav: { fr: "Juridique", es: "Legal / Abogados", en: "Legal / Law Firms" },
-                title: { fr: "Sécurisez et accélérez la gestion de vos actes et procédures", es: "Asegura y acelera la gestión de tus actas y procedimientos judiciales", en: "Secure and accelerate your legal acts and case proceedings" },
-                desc: { fr: "Classez vos dossiers de plaidoirie, suivez le versioning de vos contrats et protégez la confidentialité de vos échanges.", es: "Clasifica expedientes judiciales, controla versiones de contratos y protege el secreto profesional.", en: "Organize your litigation files, track contract version history, and safeguard client privilege confidentiality." },
-                checks: {
-                    fr: ["Gestion stricte du versioning de documents", "Recherche textuelle avancée (Full-Text)", "Signature électronique certifiée", "Chiffrement et protection des données sensibles"],
-                    es: ["Gestión estricta de versiones de documentos", "Búsqueda de texto completo (Full-Text)", "Firma electrónica certificada", "Cifrado y protección de datos sensibles"],
-                    en: ["Strict document versioning history control", "Advanced full-text search capability", "Certified advanced e-signatures", "Data encryption and sensitive info safeguards"]
-                },
-                pillars: [
-                    { tag: "Versions", fr: { t: "Gestion des Versions", d: "Suivez chaque modification de contrat et comparez les versions en un instant." }, es: { t: "Control de Versiones", d: "Sigue cada cambio contractual y compara versiones al instante." }, en: { t: "Versioning", d: "Track every contract edit and contrast document drafts instantly." } },
-                    { tag: "Recherche", fr: { t: "Moteur Full-Text", d: "Retrouvez un mot-clé précis au cœur d'un dossier de mille pages en une seconde." }, es: { t: "Buscador Interno", d: "Encuentra una palabra clave dentro de un documento de mil páginas en un segundo." }, en: { t: "Search", d: "Locate a key phrasing deep inside a thousand-page legal file in one second." } },
-                    { tag: "Secret", fr: { t: "Accès Hautement Régulé", d: "Définissez au cas par cas qui peut lire, modifier ou exporter un dossier." }, es: { t: "Secreto Profesional", d: "Define caso por caso quién puede leer, editar o exportar un expediente." }, en: { t: "Privilege", d: "Define access thresholds for viewing, editing, or exporting sensitive casework." } },
-                    { tag: "Archivage", fr: { t: "Archivage Probant", d: "Conservez vos actes de manière immuable selon les obligations légales." }, es: { t: "Archivo Blindado", d: "Conserva tus escrituras de forma inmutable según las obligaciones de ley." }, en: { t: "Archiving", d: "Retain your corporate legal agreements immutably following strict regulatory compliance." } }
-                ]
-            },
-            commerce: {
-                nav: { fr: "Commerce / Retail", es: "Comercio / Retail", en: "Commerce / Retail" },
-                title: { fr: "Centralisez vos catalogues, contrats fournisseurs et factures de vente", es: "Centraliza tus catálogos, contratos de proveedores y facturas", en: "Centralize your catalogs, vendor contracts, and sales invoices" },
-                desc: { fr: "Automatisez le traitement des flux de marchandises et accélérez la validation des bons de commande.", es: "Automatiza la gestión de flujos de mercancías y agiliza la validación de pedidos.", en: "Automate supply chain paper flows and speed up purchase order validation workflows." },
-                checks: {
-                    fr: ["Rapprochement automatique Commandes/Factures", "Gestion multisite des documents", "Accès mobile pour les équipes terrain", "Traitement rapide des litiges fournisseurs"],
-                    es: ["Cotejo automático Pedido/Albarán/Factura", "Gestión multidenda de documentos", "Acceso móvil para equipos de campo", "Tratamiento rápido de disputas de proveedores"],
-                    en: ["Automated matching (PO/Receipt/Invoice)", "Multi-store document accessibility support", "Mobile application interface for store teams", "Fast resolution for vendor invoice claims"]
-                },
-                pillars: [
-                    { tag: "Flux", fr: { t: "Rapprochement Auto", d: "Associez automatiquement les bons de livraison aux factures correspondantes." }, es: { t: "Cotejo Automático", d: "Asocia automáticamente los albaranes de entrega con sus factures." }, en: { t: "Workflows", d: "Automatically match delivery slips against incoming product invoices." } },
-                    { tag: "Contrats", fr: { t: "Contrats Fournisseurs", d: "Suivez les conditions d'achat et les remises négociées de manière centralisée." }, es: { t: "Acuerdos con Proveedores", d: "Sigue las condiciones de compra y descuentos pactados de forma centralizada." }, en: { t: "Vendors", d: "Track purchasing agreements and negotiated vendor discounts in one center." } },
-                    { tag: "Logistique", fr: { t: "Dossier Logistique", d: "Regroupez tous les documents liés au transport et à la réception des stocks." }, es: { t: "Expediente de Stock", d: "Agrupa todos los documentos ligados al transporte y recepción de stock." }, en: { t: "Logistics", d: "Consolidate all paperwork regarding transport transit and stock intake." } },
-                    { tag: "Factures", fr: { t: "Facturation Clients", d: "Générez, distribuez et archivez vos factures clients de manière automatisée." }, es: { t: "Facturación masiva", d: "Genera, distribuye y archiva tus facturas a clientes de forma automatizada." }, en: { t: "Invoicing", d: "Generate, dispatch, and archive customer retail invoices automatically." } }
-                ]
-            },
-            industrie: {
-                nav: { fr: "Industrie", es: "Industria", en: "Manufacturing" },
-                title: { fr: "Sécurisez vos processus qualité et votre documentation technique", es: "Asegura tus procesos de calidad y tu documentación técnica", en: "Secure your quality management processes and technical blueprints" },
-                desc: { fr: "Maîtrisez la diffusion des procédures ISO, des fiches techniques et des modes opératoires sur vos lignes de production.", es: "Controla la difusión de normas ISO, fichas técnicas y manuales en tus líneas de producción.", en: "Govern the distribution of ISO instructions, product spec sheets, and machinery runbooks." },
-                checks: {
-                    fr: ["Conformité aux normes qualité (ISO, etc.)", "Gestion des plans complexes et notices", "Traçabilité totale des validations de fabrication", "Accès sécurisé pour les audits externes"],
-                    es: ["Cumplimiento de normas de calidad (ISO)", "Gestión de planos complejos y manuales", "Trazabilidad completa de cambios de fabricación", "Acceso seguro para auditorías externas"],
-                    en: ["Compliance with quality standards (ISO, etc.)", "Complex blueprints and technical layout data management", "Total audit trail for manufacturing shifts", "Secure reading permissions for external auditors"]
-                },
-                pillars: [
-                    { tag: "Qualité", fr: { t: "Gestion des ISO", d: "Assurez-vous que seule la dernière version validée d'une procédure est en ligne." }, es: { t: "Gestión de Normas ISO", d: "Asegúrate de que solo la última versión validada de un proceso está disponible." }, en: { t: "Quality", d: "Ensure only the latest authorized version of a procedure is active on lines." } },
-                    { tag: "Technique", fr: { t: "Documentation Usine", d: "Accédez instantanément aux fiches de maintenance et notices de sécurité." }, es: { t: "Fichas de Mantenimiento", d: "Accede al instante a manuales de mantenimiento y avisos de seguridad." }, en: { t: "Technical", d: "Access machinery maintenance blueprints and safety runbooks instantly." } },
-                    { tag: "Validation", fr: { t: "Workflows de Production", d: "Faites valider les modifications de produits par les ingénieurs en un clic." }, es: { t: "Flujos de Ingeniería", d: "Haz validar los cambios de producto por la oficina técnica en un clic." }, en: { t: "Approvals", d: "Route product layout modifications to engineering heads for digital sign-offs." } },
-                    { tag: "Audits", fr: { t: "Historique d'Audit", d: "Présentez des rapports d'activité limpides et complets lors de vos contrôles." }, es: { t: "Preparación de Auditorías", d: "Presenta informes de actividad limpios y completos en tus inspecciones." }, en: { t: "Audits", d: "Provide clear and flawless history reports during regulatory inspections." } }
-                ]
-            },
-            rh: {
-                nav: { fr: "Ressources Humaines", es: "Recursos Humanos", en: "Human Resources" },
-                title: { fr: "Simplifiez la gestion des dossiers collaborateurs du recrutement au départ", es: "Simplifica la gestión de expedientes de empleados, desde el alta a la baja", en: "Simplify employee file management from onboarding to offboarding" },
-                desc: { fr: "Automatisez la distribution des bulletins de paie, la signature des contrats de travail et le suivi des formations.", es: "Automatiza la entrega de nóminas, la firma de contratos laborales y el control de formación.", en: "Automate payslip distribution, labor contract digital signatures, and staff training records." },
-                checks: {
-                    fr: ["Distribution sécurisée des bulletins de paie", "Signature électronique des contrats de travail", "Respect strict du RGPD (données du personnel)", "Rappels automatiques de renouvellement de visas/permis"],
-                    es: ["Distribución segura de nóminas", "Firma electrónica de contratos de trabajo", "Respeto estricto del RGPD de empleados", "Alertas de renovación de permisos/visados"],
-                    en: ["Secure digital distribution of corporate payslips", "E-signature workflows for hiring agreements", "Strict GDPR compliance safeguards for staff profiles", "Automated tracking for work visa or permits expiry"]
-                },
-                pillars: [
-                    { tag: "Dossier", fr: { t: "Coffre-fort Salarié", d: "Chaque collaborateur dispose d'un espace sécurisé pour ses documents RH." }, es: { t: "Expediente de Empleado", d: "Cada trabajador dispone de un espacio seguro para sus documentos y nóminas." }, en: { t: "Staff File", d: "Provide every employee with a private, secure digital space for HR records." } },
-                    { tag: "Embauche", fr: { t: "Onboarding Fluide", d: "Faites signer le contrat et collectez les pièces d'identité avant le premier jour." }, es: { t: "Onboarding Ágil", d: "Haz firmar el contrato y recoge el DNI antes del primer día de trabajo." }, en: { t: "Onboarding", d: "Secure signed hiring offers and collect legal IDs before day one." } },
-                    { tag: "Paie", fr: { t: "Bulletins de Salaire", d: "Générez et envoyez des centaines de fiches de paie en quelques minutes." }, es: { t: "Distribución de Nóminas", d: "Genera y envía cientos de nóminas de forma segura en pocos minutos." }, en: { t: "Payroll", d: "Distribute and deposit hundreds of encrypted staff payslips in minutes." } },
-                    { tag: "RGPD", fr: { t: "Droit à l'Oubli", d: "Gérez automatiquement la durée de conservation légale des données personnelles." }, es: { t: "Cumplimiento RGPD", d: "Gestiona automáticamente los plazos de conservación de datos de personal." }, en: { t: "GDPR", d: "Automatically cycle out employee private details matching legal retention rules." } }
-                ]
-            },
-            transport: {
-                nav: { fr: "Transport / Logistique", es: "Transporte / Logística", en: "Transport / Logistics" },
-                title: { fr: "Zéro papier en cabine : numérisez vos bons de livraison et CMR", es: "Cero papel en cabina: digitaliza tus albaranes y cartas de porte CMR", en: "Zero paper inside cabins: digitalize delivery slips and CMR notes" },
-                desc: { fr: "Accélérez la facturation en centralisant les preuves de livraison dès la fin de la tournée.", es: "Acelera la facturación centralizando las pruebas de entrega al terminar la ruta.", en: "Accelerate your billing loops by centralizing proofs of delivery right after drops." },
-                checks: {
-                    fr: ["Numérisation mobile des bons signés", "Suivi des documents de douane et transitoires", "Gestion des dossiers d'entretien de la flotte", "Accès hors-ligne pour les chauffeurs"],
-                    es: ["Digitalización móvil de albaranes firmados", "Gestión de documentos de aduanas y tránsito", "Control de mantenimiento de la flota de vehículos", "Acceso sin conexión para transportistas"],
-                    en: ["Mobile scanning layouts for signed delivery notes", "Customs clearance tracking and transit manifests", "Fleet maintenance and vehicle profile tracking", "Offline structural access for long-haul drivers"]
-                },
-                pillars: [
-                    { tag: "Preuves", fr: { t: "Preuve de Livraison", d: "Permettez aux chauffeurs de photographier et lier le bon émargé sur la route." }, es: { t: "Prueba de Entrega", d: "Permite a los choferes fotografiar y adjuntar el albarán firmado en ruta." }, en: { t: "Delivery", d: "Empower drivers to snapshot and attach signed waybills right on roads." } },
-                    { tag: "Facturation", fr: { t: "Cycles de Vente courts", d: "Déclenchez la facture dès que le bon de livraison est scanné dans la GED." }, es: { t: "Facturación Rápida", d: "Emite la factura en cuanto el albarán escaneado entra en el sistema." }, en: { t: "Billing", d: "Trigger customer billing the minute a signed proof updates inside the DMS." } },
-                    { tag: "Flotte", fr: { t: "Suivi des Véhicules", d: "Centralisez les contrôles techniques, assurances et cartes grises de la flotte." }, es: { t: "Control de Flota", d: "Centraliza itv, seguros y fichas técnicas de todos los camiones." }, en: { t: "Fleet Check", d: "Regroup fleet safety checks, registration titles, and insurance profiles." } },
-                    { tag: "Douanes", fr: { t: "Dossiers Internationaux", d: "Conservez les documents de douane organisés par numéro de dossier de transport." }, es: { t: "Gestión de Aduanas", d: "Conserva los documentos de aduanas ordenados por código de expedición." }, en: { t: "Customs", d: "Maintain international declarations organized cleanly per transit dispatch code." } }
-                ]
-            }
-        };
+            document.getElementById('hero-title').innerText = sectorData.title;
+            document.getElementById('hero-subtitle').innerText = sectorData.subtitle;
 
-        function renderTabs() {
-            const tabsContainer = document.getElementById('sector-tabs');
-            if(!tabsContainer) return;
-            tabsContainer.innerHTML = '';
-            Object.keys(sectorsData).forEach(key => {
-                const btn = document.createElement('button');
-                btn.className = `btn-sector ${currentSector === key ? 'active' : ''}`;
-                btn.innerText = sectorsData[key].nav[currentLang];
-                btn.onclick = () => changeSector(key);
-                tabsContainer.appendChild(btn);
+            const bulletsContainer = document.getElementById('ui-bullets');
+            bulletsContainer.innerHTML = '';
+            sectorData.bullets.forEach(b => {
+                const li = document.createElement('li');
+                li.className = 'check-item';
+                li.innerText = b;
+                bulletsContainer.appendChild(li);
             });
-        }
 
-        function updateContent() {
-            const lex = uiLexicon[currentLang];
-            const sec = sectorsData[currentSector];
+            document.getElementById('p1-t').innerText = sectorData.p1_t;
+            document.getElementById('p1-d').innerText = sectorData.p1_d;
+            document.getElementById('p2-t').innerText = sectorData.p2_t;
+            document.getElementById('p2-d').innerText = sectorData.p2_d;
+            document.getElementById('p3-t').innerText = sectorData.p3_t;
+            document.getElementById('p3-d').innerText = sectorData.p3_d;
+            document.getElementById('p4-t').innerText = sectorData.p4_t;
+            document.getElementById('p4-d').innerText = sectorData.p4_d;
 
-            document.getElementById('brand-tagline').innerText = lex.tagline;
-            document.getElementById('ui-badge-top').innerText = lex.badge_top;
-            document.getElementById('arg-1').innerText = lex.arg1;
-            document.getElementById('arg-2').innerText = lex.arg2;
-            document.getElementById('arg-3').innerText = lex.arg3;
-
-            document.getElementById('form-title').innerText = lex.f_title;
-            document.getElementById('form-subtitle').innerText = lex.f_sub;
-            document.getElementById('lbl-name').innerText = lex.lbl_name;
-            document.getElementById('lbl-company').innerText = lex.lbl_company;
-            document.getElementById('lbl-email').innerText = lex.lbl_email;
-            document.getElementById('lbl-phone').innerText = lex.lbl_phone;
-            document.getElementById('btn-submit').innerText = lex.btn_send;
-            document.getElementById('ui-privacy').innerText = lex.privacy;
-
-            // Actualizar textos del mensaje de éxito dinámicamente según idioma
-            document.getElementById('success-title').innerText = lex.success_title;
-            document.getElementById('success-desc').innerText = lex.success_desc;
-
-            document.getElementById('ia-title').innerText = lex.ia_title;
-            document.getElementById('ia-subtitle').innerText = lex.ia_sub;
-            document.getElementById('ia-btn').innerText = lex.ia_btn;
-            document.getElementById('footer-desc').innerText = lex.f_desc;
-            document.getElementById('f-link-cond').innerText = lex.f_cond;
-            document.getElementById('f-link-priv').innerText = lex.f_priv;
-            document.getElementById('f-link-legal').innerText = lex.f_legal;
-
-            document.getElementById('hero-title').innerText = sec.title[currentLang];
-            document.getElementById('hero-subtitle').innerText = sec.desc[currentLang];
+            document.getElementById('tab-btp').innerText = data.sectors.btp.tab;
+            document.getElementById('tab-immo').innerText = data.sectors.immo.tab;
 
             document.getElementById('hidden-sector').value = currentSector;
             document.getElementById('hidden-lang').value = currentLang;
-
-            const checkListContainer = document.getElementById('hero-checks');
-            if(checkListContainer) {
-                checkListContainer.innerHTML = '';
-                sec.checks[currentLang].forEach(text => {
-                    const li = document.createElement('li');
-                    li.className = 'check-item';
-                    li.innerText = text;
-                    checkListContainer.appendChild(li);
-                });
-            }
-
-            document.getElementById('pillars-main-title').innerText = lex.pillar_sect_title + sec.nav[currentLang];
-            const pillarsContainer = document.getElementById('pillars-container');
-            if(pillarsContainer) {
-                pillarsContainer.innerHTML = '';
-                sec.pillars.forEach(p => {
-                    const card = document.createElement('div');
-                    card.className = 'pillar-card';
-                    card.innerHTML = `
-                        <span class="pillar-tag">${p.tag}</span>
-                        <h4>${p[currentLang].t}</h4>
-                        <p>${p[currentLang].d}</p>
-                    `;
-                    pillarsContainer.appendChild(card);
-                });
-            }
-
-            document.getElementById('footer-seo-term').innerText = lex.seo_prefix + sec.nav[currentLang].toLowerCase();
-
-            document.querySelectorAll('.btn-lang').forEach(btn => btn.classList.remove('active'));
-            const activeLangBtn = document.getElementById(`lang-${currentLang}`);
-            if(activeLangBtn) activeLangBtn.classList.add('active');
         }
 
-        // CONTROL DEL ENVÍO CON AJAX (Evita el salto de página y muestra confirmación limpia)
-        function handleFormSubmit(event) {
-            event.preventDefault(); // Bloquear la redirección brusca nativa
-
-            const form = event.target;
-            const formData = new FormData(form);
-            
-            // Construir la URL con parámetros para guardarlo en tu backend (como hacías en el GET)
-            const searchParams = new URLSearchParams(formData);
-            const actionUrl = form.getAttribute('action') + '?' + searchParams.toString();
-
-            // Enviar los datos en segundo plano sin interrumpir al usuario
-            fetch(actionUrl, {
-                method: 'GET',
-                mode: 'no-cors' // Permite el envío cross-origin seguro hacia documatch.eu
-            })
-            .then(() => {
-                // Éxito: Ocultar formulario, mostrar el mensaje bonito traducido
-                document.getElementById('main-form-box').style.display = 'none';
-                document.getElementById('success-message-box').style.display = 'block';
-            })
-            .catch((error) => {
-                console.error('Error enviando formulario:', error);
-                // Como respaldo si falla la red, mostramos el éxito igual para no frustrar al usuario
-                document.getElementById('main-form-box').style.display = 'none';
-                document.getElementById('success-message-box').style.display = 'block';
+        // Eventos cambio de Idioma
+        ['fr', 'es', 'en'].forEach(lang => {
+            document.getElementById(`lang-${lang}`).addEventListener('click', function() {
+                document.querySelectorAll('.btn-lang').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentLang = lang;
+                updateUI();
             });
-        }
-
-        function changeLanguage(lang) {
-            currentLang = lang;
-            renderTabs();
-            updateContent();
-        }
-
-        function changeSector(sector) {
-            currentSector = sector;
-            renderTabs();
-            updateContent();
-        }
-
-        function scrollToForm() {
-            const formCol = document.querySelector('.right-column');
-            if(formCol) formCol.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function openLegal(type) {
-            const modal = document.getElementById('legal-modal');
-            const body = document.getElementById('modal-body-content');
-            const data = legalTexts[type];
-            if (data && modal && body) {
-                body.innerHTML = `<h2>${data.title}</h2>${data.html}`;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeLegal() {
-            const modal = document.getElementById('legal-modal');
-            if(modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function closeLegalOnOverlay(e) {
-            if (e.target.id === 'legal-modal') {
-                closeLegal();
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            renderTabs();
-            updateContent();
         });
+
+        // Eventos cambio de Sector
+        document.querySelectorAll('.btn-sector').forEach((button, idx) => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.btn-sector').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentSector = idx === 0 ? 'btp' : 'immo';
+                updateUI();
+            });
+        });
+
+        // Modal Legal
+        const modal = document.getElementById('modal-legal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+
+        document.getElementById('link-legal').addEventListener('click', () => {
+            modalTitle.innerText = "Mentions Légales / Aviso Legal";
+            modalBody.innerHTML = "<p><strong>Documatch.eu</strong> est un service d'analyse indépendant de solutions logicielles.</p><p>Hébergement: GitHub Pages. Contact: info@documatch.eu</p>";
+            modal.style.display = 'block';
+        });
+
+        document.getElementById('link-privacy').addEventListener('click', () => {
+            modalTitle.innerText = "Confidentialité / Privacidad";
+            modalBody.innerHTML = "<p>Les données collectées via ce formulaire sont cryptées et transmises de manière sécurisée via Formspree à la direction technique de Documatch.eu afin de générer votre rapport personnalisé.</p><p>Conformément au RGPD, vous disposez d'un droit d'accès et de suppression en écrivant à privacy@documatch.eu.</p>";
+            modal.style.display = 'block';
+        });
+
+        document.getElementById('modal-close-btn').addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Inicializar la interfaz
+        updateUI();
     </script>
 </body>
 </html>
