@@ -575,7 +575,7 @@
             const formData = new FormData(form);
 
             // Enviar los datos mediante POST a FormSubmit de forma asíncrona
-            fetch(form.getAttribute('action'), {
+            fetch('https://formspree.io/f/mpqndldg', {
                 method: 'POST',
                 body: formData,
                 headers: {
